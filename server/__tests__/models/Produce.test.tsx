@@ -150,6 +150,4 @@ describe("Product Model", () => {
 
   
   
-  
-  
 });
