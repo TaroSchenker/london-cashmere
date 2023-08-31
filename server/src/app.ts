@@ -29,6 +29,10 @@ app.use(bodyParser.json());
 connectDb();
 
 // Use routers
+app.use('/', (req, res) => {
+    res.send('API is running');
+});
+
 app.use('/api/users', userRoutes);
 app.use('/api/products',productRoutes);
 
