@@ -29,7 +29,7 @@ export const registerUser = async (req: Request, res: Response) => {
 
     const savedUser = await user.save();
     console.log("savedUser", savedUser);
-    res.status(201).json({ message: "User registered successfully" });  
+    return res.status(201).json({ message: "User registered successfully" });  
   } catch (error) {
     console.error("Error registering user:", error);
     res.status(500).json({ message: "Server error" });

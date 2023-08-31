@@ -26,16 +26,16 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-connectDb();
+// connectDb();
 
 // Use routers
-app.use('/', (req, res) => {
-    res.send('API is running');
-});
+
 
 app.use('/api/users', userRoutes);
 app.use('/api/products',productRoutes);
-
+app.use('/', (req, res) => {
+    res.send('API is running');
+});
 // Error handling middleware
 // app.use(errorHandler); // <-- Use error handler
 
