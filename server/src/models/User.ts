@@ -21,5 +21,5 @@ const userSchema = new Schema({
     role: {type: String, enum: Object.values(UserRole), default: UserRole.CUSTOMER}
 
 });
-
+userSchema.index({ email: 1 }, { unique: true });
 export const User = mongoose.model<IUserDocument>('User', userSchema);
