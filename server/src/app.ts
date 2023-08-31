@@ -31,7 +31,7 @@ connectDb();
 // });
 
 // Use routers
-
+app.use('/users', userRoutes);
 
 // Error handling middleware
 // app.use(errorHandler); // <-- Use error handler
