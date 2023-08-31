@@ -7,7 +7,7 @@ import cors from 'cors';
 // Import routers
 import userRoutes from './routes/userRoutes';
 import productRoutes from './routes/productRoutes';
-import orderRoutes from './routes/OrderRoutes';
+import orderRoutes from './routes/orderRoutes';
 
 dotenvConfig();
 
