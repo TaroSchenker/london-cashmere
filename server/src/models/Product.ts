@@ -2,7 +2,7 @@
 
 import mongoose, { Document, Schema } from 'mongoose';
 
-interface ProductDocument extends Document {
+export interface IProductDocument extends Document {
     name: string;
     description: string;
     price: number;
@@ -22,4 +22,4 @@ const productSchema = new Schema({
     stockCount: { type: Number, required: true },
 });
 
-export const Product = mongoose.model<ProductDocument>('Product', productSchema);
+export const Product = mongoose.model<IProductDocument>('Product', productSchema);

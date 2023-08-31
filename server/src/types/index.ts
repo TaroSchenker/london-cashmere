@@ -36,6 +36,11 @@ export interface IOrder {
     paymentId: string;
 }
 
+export interface IJwtPayload {
+    _id: ObjectId;
+    role: UserRole;
+}
+
 export enum UserRole {
     ADMIN = "Admin",
     CUSTOMER = "Customer"

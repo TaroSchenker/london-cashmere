@@ -3,7 +3,10 @@ import bodyParser from 'body-parser';
 import { config as dotenvConfig } from 'dotenv';
 import connectDb from './config/db';
 import cors from 'cors';
+
 // Import routers
+import userRoutes from './routes/userRoutes';
+import productRoutes from './routes/productRoutes';
 
 dotenvConfig();
 
@@ -25,13 +28,9 @@ app.use(bodyParser.json());
 
 connectDb();
 
-// //health check
-// app.get('/health', async (req: Request, res: Response) => {
-//   // ...
-// });
-
 // Use routers
-app.use('/users', userRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/products',productRoutes);
 
 // Error handling middleware
 // app.use(errorHandler); // <-- Use error handler

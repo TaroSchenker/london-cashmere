@@ -3,7 +3,7 @@
 import mongoose, { Document, Schema } from 'mongoose';
 import { UserRole } from '../types';
 
-interface IUserDocument extends Document {
+export interface IUserDocument extends Document {
     name: string;
     email: string;
     hashedPassword: string;
@@ -18,6 +18,7 @@ const userSchema = new Schema({
     hashedPassword: { type: String, required: true },
     address: { type: String, required: true },
     orderHistory: [{ type: Schema.Types.ObjectId, ref: 'Order' }],
+    role: {type: String, enum: Object.values(UserRole), default: UserRole.CUSTOMER}
 
 });
 
