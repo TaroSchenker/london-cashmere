@@ -7,6 +7,7 @@ import cors from 'cors';
 // Import routers
 import userRoutes from './routes/userRoutes';
 import productRoutes from './routes/productRoutes';
+import orderRoutes from './routes/OrderRoutes';
 
 dotenvConfig();
 
@@ -33,6 +34,7 @@ app.use(bodyParser.json());
 
 app.use('/api/users', userRoutes);
 app.use('/api/products',productRoutes);
+app.use('/api/orders', orderRoutes);
 app.use('/', (req, res) => {
     res.send('API is running');
 });
