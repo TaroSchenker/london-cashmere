@@ -42,8 +42,8 @@ export interface IJwtPayload {
 }
 
 export enum UserRole {
-    ADMIN = "Admin",
-    CUSTOMER = "Customer"
+    ADMIN = "admin",
+    CUSTOMER = "customer"
 }
 
 export enum OrderStatus {
