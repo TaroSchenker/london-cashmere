@@ -18,7 +18,6 @@ export const registerUser = async (req: Request, res: Response) => {
 
     // Hash the password before saving the user
     const hashedPassword = await bcrypt.hash(password, 10);
-    console.log("hashed password", hashedPassword);
 
     const user = new User({
       name,
@@ -28,7 +27,6 @@ export const registerUser = async (req: Request, res: Response) => {
     });
 
     const savedUser = await user.save();
-    console.log("savedUser", savedUser);
     res.status(201).json({ message: "User registered successfully" });  
   } catch (error) {
     console.error("Error registering user:", error);
