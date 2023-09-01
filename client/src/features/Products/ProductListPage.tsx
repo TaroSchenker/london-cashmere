@@ -11,7 +11,7 @@ const ProductListPage: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-medium">
           {dummyProducts.map((product, index) => (
             <>
-              <ProductCard key={product._id + index} product={product} />
+              <ProductCard key={index} product={product} />
             </>
           ))}
         </div>
