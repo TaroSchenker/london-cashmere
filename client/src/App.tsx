@@ -18,14 +18,16 @@ import LoadingSpinner from "./common/components/LoadingSpinner/LoadingSpinner";
 import Sidebar from "./common/layout/Sidebar";
 import SignUpPage from "./features/User/SignupPage";
 import Landing from "./common/layout/Landing";
+import AuthRoute from "./utils/authRoute";
+import { AuthProvider } from "./context/AuthContext";
 
 const routes = [
   {
     path: "/",
     element: <HomePage />,
     children: [
-      { 
-        index: true,  // The index route for '/'
+      {
+        index: true, // The index route for '/'
         element: <Landing />,
       },
       {
@@ -44,24 +46,31 @@ const routes = [
       },
       {
         path: "user",
+        // element: <AuthRoute />, // wrap this around your user routes
         children: [
           {
             path: "profile",
-            element: <UserProfilePage />,
+            element: <AuthRoute />, // wrap this around your user routes
+            children: [
+              {
+                element: <UserProfilePage />,
+              },
+            ],
           },
           {
             path: "register",
             element: <SignUpPage />,
           },
           {
-            path:"auth", 
-            element: <UserAuth />
-          }
+            path: "auth",
+            element: <UserAuth />,
+          },
         ],
       },
       {
         path: "admin",
-        element: <AdminDashboard />,
+        // element: <AuthRoute />,
+        children: [{ path: "", element: <AdminDashboard /> }],
       },
       {
         path: "checkout",
@@ -75,10 +84,9 @@ const router = createBrowserRouter(routes);
 
 const App: React.FC = () => {
   return (
-          <RouterProvider
-            router={router}
-            fallbackElement={<LoadingSpinner />}
-          />
+    <AuthProvider>
+      <RouterProvider router={router} fallbackElement={<LoadingSpinner />} />
+    </AuthProvider>
   );
 };
 
