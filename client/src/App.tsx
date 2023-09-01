@@ -17,12 +17,17 @@ import Footer from "./common/layout/Footer";
 import LoadingSpinner from "./common/components/LoadingSpinner/LoadingSpinner";
 import Sidebar from "./common/layout/Sidebar";
 import SignUpPage from "./features/User/SignupPage";
+import Landing from "./common/layout/Landing";
 
 const routes = [
   {
     path: "/",
     element: <HomePage />,
     children: [
+      { 
+        index: true,  // The index route for '/'
+        element: <Landing />,
+      },
       {
         path: "products",
         element: <ProductListPage />,
