@@ -1,0 +1,23 @@
+{
+  "name": "london-cashmere",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TaroSchenker/london-cashmere.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TaroSchenker/london-cashmere/issues"
+  },
+  "homepage": "https://github.com/TaroSchenker/london-cashmere#readme",
+  "dependencies": {
+    "tree": "^0.1.3"
+  }
+}
