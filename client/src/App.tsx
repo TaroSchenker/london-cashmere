@@ -16,6 +16,7 @@ import Header from "./common/layout/Header";
 import Footer from "./common/layout/Footer";
 import LoadingSpinner from "./common/components/LoadingSpinner/LoadingSpinner";
 import Sidebar from "./common/layout/Sidebar";
+import SignUpPage from "./features/User/SignupPage";
 
 const routes = [
   {
@@ -44,9 +45,13 @@ const routes = [
             element: <UserProfilePage />,
           },
           {
-            path: "auth",
-            element: <UserAuth />,
+            path: "register",
+            element: <SignUpPage />,
           },
+          {
+            path:"auth", 
+            element: <UserAuth />
+          }
         ],
       },
       {
