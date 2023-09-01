@@ -1,19 +1,91 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
-import './index.css'
+import * as React from "react";
+import {
+  createBrowserRouter,
+  Outlet,
+  RouterProvider,
+} from "react-router-dom";
 
-function App() {
-  const [count, setCount] = useState(0)
+// Features
+import HomePage from './features/Home/HomePage';
+import ProductListPage from './features/Products/ProductListPage';
+import ProductDetailPage from './features/Products/ProductDetailPage';
+import CartPage from './features/Cart/CartPage';
+import UserProfilePage from './features/User/UserProfilePage';
+import UserAuth from './features/User/UserAuth';
+import AdminDashboard from './features/Admin/AdminDashboard';
+import CheckoutPage from './features/Checkout/CheckoutPage';
 
+// Assuming you have a header and footer in the common layout
+import Header from './common/layout/Header';
+import Footer from './common/layout/Footer';
+import LoadingSpinner from "./common/components/LoadingSpinner/LoadingSpinner";
+
+const routes = [
+  {
+    path: "/",
+    element: <HomePage />,
+    children: [
+      {
+        path: "products",
+        element: <ProductListPage />,
+        children: [
+          {
+            path: ":id",
+            element: <ProductDetailPage />,
+          },
+        ],
+      },
+      {
+        path: "cart",
+        element: <CartPage />,
+      },
+      {
+        path: "user",
+        children: [
+          {
+            path: "profile",
+            element: <UserProfilePage />,
+          },
+          {
+            path: "auth",
+            element: <UserAuth />,
+          },
+        ],
+      },
+      {
+        path: "admin",
+        element: <AdminDashboard />,
+      },
+      {
+        path: "checkout",
+        element: <CheckoutPage />,
+      },
+    ],
+  },
+];
+
+const router = createBrowserRouter(routes);
+
+const App: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-    <div className="p-6 rounded-lg shadow-md bg-white">
-      <h1 className="text-xl font-semibold mb-4">Hello, TailwindCSS!</h1>
-      <p className="text-gray-800">If you see this styled text, TailwindCSS is working!</p>
-    </div>
-  </div>
-  )
+    <>
+      <Header />
+      <RouterProvider router={router} fallbackElement={<LoadingSpinner />} />
+      <Footer />
+    </>
+  );
 }
 
-export default App
+export default App;
+
+// features/Products/productLoaders.ts
+// export const productDetailLoader = ({ params }) => {
+//   // You'd typically make an API call here using the params from the route.
+//   // For this example, I'll return mock data.
+  
+//   const productId = params.id;
+  
+//   return fetch(`/api/products/${productId}`)
+//     .then(response => response.json());
+// }
+
