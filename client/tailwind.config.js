@@ -1,39 +1,36 @@
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      // Define neutral colors for a minimalist design
       colors: {
+        primary: 'var(--primary-color)',
+        secondary: 'var(--secondary-color)',
+        background: 'var(--background-color)',
+        text: 'var(--text-color)',
         neutral: {
-          lightest: '#F7FAFC',
-          light: '#E2E8F0',
-          DEFAULT: '#CBD5E0',
-          dark: '#4A5568',
-          darkest: '#2D3748',
+          lightest: 'var(--neutral-lightest)',
+          light: 'var(--neutral-light)',
+          DEFAULT: 'var(--neutral-default)',
+          dark: 'var(--neutral-dark)',
+          darkest: 'var(--neutral-darkest)',
         },
       },
       fontFamily: {
-        // Incorporate a simple and elegant font family, like 'Helvetica Neue' 
         body: ['Helvetica Neue', 'Arial', 'sans-serif'],
       },
       spacing: {
-        // Refine spacing for a more consistent and minimalist approach
-        1: '0.25rem',
-        2: '0.5rem',
-        3: '0.75rem',
-        4: '1rem',
-        5: '1.25rem',
-        6: '1.5rem',
-        8: '2rem',
-        10: '2.5rem',
-        12: '3rem',
+        small: 'var(--spacing-small)',
+        medium: 'var(--spacing-medium)',
+        large: 'var(--spacing-large)',
       },
-      // Additional configuration could go here as per design requirements.
+      borderRadius: {
+        default: 'var(--border-radius)',
+      },
+      borderWidth: {
+        default: 'var(--border-width)',
+      },
+      // More utilities can be added here based on requirements.
     },
     container: {
       center: true,

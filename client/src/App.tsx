@@ -1,24 +1,21 @@
 import * as React from "react";
-import {
-  createBrowserRouter,
-  Outlet,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
 // Features
-import HomePage from './features/Home/HomePage';
-import ProductListPage from './features/Products/ProductListPage';
-import ProductDetailPage from './features/Products/ProductDetailPage';
-import CartPage from './features/Cart/CartPage';
-import UserProfilePage from './features/User/UserProfilePage';
-import UserAuth from './features/User/UserAuth';
-import AdminDashboard from './features/Admin/AdminDashboard';
-import CheckoutPage from './features/Checkout/CheckoutPage';
+import HomePage from "./features/Home/HomePage";
+import ProductListPage from "./features/Products/ProductListPage";
+import ProductDetailPage from "./features/Products/ProductDetailPage";
+import CartPage from "./features/Cart/CartPage";
+import UserProfilePage from "./features/User/UserProfilePage";
+import UserAuth from "./features/User/UserAuth";
+import AdminDashboard from "./features/Admin/AdminDashboard";
+import CheckoutPage from "./features/Checkout/CheckoutPage";
 
 // Assuming you have a header and footer in the common layout
-import Header from './common/layout/Header';
-import Footer from './common/layout/Footer';
+import Header from "./common/layout/Header";
+import Footer from "./common/layout/Footer";
 import LoadingSpinner from "./common/components/LoadingSpinner/LoadingSpinner";
+import Sidebar from "./common/layout/Sidebar";
 
 const routes = [
   {
@@ -68,13 +65,12 @@ const router = createBrowserRouter(routes);
 
 const App: React.FC = () => {
   return (
-    <>
-      <Header />
-      <RouterProvider router={router} fallbackElement={<LoadingSpinner />} />
-      <Footer />
-    </>
+          <RouterProvider
+            router={router}
+            fallbackElement={<LoadingSpinner />}
+          />
   );
-}
+};
 
 export default App;
 
@@ -82,10 +78,9 @@ export default App;
 // export const productDetailLoader = ({ params }) => {
 //   // You'd typically make an API call here using the params from the route.
 //   // For this example, I'll return mock data.
-  
+
 //   const productId = params.id;
-  
+
 //   return fetch(`/api/products/${productId}`)
 //     .then(response => response.json());
 // }
-

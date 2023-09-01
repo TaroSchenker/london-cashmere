@@ -1,0 +1,35 @@
+/* src/styles/globals.css */
+:root {
+  /* Primary: Soft muted blue, a signature color that's elegant */
+  --primary-color: #607d8b;
+
+  /* Secondary: Warm beige, to contrast and complement the primary */
+  --secondary-color: #b0bec5;
+
+  /* Background: Clean white */
+  --background-color: #ffffff;
+
+  /* Text: Soft dark grey, ensuring good legibility */
+  --text-color: #424242;
+
+  /* Neutral shades, for varied usage */
+  --neutral-lightest: #fafafa;
+  --neutral-light: #eceff1;
+  --neutral-default: #cfd8dc;
+  --neutral-dark: #455a64;
+  --neutral-darkest: #263238;
+
+  /* Spacing and borders */
+  --spacing-small: 1rem;
+  --spacing-medium: 2rem;
+  --spacing-large: 3rem;
+
+  --border-radius: 0.25rem;
+  --border-width: 1px;
+}
+
+#sidebar .active {
+    font-weight: bold;
+    /* Additional styles for the active state */
+  }
+  
