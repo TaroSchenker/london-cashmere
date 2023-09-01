@@ -1,5 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome, faShoppingBag, faInfoCircle, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 interface SideBarProps {
   isOpen: boolean;
@@ -9,38 +11,35 @@ interface SideBarProps {
 const Sidebar: React.FC<SideBarProps> = ({ isOpen, onClose }) => {
   return (
     <>
-    {/* Dimmed background */}
-    {isOpen && <div 
-      onClick={onClose}
-      className={`fixed top-0 left-0 w-full h-full bg-black opacity-50 md:hidden`}
-    ></div>}
-
+      {/* Dimmed background */}
+      {isOpen && <div 
+        onClick={onClose}
+        className="fixed top-0 left-0 w-full h-full bg-black opacity-50 md:hidden"
+      ></div>}
 
       {/* Sidebar */}
       <aside
-        className={`bg-white text-primary transform top-0 left-0 w-1/2 h-full fixed 
+        className={`bg-white text-text-color transform top-0 left-0 w-3/4 h-full fixed 
                     transition-transform duration-300 ease-in-out z-10
                     ${isOpen ? "translate-x-0" : "-translate-x-full"} md:hidden`}
       >
-        <div className="flex flex-col justify-between h-full p-medium">
+        <div className="flex flex-col justify-between h-full py-6 px-5">
           <div>
-            <h2 className="font-bold text-2xl mb-medium text-primary">Cashmere Store</h2>
+            <h2 className="font-bold text-2xl mb-6 text-text-color">Cashmere Store</h2>
             <nav>
               <ul>
                 {[
-                  { path: "/", name: "Home" },
-                  { path: "/products", name: "Shop" },
-                  { path: "/about", name: "About" },
-                  { path: "/contact", name: "Contact" }
+                  { path: "/", name: "Home", icon: faHome },
+                  { path: "/products", name: "Shop", icon: faShoppingBag },
+                  { path: "/about", name: "About", icon: faInfoCircle },
+                  { path: "/contact", name: "Contact", icon: faEnvelope }
                 ].map(link => (
-                  <li key={link.path} className="mb-small">
+                  <li key={link.path} className="mb-4 flex items-center space-x-3">
+                    <FontAwesomeIcon icon={link.icon} className="text-lg" />
                     <NavLink
                       to={link.path}
-                      className={({ isActive }) =>
-                        isActive
-                          ? "text-primary hover:text-secondary block active"
-                          : "text-primary hover:text-secondary block"
-                      }
+                      className="text-text-color hover:text-secondary transition-colors"
+                      activeClassName="font-bold"
                       onClick={onClose}
                     >
                       {link.name}
@@ -51,9 +50,8 @@ const Sidebar: React.FC<SideBarProps> = ({ isOpen, onClose }) => {
             </nav>
           </div>
           <div>
-            <p className="text-primary text-sm">
-              &copy; {new Date().getFullYear()} Cashmere Store. All rights
-              reserved.
+            <p className="text-text-color text-sm">
+              &copy; {new Date().getFullYear()} Cashmere Store. All rights reserved.
             </p>
           </div>
         </div>
