@@ -1,63 +1,64 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import { NavLink } from "react-router-dom";
 
-const Sidebar: React.FC = () => {
+interface SideBarProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const Sidebar: React.FC<SideBarProps> = ({ isOpen, onClose }) => {
   return (
-    <aside className="bg-primary-color text-text-color w-64 h-screen sticky top-0">
-      <div className="flex flex-col justify-between h-full p-medium">
-        <div>
-          <h2 className="font-bold text-2xl mb-medium">Cashmere Store</h2>
-          <nav>
-            <ul>
-              <li className="mb-small">
-                <NavLink 
-                  to="/" 
-                  className={({ isActive }) => 
-                    isActive ? "text-text-color hover:text-secondary-color block active" : "text-text-color hover:text-secondary-color block"
-                  }
-                  end
-                >
-                  Home
-                </NavLink>
-              </li>
-              <li className="mb-small">
-                <NavLink 
-                  to="/products" 
-                  className={({ isActive }) => 
-                    isActive ? "text-text-color hover:text-secondary-color block active" : "text-text-color hover:text-secondary-color block"
-                  }
-                >
-                  Shop
-                </NavLink>
-              </li>
-              <li className="mb-small">
-                <NavLink 
-                  to="/about" 
-                  className={({ isActive }) => 
-                    isActive ? "text-text-color hover:text-secondary-color block active" : "text-text-color hover:text-secondary-color block"
-                  }
-                >
-                  About
-                </NavLink>
-              </li>
-              <li className="mb-small">
-                <NavLink 
-                  to="/contact" 
-                  className={({ isActive }) => 
-                    isActive ? "text-text-color hover:text-secondary-color block active" : "text-text-color hover:text-secondary-color block"
-                  }
-                >
-                  Contact
-                </NavLink>
-              </li>
-            </ul>
-          </nav>
+    <>
+    {/* Dimmed background */}
+    {isOpen && <div 
+      onClick={onClose}
+      className={`fixed top-0 left-0 w-full h-full bg-black opacity-50 md:hidden`}
+    ></div>}
+
+
+      {/* Sidebar */}
+      <aside
+        className={`bg-white text-primary transform top-0 left-0 w-1/2 h-full fixed 
+                    transition-transform duration-300 ease-in-out z-10
+                    ${isOpen ? "translate-x-0" : "-translate-x-full"} md:hidden`}
+      >
+        <div className="flex flex-col justify-between h-full p-medium">
+          <div>
+            <h2 className="font-bold text-2xl mb-medium text-primary">Cashmere Store</h2>
+            <nav>
+              <ul>
+                {[
+                  { path: "/", name: "Home" },
+                  { path: "/products", name: "Shop" },
+                  { path: "/about", name: "About" },
+                  { path: "/contact", name: "Contact" }
+                ].map(link => (
+                  <li key={link.path} className="mb-small">
+                    <NavLink
+                      to={link.path}
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-primary hover:text-secondary block active"
+                          : "text-primary hover:text-secondary block"
+                      }
+                      onClick={onClose}
+                    >
+                      {link.name}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+          <div>
+            <p className="text-primary text-sm">
+              &copy; {new Date().getFullYear()} Cashmere Store. All rights
+              reserved.
+            </p>
+          </div>
         </div>
-        <div>
-          <p className="text-text-color text-sm">&copy; {new Date().getFullYear()} Cashmere Store. All rights reserved.</p>
-        </div>
-      </div>
-    </aside>
+      </aside>
+    </>
   );
 };
 
