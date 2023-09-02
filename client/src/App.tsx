@@ -32,8 +32,11 @@ const routes = [
       },
       {
         path: "products",
-        element: <ProductListPage />,
         children: [
+          {
+            index: true, 
+            element: <ProductListPage />,
+          },
           {
             path: ":id",
             element: <ProductDetailPage />,

@@ -1,16 +1,14 @@
-import { ObjectId } from 'mongoose';
-
 export interface IUser {
-    _id: ObjectId;
+    _id: string;
     name: string;
     email: string;
     address: string;
-    orderHistory: ObjectId[];
+    orderHistory: string[];
     role: UserRole;
 }
 
 export interface IProduct {
-    _id: ObjectId;
+    _id: string;
     name: string;
     description: string;
     price: number;
@@ -21,14 +19,14 @@ export interface IProduct {
 }
 
 export interface IOrder {
-    _id: ObjectId;
+    _id: string;
     customerDetails: {
         name: string;
         email: string;
         address: string;
     };
     orderedProducts: {
-        productId: ObjectId;
+        productId: string;
         quantity: number;
     }[];
     totalAmount: number;
@@ -37,7 +35,7 @@ export interface IOrder {
 }
 
 export interface IJwtPayload {
-    _id: ObjectId;
+    _id: string;
     role: UserRole;
 }
 

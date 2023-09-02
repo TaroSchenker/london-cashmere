@@ -7,11 +7,15 @@ const ProductListPage: React.FC = () => {
   return (
     <div className="bg-background-color min-h-screen py-10">
       <div className="container">
-        <h1 className="text-3xl font-bold mb-6">Cashmere Store</h1>
+        <h1 className="text-3xl font-bold mb-6">The Collection</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-medium">
           {dummyProducts.map((product, index) => (
             <>
-              <ProductCard key={index} product={product} />
+            <Link to={`/products/${1}`}>
+                 <ProductCard key={index} product={product} />
+            </Link>
+
+           
             </>
           ))}
         </div>
