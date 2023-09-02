@@ -33,7 +33,7 @@ const ContactPage: React.FC = () => {
 
                         <div>
                             <label htmlFor="message" className="block text-sm font-medium text-gray-700">Your Message</label>
-                            <textarea name="message" id="message" rows="5" required className="mt-1 p-2 w-full border rounded-md"></textarea>
+                            <textarea name="message" id="message" rows={5} required className="mt-1 p-2 w-full border rounded-md"></textarea>
                         </div>
 
                         <div>

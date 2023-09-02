@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { QueryFunctionContext } from '@tanstack/react-query';
 
 // const instance = axios.create({
 //   baseURL: process.env.NODE_ENV === 'development' ? 'http://server:3001/api' : 'YOUR_PRODUCTION_URL',

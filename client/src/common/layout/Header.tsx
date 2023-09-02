@@ -25,7 +25,6 @@ const Header: React.FC<HeaderProps> = ({ sidebarOpen, setSidebarOpen }) => {
             className={({ isActive }) =>
               isActive ? "text-neutral-light border-b-2 border-white" : ""
             }
-            exact
           >
             Home
           </NavLink>
