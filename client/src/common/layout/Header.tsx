@@ -10,7 +10,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
-
 interface HeaderProps {
   sidebarOpen: boolean;
   setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -98,15 +97,19 @@ const Header: React.FC<HeaderProps> = ({
 
         {/* Mobile Icons */}
         <div className="fixed bottom-0 left-0 right-0 md:hidden bg-background py-0 pr-10 flex justify-between items-center z-50">
-        <button
-    onClick={() => setSidebarOpen(!sidebarOpen)}
-    className="p-3 hover:bg-neutral-light rounded leading-none border-0"
-  >
-    <FontAwesomeIcon icon={faBars} className="text-xl hover:text-secondary-color" />
-  </button>
+        
           <div className="flex space-x-14 items-center pl-2">
             {" "}
             {/* Added items-center */}
+              <button
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            className="p-3 hover:bg-neutral-light rounded "
+          >
+            <FontAwesomeIcon
+              icon={faBars}
+              className="text-xl hover:text-secondary-color"
+            />
+          </button>
             <NavLink to="/">
               <FontAwesomeIcon
                 icon={faHome}
@@ -148,7 +151,7 @@ const Header: React.FC<HeaderProps> = ({
           </div>
         </div>
       </div>
-    </div>
+    // </div>
   );
 };
 
