@@ -10,7 +10,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ sidebarOpen, setSidebarOpen }) => {
   return (
-    <header className="bg-primary-color text-background-color py-4">
+    <header className="bg-primary  text-background py-4">
       <div className="container mx-auto flex justify-between items-center">
         <h1 className="text-2xl font-bold">Cashmere Store</h1>
         <nav className="hidden md:flex space-x-4">

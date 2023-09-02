@@ -29,7 +29,7 @@ const HomePage = () => {
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <div className="flex flex-col flex-1">
         <Header setSidebarOpen={setSidebarOpen} sidebarOpen={sidebarOpen} />
-        <div className="flex-1 overflow-y-auto p-medium">
+        <div className="flex-1 overflow-y-auto">
           <Outlet />
         </div>
         <Footer />
