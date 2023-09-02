@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const LoginPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-neutral-lightest flex items-start justify-center">
+    <div className="min-h-screen bg-neutral-lightest flex items-center justify-center">
       <div className="bg-white p-large rounded shadow-lg w-96">
         <h1 className="text-primary-color text-2xl mb-medium font-bold">Login</h1>
         <form>

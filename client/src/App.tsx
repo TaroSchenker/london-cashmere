@@ -20,6 +20,8 @@ import SignUpPage from "./features/User/SignupPage";
 import Landing from "./common/layout/Landing";
 import AuthRoute from "./utils/authRoute";
 import { AuthProvider } from "./context/AuthContext";
+import CashmereInfo from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
 
 const routes = [
   {
@@ -79,6 +81,14 @@ const routes = [
         path: "checkout",
         element: <CheckoutPage />,
       },
+      {
+        path: "about", 
+        element: <CashmereInfo />
+      },
+      {
+        path: "contact",
+        element: <ContactPage />,
+      }
     ],
   },
 ];
