@@ -2,11 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import video from '../assets/video/istockphoto-1194949689-640_adpp_is.mp4';
 
+import cashmere from '../../common/assets/images/stock-photo-a-pile-of-warm-sweaters-on-a-wooden-table-on-a-light-background-autumn-and-winter-clothes-1173240742.jpg'
 const Landing = () => {
   return (
     <div className="w-full relative h-screen flex flex-col justify-center bg-neutral-lightest text-center lg:px-8">
         <video
             style={{ filter: 'brightness(40%)' }}
+            poster={cashmere}
+            playsInline
             autoPlay
             muted
             className="absolute top-0 left-0 w-full h-full object-cover z-0"
