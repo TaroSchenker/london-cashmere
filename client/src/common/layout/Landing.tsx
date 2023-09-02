@@ -31,7 +31,7 @@ const Landing = () => {
                     Shop Now
                 </Link>
                 <Link
-                    to="/checkout"
+                    to="/about"
                     className="text-neutral border border-neutral py-3 px-10 rounded-lg hover:bg-black hover:text-white transition-colors duration-300 shadow-lg font-medium text-xl"
                 >
                     Learn More
