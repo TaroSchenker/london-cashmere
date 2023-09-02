@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-neutral-lightest text-neutral-dark py-6 mt-0">
+    <footer className="bg-neutral-lightest text-neutral-dark py-6 mt-0 hidden md:block">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex space-x-4 items-center">
           {/* You can add other social media icons similarly */}
