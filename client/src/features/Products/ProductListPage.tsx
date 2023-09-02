@@ -8,7 +8,7 @@ const ProductListPage: React.FC = () => {
     <div className="bg-background-color min-h-screen py-10">
       <div className="container">
         <h1 className="text-3xl font-bold mb-6">The Collection</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-medium">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-small">
           {dummyProducts.map((product, index) => (
             <>
             <Link to={`/products/${1}`}>

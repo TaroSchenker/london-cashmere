@@ -23,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({ sidebarOpen, setSidebarOpen }) => {
             to="/"
             // onMouseEnter={() => navigate("/")}
             className={({ isActive }) =>
-              isActive ? "text-neutral-light border-b-2 border-white" : ""
+              isActive ? "text-neutral-dark border-b-2 border-neutral-dark" : ""
             }
           >
             Home
@@ -32,7 +32,7 @@ const Header: React.FC<HeaderProps> = ({ sidebarOpen, setSidebarOpen }) => {
             to="/products"
             // onMouseEnter={() => navigate("/products")}
             className={({ isActive }) =>
-              isActive ? "text-neutral-light border-b-2 border-white" : ""
+              isActive ? "text-neutral-dark border-b-2 border-neutral-dark" : ""
             }
           >
             Shop
@@ -41,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({ sidebarOpen, setSidebarOpen }) => {
             to="/about"
             // onMouseEnter={() => navigate("/about")}
             className={({ isActive }) =>
-              isActive ? "text-neutral-light border-b-2 border-white" : ""
+              isActive ? "text-neutral-dark border-b-2 border-neutral-dark" : ""
             }
           >
             About
@@ -50,7 +50,7 @@ const Header: React.FC<HeaderProps> = ({ sidebarOpen, setSidebarOpen }) => {
             to="/contact"
             // onMouseEnter={() => navigate("/contact")}
             className={({ isActive }) =>
-              isActive ? "text-neutral-light border-b-2 border-white" : ""
+              isActive ? "text-neutral-dark border-b-2 border-neutral-dark" : ""
             }
           >
             Contact
@@ -63,8 +63,8 @@ const Header: React.FC<HeaderProps> = ({ sidebarOpen, setSidebarOpen }) => {
           className="text-4xl font-bold text-center"
           style={{ fontFamily: "'Playfair Display', serif" }}
         >
-          <h1>
-          Pam's Boutique Cashmere
+          <h1 className="text-2xl">
+          Pam's Cashmere Boutique
         </h1>
         </NavLink>
 
@@ -96,15 +96,15 @@ const Header: React.FC<HeaderProps> = ({ sidebarOpen, setSidebarOpen }) => {
         </div>
 
         <div className="flex md:hidden items-center">
-          <button
-            onClick={() => {
-              setSidebarOpen(!sidebarOpen);
-            }}
-            className="text-2xl p-3 hover:bg-neutral-light rounded"
-          >
-            ≡
-          </button>
-        </div>
+    <button
+        onClick={() => {
+            setSidebarOpen(!sidebarOpen);
+        }}
+        className="text-4xl p-3 hover:bg-neutral-light rounded flex items-center justify-center leading-none mt-[-10px]"
+    >
+        ≡
+    </button>
+</div>
       </div>
     </header>
   );

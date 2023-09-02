@@ -26,7 +26,7 @@ const Sidebar: React.FC<SideBarProps> = ({ isOpen, onClose }) => {
         <div className="flex flex-col justify-between h-full py-6 px-5">
           <div>
             <h2 className="font-bold text-2xl mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Cashmere Store
+              Menu
             </h2>
             <nav>
               <ul>

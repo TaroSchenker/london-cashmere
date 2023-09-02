@@ -17,9 +17,9 @@ const Landing = () => {
             <source src={video} type="video/mp4" />
         </video>
         <div className="z-10 relative p-10 lg:max-w-3xl mx-auto bg-black bg-opacity-20 rounded-md">
-            {/* <h1 className="text-6xl font-semibold mb-6 text-white leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <h1 className="text-6xl font-semibold mb-6 text-white leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Pam's Cashmere Boutique
-            </h1> */}
+            </h1>
             <p className="mb-8 text-white text-lg leading-relaxed font-light" style={{ fontFamily: "'Roboto', sans-serif" }}>
                 Discover the epitome of warmth and sophistication. A journey crafted with the finest cashmere.
             </p>
