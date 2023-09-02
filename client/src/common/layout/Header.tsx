@@ -10,9 +10,10 @@ import {
 
 interface HeaderProps {
   sidebarOpen: boolean;
-  setSidebarOpen: (isOpen: boolean) => void;
-  setCartSidebarOpen: (isOpen: boolean) => void;
+  setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setCartSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
 
 const Header: React.FC<HeaderProps> = ({ sidebarOpen, setSidebarOpen, setCartSidebarOpen }) => {
   const navigate = useNavigate();
