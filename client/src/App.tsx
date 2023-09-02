@@ -22,6 +22,7 @@ import AuthRoute from "./utils/authRoute";
 import { AuthProvider } from "./context/AuthContext";
 import CashmereInfo from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
+import StoryPage from "./pages/StoryPage";
 
 const routes = [
   {
@@ -45,10 +46,10 @@ const routes = [
           },
         ],
       },
-      // {
-      //   path: "cart",
-      //   element: <CartPage />,
-      // },
+      {
+        path: "story",
+        element: <StoryPage />,
+      },
       {
         path: "user",
         // element: <AuthRoute />, // wrap this around your user routes

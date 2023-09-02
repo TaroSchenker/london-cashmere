@@ -19,7 +19,7 @@ const Landing = () => {
         </video>
 
         <div className="z-10 relative p-10 lg:max-w-4xl mx-auto bg-gradient-to-r from-black to-transparent bg-opacity-20 rounded-md">
-            <Link to="/" className="block text-center hover:underline">
+            <Link to="/" className="block text-center">
                 <h1 className="text-7xl font-bold mb-6 text-white leading-tight" style={{ fontFamily: "'Oswald', sans-serif" }}>
                     PAM'S
                 </h1>
