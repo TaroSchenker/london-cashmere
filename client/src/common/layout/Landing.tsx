@@ -4,7 +4,7 @@ import video from '../assets/video/istockphoto-1194949689-640_adpp_is.mp4';
 
 const Landing = () => {
   return (
-<div className="w-full relative h-screen flex flex-col justify-center bg-neutral-lightest text-center lg:px-8">
+<div className="w-full relative h-screen flex flex-col justify-center bg-neutral-lightest text-center lg:px-8" style={{ fontFamily: 'Roboto, sans-serif' }}>
     <video
         style={{ filter: 'brightness(40%)' }}
         autoPlay
@@ -13,26 +13,23 @@ const Landing = () => {
     >
         <source src={video} type="video/mp4" />
     </video>
-    <div className="z-10 relative p-5 lg:max-w-3xl mx-auto bg-black bg-opacity-20 rounded-md shadow-lg">
-        <h1 className="text-5xl font-extrabold mb-6 text-neutral-light leading-tight">
+    <div className="z-10 relative p-10 lg:max-w-3xl mx-auto bg-black bg-opacity-20 rounded-md">
+        <h1 className="text-6xl font-semibold mb-8 text-white leading-tight">
             Pam's Cashmere Boutique
         </h1>
-        <p className="mb-6 text-neutral-light text-lg leading-relaxed">
-            Pam's journey into the world of cashmere... short of perfection.
+        <p className="mb-8 text-white text-lg leading-relaxed">
+            Discover the epitome of warmth and sophistication. A journey crafted with the finest cashmere.
         </p>
-        <p className="mb-10 text-neutral-light text-lg leading-relaxed">
-            Step into Pam's Cashmere Boutique...
-        </p>
-        <div className="flex justify-center space-x-4">
+        <div className="flex justify-center space-x-6">
             <Link
                 to="/products"
-                className="bg-primary text-background py-2 px-6 rounded-lg hover:bg-secondary transition-colors shadow-md"
+                className="bg-black text-white border border-white py-3 px-8 rounded-lg hover:bg-white hover:text-black transition-colors shadow-lg font-medium text-xl"
             >
                 Shop Now
             </Link>
             <Link
                 to="/checkout"
-                className="bg-background text-primary border border-primary py-2 px-6 rounded-lg hover:border-secondary hover:text-secondary transition-colors shadow-md"
+                className="text-black border border-white py-3 px-8 rounded-lg hover:bg-black hover:text-white transition-colors shadow-lg font-medium text-xl"
             >
                 Learn More
             </Link>
