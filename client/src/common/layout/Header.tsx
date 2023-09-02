@@ -16,7 +16,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ sidebarOpen, setSidebarOpen }) => {
   const navigate = useNavigate();
   return (
-    <header className="bg-primary text-background py-4">
+    <header className="bg-background text-primary py-4">
       <div className="container mx-auto flex justify-between items-center">
         <nav className="hidden md:flex space-x-8">
           <NavLink
