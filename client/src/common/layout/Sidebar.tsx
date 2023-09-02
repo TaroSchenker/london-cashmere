@@ -28,15 +28,19 @@ const Sidebar: React.FC<SideBarProps> = ({ isOpen, onClose }) => {
             <h2 className="font-bold text-2xl mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
               Menu
             </h2>
-            <nav>
-              <ul>
-                {[
-                  { path: "/", name: "Home", icon: faHome },
-                  { path: "/products", name: "Shop", icon: faShoppingBag },
-                  { path: "/about", name: "About", icon: faInfoCircle },
-                  { path: "/contact", name: "Contact", icon: faEnvelope }
-                ].map(link => (
-                  <li key={link.path} className="mb-4 flex items-center space-x-3">
+            <p className="text-primary text-sm mb-6" style={{ fontFamily: "'Roboto', sans-serif" }}>
+              &copy; {new Date().getFullYear()} Cashmere Store. All rights reserved.
+            </p>
+          </div>
+          <nav>
+            <ul>
+              {[
+                { path: "/", name: "Home", icon: faHome },
+                { path: "/products", name: "Shop", icon: faShoppingBag },
+                { path: "/about", name: "About", icon: faInfoCircle },
+                { path: "/contact", name: "Contact", icon: faEnvelope }
+              ].map(link => (
+                <li key={link.path} className="mb-4 flex items-center space-x-3">
                   <FontAwesomeIcon icon={link.icon} className="text-lg text-primary" />
                   <NavLink
                     to={link.path}
@@ -48,19 +52,12 @@ const Sidebar: React.FC<SideBarProps> = ({ isOpen, onClose }) => {
                     {link.name}
                   </NavLink>
                 </li>
-                ))}
-              </ul>
-            </nav>
-          </div>
-          <div>
-            <p className="text-primary text-sm" style={{ fontFamily: "'Roboto', sans-serif" }}>
-              &copy; {new Date().getFullYear()} Cashmere Store. All rights reserved.
-            </p>
-          </div>
+              ))}
+            </ul>
+          </nav>
         </div>
       </aside>
     </>
   );
 };
-
 export default Sidebar;

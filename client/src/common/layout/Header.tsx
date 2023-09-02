@@ -6,6 +6,7 @@ import {
   faSearch,
   faHeart,
   faShoppingCart,
+  faHome
 } from "@fortawesome/free-solid-svg-icons";
 
 interface HeaderProps {
@@ -47,9 +48,9 @@ const Header: React.FC<HeaderProps> = ({ sidebarOpen, setSidebarOpen, setCartSid
         {/* Desktop Icons */}
         <div className="hidden md:flex space-x-6">
           {/* Existing desktop icon links... */}
-          <NavLink to="/search">
+          <NavLink to="/">
             <FontAwesomeIcon
-              icon={faSearch}
+              icon={faHome}
               className="text-xl hover:text-secondary-color"
             />
           </NavLink>
@@ -84,13 +85,13 @@ const Header: React.FC<HeaderProps> = ({ sidebarOpen, setSidebarOpen, setCartSid
           <div className="flex space-x-14">
             {/* Existing mobile icon links... */}
   
-            <NavLink to="/search">
+            <NavLink to="/">
               <FontAwesomeIcon
-                icon={faSearch}
+                icon={faHome}
                 className="text-xl hover:text-secondary-color"
               />
             </NavLink>
-            <NavLink to="/favorites">
+            <NavLink to="/">
               <FontAwesomeIcon
                 icon={faHeart}
                 className="text-xl hover:text-secondary-color"
