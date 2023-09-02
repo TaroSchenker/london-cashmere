@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUser,
@@ -14,12 +14,14 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ sidebarOpen, setSidebarOpen }) => {
+  const navigate = useNavigate();
   return (
     <header className="bg-primary text-background py-4">
       <div className="container mx-auto flex justify-between items-center">
         <nav className="hidden md:flex space-x-8">
           <NavLink
             to="/"
+            onMouseEnter={() => navigate("/")}
             className={({ isActive }) =>
               isActive ? "text-neutral-light border-b-2 border-white" : ""
             }
@@ -29,6 +31,7 @@ const Header: React.FC<HeaderProps> = ({ sidebarOpen, setSidebarOpen }) => {
           </NavLink>
           <NavLink
             to="/products"
+            onMouseEnter={() => navigate("/products")}
             className={({ isActive }) =>
               isActive ? "text-neutral-light border-b-2 border-white" : ""
             }
@@ -37,6 +40,7 @@ const Header: React.FC<HeaderProps> = ({ sidebarOpen, setSidebarOpen }) => {
           </NavLink>
           <NavLink
             to="/about"
+            onMouseEnter={() => navigate("/about")}
             className={({ isActive }) =>
               isActive ? "text-neutral-light border-b-2 border-white" : ""
             }
@@ -45,6 +49,7 @@ const Header: React.FC<HeaderProps> = ({ sidebarOpen, setSidebarOpen }) => {
           </NavLink>
           <NavLink
             to="/contact"
+            onMouseEnter={() => navigate("/contact")}
             className={({ isActive }) =>
               isActive ? "text-neutral-light border-b-2 border-white" : ""
             }
