@@ -14,63 +14,39 @@ interface HeaderProps {
   setCartSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-
 const Header: React.FC<HeaderProps> = ({ sidebarOpen, setSidebarOpen, setCartSidebarOpen }) => {
-  const navigate = useNavigate();
   return (
-    <header className="bg-background text-primary py-4">
-      <div className="container mx-auto flex justify-between items-center">
+    <div className="bg-background text-primary md:py-4">
+      <div className="container mx-auto px-4 md:flex md:justify-between md:items-center">
+        {/* Mobile Brand */}
+        <div className="text-4xl font-bold text-center mt-4 md:hidden" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <NavLink to="/">
+            <h1 className="text-2xl">Pam's Cashmere Boutique</h1>
+          </NavLink>
+        </div>
+
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8">
-          <NavLink
-            to="/"
-            // onMouseEnter={() => navigate("/")}
-            className={({ isActive }) =>
-              isActive ? "text-neutral-dark border-b-2 border-neutral-dark" : ""
-            }
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="/products"
-            // onMouseEnter={() => navigate("/products")}
-            className={({ isActive }) =>
-              isActive ? "text-neutral-dark border-b-2 border-neutral-dark" : ""
-            }
-          >
-            Shop
-          </NavLink>
-          <NavLink
-            to="/about"
-            // onMouseEnter={() => navigate("/about")}
-            className={({ isActive }) =>
-              isActive ? "text-neutral-dark border-b-2 border-neutral-dark" : ""
-            }
-          >
-            About
-          </NavLink>
-          <NavLink
-            to="/contact"
-            // onMouseEnter={() => navigate("/contact")}
-            className={({ isActive }) =>
-              isActive ? "text-neutral-dark border-b-2 border-neutral-dark" : ""
-            }
-          >
-            Contact
-          </NavLink>
+          {/* Existing desktop navigation links... */}
+          {/* ... keep your NavLinks here ... */}
         </nav>
 
-        <NavLink
-            to="/"
-       
-          className="text-4xl font-bold text-center"
-          style={{ fontFamily: "'Playfair Display', serif" }}
-        >
-          <h1 className="text-2xl">
-          Pam's Cashmere Boutique
-        </h1>
-        </NavLink>
+        {/* Desktop Brand */}
+        <div className="hidden md:block">
+          <NavLink
+              to="/"
+              className="text-4xl font-bold text-center"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+          >
+            <h1 className="text-2xl">
+              Pam's Cashmere Boutique
+            </h1>
+          </NavLink>
+        </div>
 
-        <div className="flex space-x-6">
+        {/* Desktop Icons */}
+        <div className="hidden md:flex space-x-6">
+          {/* Existing desktop icon links... */}
           <NavLink to="/search">
             <FontAwesomeIcon
               icon={faSearch}
@@ -83,7 +59,7 @@ const Header: React.FC<HeaderProps> = ({ sidebarOpen, setSidebarOpen, setCartSid
               className="text-xl hover:text-secondary-color"
             />
           </NavLink>
-          <button onClick={() => setCartSidebarOpen((prevState) => !prevState)}>
+          <button onClick={() => setCartSidebarOpen(prev => !prev)}>
             <FontAwesomeIcon
               icon={faShoppingCart}
               className="text-xl hover:text-secondary-color"
@@ -97,18 +73,45 @@ const Header: React.FC<HeaderProps> = ({ sidebarOpen, setSidebarOpen, setCartSid
           </NavLink>
         </div>
 
-        <div className="flex md:hidden items-center">
-    <button
-        onClick={() => {
-            setSidebarOpen(!sidebarOpen);
-        }}
-        className="text-4xl p-3 hover:bg-neutral-light rounded flex items-center justify-center leading-none mt-[-10px]"
-    >
-        ≡
-    </button>
-</div>
+        {/* Mobile Icons */}
+        <div className="fixed bottom-0 left-0 right-0 md:hidden bg-background py-2 flex justify-between items-center">
+          <button
+              onClick={() => setSidebarOpen(!sidebarOpen)}
+              className="text-4xl p-3 hover:bg-neutral-light rounded leading-none"
+          >
+            ≡
+          </button>
+          <div className="flex space-x-6">
+            {/* Existing mobile icon links... */}
+            {/* You can replicate the same set of icons for mobile here or make any adjustments as required */}
+            <NavLink to="/search">
+              <FontAwesomeIcon
+                icon={faSearch}
+                className="text-xl hover:text-secondary-color"
+              />
+            </NavLink>
+            <NavLink to="/favorites">
+              <FontAwesomeIcon
+                icon={faHeart}
+                className="text-xl hover:text-secondary-color"
+              />
+            </NavLink>
+            <button onClick={() => setCartSidebarOpen(prev => !prev)}>
+              <FontAwesomeIcon
+                icon={faShoppingCart}
+                className="text-xl hover:text-secondary-color"
+              />
+            </button>
+            <NavLink to="/user/auth">
+              <FontAwesomeIcon
+                icon={faUser}
+                className="text-xl hover:text-secondary-color"
+              />
+            </NavLink>
+          </div>
+        </div>
       </div>
-    </header>
+    </div>
   );
 };
 
