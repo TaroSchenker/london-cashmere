@@ -11,9 +11,10 @@ import {
 interface HeaderProps {
   sidebarOpen: boolean;
   setSidebarOpen: (isOpen: boolean) => void;
+  setCartSidebarOpen: (isOpen: boolean) => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ sidebarOpen, setSidebarOpen }) => {
+const Header: React.FC<HeaderProps> = ({ sidebarOpen, setSidebarOpen, setCartSidebarOpen }) => {
   const navigate = useNavigate();
   return (
     <header className="bg-background text-primary py-4">
@@ -81,12 +82,12 @@ const Header: React.FC<HeaderProps> = ({ sidebarOpen, setSidebarOpen }) => {
               className="text-xl hover:text-secondary-color"
             />
           </NavLink>
-          <NavLink to="/cart">
+          <button onClick={() => setCartSidebarOpen((prevState) => !prevState)}>
             <FontAwesomeIcon
               icon={faShoppingCart}
               className="text-xl hover:text-secondary-color"
             />
-          </NavLink>
+          </button>
           <NavLink to="/user/auth">
             <FontAwesomeIcon
               icon={faUser}
