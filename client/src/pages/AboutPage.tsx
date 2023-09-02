@@ -1,5 +1,9 @@
 import React from 'react';
+import cashmereImage from '../common/assets/images/stock-photo-a-pile-of-warm-sweaters-on-a-wooden-table-on-a-light-background-autumn-and-winter-clothes-1173240742.jpg'
+import cashmereImage2 from '../common/assets/images/stock-photo-pretty-girl-dressed-in-a-warm-gray-knitted-sweater-hugs-herself-in-the-park-gray-knitted-cashmere-1747245236.jpg'
+import cashmereImage3 from '../common/assets/images/stock-photo-sheep-and-goats-on-a-pasture-in-mongolia-panorama-of-the-pasture-source-of-meat-milk-and-wool-1711719553.jpg'
 
+import cashmereImage4 from '../common/assets/images/stock-photo-stack-of-white-and-gray-cozy-knitted-sweaters-on-rustic-wooden-background-469992296.jpg'
 const CashmereInfo: React.FC = () => {
     return (
         <div className="p-8 bg-background-color">
@@ -7,7 +11,7 @@ const CashmereInfo: React.FC = () => {
                 
                 <div className="relative group">
                     <img 
-                        src="https://fakeimg.pl/600x420/ad6b6b/8f3838?text=Cashmere&font=bebas"
+                        src={cashmereImage}
                         alt="Cashmere Info"
                         className="w-full h-96 object-cover rounded-t-lg"
                     />
@@ -22,7 +26,7 @@ const CashmereInfo: React.FC = () => {
                     </p>
 
                     <img 
-                        src="https://fakeimg.pl/600x420/ad6b6b/8f3838?text=History&font=bebas"
+                        src={cashmereImage2}
                         alt="Cashmere History"
                         className="mb-4 w-full h-60 object-cover rounded"
                     />
@@ -40,7 +44,7 @@ const CashmereInfo: React.FC = () => {
                     </ul>
 
                     <img 
-                        src="https://fakeimg.pl/600x420/ad6b6b/8f3838?text=Care&font=bebas"
+                        src={cashmereImage3}
                         alt="Cashmere Care"
                         className="mb-4 w-full h-60 object-cover rounded"
                     />
