@@ -74,14 +74,14 @@ const Header: React.FC<HeaderProps> = ({ sidebarOpen, setSidebarOpen, setCartSid
         </div>
 
         {/* Mobile Icons */}
-        <div className="fixed bottom-0 left-0 right-0 md:hidden bg-background py-2 flex justify-between items-center z-50">
+        <div className="fixed bottom-0 left-0 right-0 md:hidden bg-background py-0 pr-8 flex justify-between items-center z-50">
           <button
               onClick={() => setSidebarOpen(!sidebarOpen)}
               className="text-4xl p-3 hover:bg-neutral-light rounded leading-none"
           >
             ≡
           </button>
-          <div className="flex space-x-6">
+          <div className="flex space-x-14">
             {/* Existing mobile icon links... */}
   
             <NavLink to="/search">
