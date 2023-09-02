@@ -14,14 +14,16 @@ const Sidebar: React.FC<SideBarProps> = ({ isOpen, onClose }) => {
       {/* Dimmed background */}
       {isOpen && <div 
         onClick={onClose}
-        className="fixed top-0 left-0 w-full h-full bg-black opacity-50 md:hidden"
+        className="fixed top-0 left-0 w-full h-full bg-black opacity-50 z-20 md:hidden" 
+        // Added z-20 here
       ></div>}
 
       {/* Sidebar */}
       <aside
         className={`bg-white text-text-color transform top-0 left-0 w-3/4 h-full fixed 
-                    transition-transform duration-300 ease-in-out z-10
-                    ${isOpen ? "translate-x-0" : "-translate-x-full"} md:hidden`}
+                    transition-transform duration-300 ease-in-out z-30 
+                    // Increased z-index to z-30 here
+                    ${isOpen ? "translate-x-0" : "-translate-x-full"} md:hidden `}
       >
         <div className="flex flex-col justify-between h-full py-6 px-5">
           <div>
