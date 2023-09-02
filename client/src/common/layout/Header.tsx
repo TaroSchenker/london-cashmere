@@ -21,7 +21,7 @@ const Header: React.FC<HeaderProps> = ({ sidebarOpen, setSidebarOpen }) => {
         <nav className="hidden md:flex space-x-8">
           <NavLink
             to="/"
-            onMouseEnter={() => navigate("/")}
+            // onMouseEnter={() => navigate("/")}
             className={({ isActive }) =>
               isActive ? "text-neutral-light border-b-2 border-white" : ""
             }
@@ -30,7 +30,7 @@ const Header: React.FC<HeaderProps> = ({ sidebarOpen, setSidebarOpen }) => {
           </NavLink>
           <NavLink
             to="/products"
-            onMouseEnter={() => navigate("/products")}
+            // onMouseEnter={() => navigate("/products")}
             className={({ isActive }) =>
               isActive ? "text-neutral-light border-b-2 border-white" : ""
             }
@@ -39,7 +39,7 @@ const Header: React.FC<HeaderProps> = ({ sidebarOpen, setSidebarOpen }) => {
           </NavLink>
           <NavLink
             to="/about"
-            onMouseEnter={() => navigate("/about")}
+            // onMouseEnter={() => navigate("/about")}
             className={({ isActive }) =>
               isActive ? "text-neutral-light border-b-2 border-white" : ""
             }
@@ -48,7 +48,7 @@ const Header: React.FC<HeaderProps> = ({ sidebarOpen, setSidebarOpen }) => {
           </NavLink>
           <NavLink
             to="/contact"
-            onMouseEnter={() => navigate("/contact")}
+            // onMouseEnter={() => navigate("/contact")}
             className={({ isActive }) =>
               isActive ? "text-neutral-light border-b-2 border-white" : ""
             }
@@ -57,12 +57,16 @@ const Header: React.FC<HeaderProps> = ({ sidebarOpen, setSidebarOpen }) => {
           </NavLink>
         </nav>
 
-        <h1
+        <NavLink
+            to="/"
+       
           className="text-4xl font-bold text-center"
           style={{ fontFamily: "'Playfair Display', serif" }}
         >
+          <h1>
           Pam's Boutique Cashmere
         </h1>
+        </NavLink>
 
         <div className="flex space-x-6">
           <NavLink to="/search">
