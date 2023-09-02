@@ -45,10 +45,10 @@ const routes = [
           },
         ],
       },
-      {
-        path: "cart",
-        element: <CartPage />,
-      },
+      // {
+      //   path: "cart",
+      //   element: <CartPage />,
+      // },
       {
         path: "user",
         // element: <AuthRoute />, // wrap this around your user routes
