@@ -25,33 +25,29 @@ const Header: React.FC<HeaderProps> = ({
 
   return (
     <div className="bg-background text-primary md:py-4">
-      <div className="container mx-auto px-4 md:flex md:justify-between md:items-center">
-        {/* Mobile Brand */}
-        <div
-          className="text-4xl font-bold text-center mt-4 md:hidden"
-          style={{ fontFamily: "'Playfair Display', serif" }}
-        >
+      <div className="container mx-auto px-4 md:flex md:justify-around md:items-center">
+        {/* Universal Brand (for all sizes) */}
+        <div className="text-center mt-4">
           <NavLink to="/">
-            <h1 className="text-2xl">Pam's Cashmere Boutique</h1>
+            <h1
+              style={{ fontFamily: "'Oswald', sans-serif" }}
+              className="text-2xl text-gray-800"
+            >
+              PAM'S
+            </h1>
+            <span
+              style={{ fontFamily: "'Dancing Script', cursive" }}
+              className="text-xl text-gray-600"
+            >
+              Cashmere Boutique
+            </span>
           </NavLink>
         </div>
-
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8">
           {/* Existing desktop navigation links... */}
           {/* ... keep your NavLinks here ... */}
         </nav>
-
-        {/* Desktop Brand */}
-        <div className="hidden md:block">
-          <NavLink
-            to="/"
-            className="text-4xl font-bold text-center"
-            style={{ fontFamily: "'Playfair Display', serif" }}
-          >
-            <h1 className="text-2xl">Pam's Cashmere Boutique</h1>
-          </NavLink>
-        </div>
 
         {/* Desktop Icons */}
         <div className="hidden md:flex space-x-6">
@@ -97,19 +93,18 @@ const Header: React.FC<HeaderProps> = ({
 
         {/* Mobile Icons */}
         <div className="fixed bottom-0 left-0 right-0 md:hidden bg-background py-0 pr-10 flex justify-between items-center z-50">
-        
           <div className="flex space-x-14 items-center pl-2">
             {" "}
             {/* Added items-center */}
-              <button
-            onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="p-3 hover:bg-neutral-light rounded "
-          >
-            <FontAwesomeIcon
-              icon={faBars}
-              className="text-xl hover:text-secondary-color"
-            />
-          </button>
+            <button
+              onClick={() => setSidebarOpen(!sidebarOpen)}
+              className="p-3 hover:bg-neutral-light rounded "
+            >
+              <FontAwesomeIcon
+                icon={faBars}
+                className="text-xl hover:text-secondary-color"
+              />
+            </button>
             <NavLink to="/">
               <FontAwesomeIcon
                 icon={faHome}
@@ -151,7 +146,7 @@ const Header: React.FC<HeaderProps> = ({
           </div>
         </div>
       </div>
-     </div>
+    </div>
   );
 };
 
