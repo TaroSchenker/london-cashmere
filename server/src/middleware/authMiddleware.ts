@@ -15,9 +15,7 @@ export const authenticate = (
   next: NextFunction
 ) => {
   const token = req.headers.authorization?.split(" ")[1];
-  console.log("token", token);
   if (!token) {
-    console.log("no token");
     return res.status(403).json({ message: "Authentication token required" });
   }
 
@@ -26,7 +24,7 @@ export const authenticate = (
     return res.status(403).json({ message: "Secret token not found" });
   }
   try {
-    const decoded = jwt.verify(token, "YOUR_SECRET_KEY") as JwtPayload &
+    const decoded = jwt.verify(token, secretToken) as JwtPayload &
       IJwtPayload;
     if (typeof decoded === "object" && "_id" in decoded) {
       // Check for _id
@@ -41,7 +39,6 @@ export const authenticate = (
 };
 
 export const isAdmin = (req: Request, res: Response, next: NextFunction) => {
-  console.log(" is admin req.user", req.user);
   if (req.user && req.user.role === UserRole.ADMIN) {
     next();
   } else {
