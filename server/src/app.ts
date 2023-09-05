@@ -39,8 +39,6 @@ const apiLimiter = rateLimit({
 });
 app.use('/api/', apiLimiter);
 
-// connectDb();
-
 // Use routers
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
@@ -50,7 +48,5 @@ app.use('/', (req, res) => {
     res.send('API is running');
 });
 
-// It's important to remember that you'll still need to handle errors gracefully
-// for example, you mentioned `errorHandler` previously which would be a good addition
 
 export default app;
