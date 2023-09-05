@@ -48,11 +48,47 @@ const Header: React.FC<HeaderProps> = ({
         <nav className="hidden md:flex space-x-8">
           {/* Existing desktop navigation links... */}
           {/* ... keep your NavLinks here ... */}
+          <NavLink
+            to="/"
+            // onMouseEnter={() => navigate("/")}
+            className={({ isActive }) =>
+              isActive ? "text-neutral-dark border-b-2 border-neutral-dark" : ""
+            }
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/products"
+            // onMouseEnter={() => navigate("/products")}
+            className={({ isActive }) =>
+              isActive ? "text-neutral-dark border-b-2 border-neutral-dark" : ""
+            }
+          >
+            Shop
+          </NavLink>
+          <NavLink
+            to="/about"
+            // onMouseEnter={() => navigate("/about")}
+            className={({ isActive }) =>
+              isActive ? "text-neutral-dark border-b-2 border-neutral-dark" : ""
+            }
+          >
+            About
+          </NavLink>
+          <NavLink
+            to="/contact"
+            // onMouseEnter={() => navigate("/contact")}
+            className={({ isActive }) =>
+              isActive ? "text-neutral-dark border-b-2 border-neutral-dark" : ""
+            }
+          >
+            Contact
+          </NavLink>
         </nav>
 
         {/* Desktop Icons */}
         <div className="hidden md:flex space-x-6">
-          <NavLink to="/">
+          {/* <NavLink to="/">
             <FontAwesomeIcon
               icon={faHome}
               className="text-xl hover:text-secondary-color"
@@ -81,7 +117,7 @@ const Header: React.FC<HeaderProps> = ({
               icon={faUser}
               className="text-xl hover:text-secondary-color"
             />
-          </NavLink>
+          </NavLink> */}
           {/* Uncomment this section if you decide to add notifications in the future.
           <NavLink to="/notifications">
             <FontAwesomeIcon

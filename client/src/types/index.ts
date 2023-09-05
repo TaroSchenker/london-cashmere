@@ -76,3 +76,11 @@ export interface ProductUpdate {
     imageUrl?: string;
     stockCount?: number;
 }
+
+
+//API 
+export type ApiResponse<T> = {
+    error: Error | null;
+    data: T | null;
+  };
+  
