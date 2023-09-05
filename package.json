@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/TaroSchenker/london-cashmere#readme",
   "dependencies": {
+    "mongodb-memory-server": "^8.15.1",
     "tree": "^0.1.3"
   }
 }
