@@ -1,7 +1,7 @@
 staticSites:
   - name: your-app-name
     buildCommand: npm run build
-    publishDir: build
+    publishDir: dist
     redirects:
       - source: /.*
         destination: /index.html
