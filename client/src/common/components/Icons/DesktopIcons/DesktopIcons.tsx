@@ -1,7 +1,7 @@
 interface DesktopIconProps {
   setCartSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
-const DesktopIcons: React.FC<DesktopIconProps> = ({ setCartSidebarOpen }) => (
+const DesktopIcons: React.FC<DesktopIconProps> = () => (
   <div className="hidden md:flex space-x-6">
     {/* <NavLink to="/">
             <FontAwesomeIcon
