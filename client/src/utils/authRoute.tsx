@@ -1,6 +1,7 @@
-import React from 'react';
-import { useAuth } from '../context/AuthContext';
-import { Navigate } from 'react-router-dom';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React from "react";
+import { useAuth } from "../context/AuthContext";
+import { Navigate } from "react-router-dom";
 
 const AuthRoute: React.FC = ({ children }: any) => {
   const currentUser = useAuth();
@@ -10,6 +11,6 @@ const AuthRoute: React.FC = ({ children }: any) => {
   }
 
   return <>{children}</>;
-};  
+};
 
 export default AuthRoute;

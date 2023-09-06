@@ -1,21 +1,18 @@
 import * as React from "react";
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // Features
 import HomePage from "./features/Home/HomePage";
 import ProductListPage from "./features/Products/ProductListPage";
 import ProductDetailPage from "./features/Products/ProductDetailPage";
-import CartPage from "./features/Cart/CartPage";
 import UserProfilePage from "./features/User/UserProfilePage";
 import UserAuth from "./features/User/UserAuth";
 import AdminDashboard from "./features/Admin/AdminDashboard";
 import CheckoutPage from "./features/Checkout/CheckoutPage";
 
 // Assuming you have a header and footer in the common layout
-import Header from "./common/layout/Header";
-import Footer from "./common/layout/Footer";
+
 import LoadingSpinner from "./common/components/LoadingSpinner/LoadingSpinner";
-import Sidebar from "./common/layout/Sidebar";
 import SignUpPage from "./features/User/SignupPage";
 import Landing from "./common/layout/Landing";
 import AuthRoute from "./utils/authRoute";
@@ -37,7 +34,7 @@ const routes = [
         path: "products",
         children: [
           {
-            index: true, 
+            index: true,
             element: <ProductListPage />,
           },
           {
@@ -83,13 +80,13 @@ const routes = [
         element: <CheckoutPage />,
       },
       {
-        path: "about", 
-        element: <CashmereInfo />
+        path: "about",
+        element: <CashmereInfo />,
       },
       {
         path: "contact",
         element: <ContactPage />,
-      }
+      },
     ],
   },
 ];

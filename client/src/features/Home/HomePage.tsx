@@ -10,11 +10,11 @@ const HomePage = () => {
   const [cartSidebarOpen, setCartSidebarOpen] = useState(false); // State for cart sidebar
 
   const handleResize = () => {
-      if (window.innerWidth > 768 && (navSidebarOpen || cartSidebarOpen)) {
-          // If the screen is bigger than 768 pixels and any sidebar is open, close them.
-          setNavSidebarOpen(false);
-          setCartSidebarOpen(false);
-      }
+    if (window.innerWidth > 768 && (navSidebarOpen || cartSidebarOpen)) {
+      // If the screen is bigger than 768 pixels and any sidebar is open, close them.
+      setNavSidebarOpen(false);
+      setCartSidebarOpen(false);
+    }
   };
 
   useEffect(() => {
@@ -28,17 +28,27 @@ const HomePage = () => {
   }, [navSidebarOpen]);
   return (
     <div className="flex min-h-screen bg-neutral-lightest">
-        <Sidebar isOpen={navSidebarOpen} onClose={() => setNavSidebarOpen(false)} />
-        <CartPage isOpen={cartSidebarOpen} onClose={() => setCartSidebarOpen(false)} />
-        <div className="flex flex-col flex-1">
-            <Header setSidebarOpen={setNavSidebarOpen} sidebarOpen={navSidebarOpen} setCartSidebarOpen={setCartSidebarOpen} />
-            <div className="flex-1 overflow-y-auto">
-                <Outlet />
-            </div>
-            <Footer />
+      <Sidebar
+        isOpen={navSidebarOpen}
+        onClose={() => setNavSidebarOpen(false)}
+      />
+      <CartPage
+        isOpen={cartSidebarOpen}
+        onClose={() => setCartSidebarOpen(false)}
+      />
+      <div className="flex flex-col flex-1">
+        <Header
+          setSidebarOpen={setNavSidebarOpen}
+          sidebarOpen={navSidebarOpen}
+          setCartSidebarOpen={setCartSidebarOpen}
+        />
+        <div className="flex-1 overflow-y-auto">
+          <Outlet />
         </div>
+        <Footer />
+      </div>
     </div>
-);
+  );
 };
 
 export default HomePage;

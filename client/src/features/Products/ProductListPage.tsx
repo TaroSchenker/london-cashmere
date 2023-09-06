@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import { dummyProducts } from "./dummyData";
 import ProductCard from "./components/ProductCard";

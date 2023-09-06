@@ -1,4 +1,4 @@
-import { css } from '@emotion/react';
+import { css } from "@emotion/react";
 
 // Base styles for the application. Adjust as needed.
 const baseStyles = css`

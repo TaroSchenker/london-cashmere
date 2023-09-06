@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,7 +9,6 @@ import {
   faShoppingCart,
   faHome,
 } from "@fortawesome/free-solid-svg-icons";
-import { faCircle, faStar } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 interface HeaderProps {
@@ -188,21 +188,3 @@ const Header: React.FC<HeaderProps> = ({
 };
 
 export default Header;
-
-const Logo = () => (
-  <div style={{ display: 'flex', alignItems: 'center' }}>
-      <FontAwesomeIcon 
-          icon={faCircle} 
-          size="sm" 
-          style={{ color: 'deepskyblue' }} 
-      />
-      <span style={{ margin: '0 10px', fontSize: '1.5em', fontWeight: 'bold' }}>
-          PAM'S
-      </span>
-      <FontAwesomeIcon 
-          icon={faStar} 
-          size="sm" 
-          style={{ color: 'gold' }} 
-      />
-  </div>
-);
