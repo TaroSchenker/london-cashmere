@@ -1,0 +1,25 @@
+{
+    "parser": "@typescript-eslint/parser",
+        "extends": [
+            "plugin:react/recommended",
+            "plugin:@typescript-eslint/recommended",
+            "plugin:prettier/recommended"
+        ],
+            "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "rules": {
+        "react/prop-types": "off",
+            "@typescript-eslint/explicit-module-boundary-types": "off",
+                "react/jsx-uses-react": "off",
+                    "react/react-in-jsx-scope": "off",
+                        "prettier/prettier": ["error", {}, { "usePrettierrc": true }]
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    }
+}

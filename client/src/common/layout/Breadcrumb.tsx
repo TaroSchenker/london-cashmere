@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Breadcrumb = () => {
-  return (
-    <div>Breadcrumb</div>
-  )
-}
+  return <div>Breadcrumb</div>;
+};
 
-export default Breadcrumb
+export default Breadcrumb;
