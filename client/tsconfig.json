@@ -16,7 +16,9 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", ".eslintrc.cjs"],
-  "types": ["node", "jest", "@testing-library/jest-dom", "@types/testing-library__jest-dom"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src", ".eslintrc", "src/types/custom.d.ts"],
+  "types": ["node", "jest", "@types/jest-dom"],
+  "references": [{ "path": "./tsconfig.node.json" }],
+  "exclude": ["node_modules"]
+
 }
