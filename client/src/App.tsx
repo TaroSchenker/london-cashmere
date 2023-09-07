@@ -17,7 +17,7 @@ import SignUpPage from "./features/User/SignupPage";
 import Landing from "./common/layout/Landing";
 import AuthRoute from "./utils/authRoute";
 import { AuthProvider } from "./context/AuthContext";
-import CashmereInfo from "./pages/AboutPage";
+import CashmereInfo from "./pages/AboutPage/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import StoryPage from "./pages/StoryPage";
 
