@@ -1,12 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from "react";
 import { IProduct } from "../../types";
-import cashmere from "../../common/assets/images/cashmere.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
 import CartTotal from "./components/CartTotal/CartTotal";
 import CartProductItem from "./components/CartProductItem/CartProductItem";
+import { dummyCartData } from "./dummyCartData";
 
 export interface CartProduct extends IProduct {
   quantity: number;
@@ -18,54 +17,8 @@ interface CartSidebarProps {
 }
 
 const CartPage: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => {
-  const [cartProducts, setCartProducts] = useState<CartProduct[]>([
-    // Example products, you'd fetch these from your actual cart state or API
-    {
-      _id: "product1",
-      name: "Example Product 1",
-      description: "A great product",
-      price: 100,
-      size: ["S", "M", "L"],
-      color: ["Red", "Blue"],
-      imageUrl: cashmere,
-      stockCount: 10,
-      quantity: 2,
-    },
-    {
-      _id: "product1",
-      name: "Example Product 1",
-      description: "A great product",
-      price: 100,
-      size: ["S", "M", "L"],
-      color: ["Red", "Blue"],
-      imageUrl: cashmere,
-      stockCount: 10,
-      quantity: 2,
-    },
-    {
-      _id: "product1",
-      name: "Example Product 1",
-      description: "A great product",
-      price: 100,
-      size: ["S", "M", "L"],
-      color: ["Red", "Blue"],
-      imageUrl: cashmere,
-      stockCount: 10,
-      quantity: 2,
-    },
-    {
-      _id: "product1",
-      name: "Example Product 1",
-      description: "A great product",
-      price: 100,
-      size: ["S", "M", "L"],
-      color: ["Red", "Blue"],
-      imageUrl: cashmere,
-      stockCount: 10,
-      quantity: 2,
-    },
-    // ... more products
-  ]);
+  const [cartProducts, setCartProducts] =
+    useState<CartProduct[]>(dummyCartData);
 
   const totalAmount = cartProducts.reduce(
     (total, product) => total + product.price * product.quantity,

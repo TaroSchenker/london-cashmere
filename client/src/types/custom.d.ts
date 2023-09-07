@@ -1,3 +1,2 @@
-declare module "@testing-library/jest-dom/extend-expect";
-
+//custom.d.ts
 declare module "*.jpg";

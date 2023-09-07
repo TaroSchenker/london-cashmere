@@ -17,6 +17,6 @@
     "jsx": "react-jsx"
   },
   "include": ["src", ".eslintrc.cjs"],
-  "types": ["node", "jest", "@testing-library/jest-dom"],
+  "types": ["node", "jest", "@testing-library/jest-dom", "@types/testing-library__jest-dom"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
