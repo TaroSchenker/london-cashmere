@@ -1,9 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
-import cashmereImage from "../common/assets/images/stock-photo-a-pile-of-warm-sweaters-on-a-wooden-table-on-a-light-background-autumn-and-winter-clothes-1173240742.jpg";
-import cashmereImage2 from "../common/assets/images/stock-photo-pretty-girl-dressed-in-a-warm-gray-knitted-sweater-hugs-herself-in-the-park-gray-knitted-cashmere-1747245236.jpg";
+import cashmereImage from "../../common/assets/images/cashmere.jpg";
+import cashmereImage2 from "../../common/assets/images/stock-photo-pretty-girl-dressed-in-a-warm-gray-knitted-sweater-hugs-herself-in-the-park-gray-knitted-cashmere-1747245236.jpg";
 
-import cashmereImage4 from "../common/assets/images/stock-photo-stack-of-white-and-gray-cozy-knitted-sweaters-on-rustic-wooden-background-469992296.jpg";
+import cashmereImage4 from "../../common/assets/images/stock-photo-stack-of-white-and-gray-cozy-knitted-sweaters-on-rustic-wooden-background-469992296.jpg";
 const CashmereInfo: React.FC = () => {
   return (
     <div className="p-8 bg-background-color">
