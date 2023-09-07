@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import video from "../assets/video/istockphoto-1194949689-640_adpp_is.mp4";
 
-import cashmere from "../../common/assets/images/stock-photo-a-pile-of-warm-sweaters-on-a-wooden-table-on-a-light-background-autumn-and-winter-clothes-1173240742.jpg";
+import cashmere from "../assets/images/stock-photo-a-pile-of-warm-sweaters-on-a-wooden-table-on-a-light-background-autumn-and-winter-clothes-1173240742.jpg";
 
 const Landing = () => {
   return (
