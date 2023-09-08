@@ -10,6 +10,9 @@
     "plugin:prettier/recommended"
   ],
   "parserOptions": {
+"ecmaFeatures": {
+      "jsx": true
+},
     "project": "./tsconfig.json"
   },
   "rules": {

@@ -9,7 +9,7 @@ export default {
   },
   moduleNameMapper: {
     "\\.(gif|ttf|eot|svg|png|jpg|mp4)$":
-      "<rootDir>/src/test/__mocks__/fileMock.js",
+      "<rootDir>/src/__test__/__mocks__/fileMock.js",
   },
-  setupFilesAfterEnv: ["<rootDir>/src/test/setupTests.js"],
+  // setupFilesAfterEnv: ["<rootDir>/src/__test__/setupTests.js"],
 };
