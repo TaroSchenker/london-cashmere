@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import mongoose from "mongoose";
 import { MongoMemoryServer } from "mongodb-memory-server";
-import { Product, IProductDocument } from "../../src/models/Product";
+import { Product } from "../../src/models/Product";
 
 let mongoServer: MongoMemoryServer;
 
@@ -8,7 +9,7 @@ beforeAll(async () => {
   mongoServer = await MongoMemoryServer.create();
   const uri = mongoServer.getUri();
   await mongoose.connect(uri);
-  await Product.init(); 
+  await Product.init();
 });
 
 afterEach(async () => {
@@ -40,13 +41,18 @@ describe("Product Model", () => {
     expect(savedProduct.description).toBe(mockProduct.description);
     expect(savedProduct.price).toBe(mockProduct.price);
     expect(savedProduct.size).toEqual(expect.arrayContaining(mockProduct.size));
-    expect(savedProduct.color).toEqual(expect.arrayContaining(mockProduct.color));
+    expect(savedProduct.color).toEqual(
+      expect.arrayContaining(mockProduct.color)
+    );
     expect(savedProduct.imageUrl).toBe(mockProduct.imageUrl);
     expect(savedProduct.stockCount).toBe(mockProduct.stockCount);
   });
 
   test("insert product without required field should fail", async () => {
-    const productWithoutRequiredField = new Product({ name: "Incomplete Product" });
+    const productWithoutRequiredField = new Product({
+      name: "Incomplete Product"
+    });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let err: any;
     try {
       await productWithoutRequiredField.save();
@@ -57,7 +63,10 @@ describe("Product Model", () => {
   });
 
   test("insert product with invalid data should fail", async () => {
-    const invalidProduct = new Product({ ...mockProduct, price: "one hundred" });
+    const invalidProduct = new Product({
+      ...mockProduct,
+      price: "one hundred"
+    });
     let err: any;
     try {
       await invalidProduct.save();
@@ -78,8 +87,10 @@ describe("Product Model", () => {
       imageUrl: "",
       stockCount: 10
     });
-  
-    await expect(productWithEmptyStrings.save()).rejects.toBeInstanceOf(mongoose.Error.ValidationError);
+
+    await expect(productWithEmptyStrings.save()).rejects.toBeInstanceOf(
+      mongoose.Error.ValidationError
+    );
   });
 
   test("insert product with negative stockCount should fail", async () => {
@@ -87,8 +98,10 @@ describe("Product Model", () => {
       ...mockProduct,
       stockCount: -5
     });
-  
-    await expect(productWithNegativeStock.save()).rejects.toBeInstanceOf(mongoose.Error.ValidationError);
+
+    await expect(productWithNegativeStock.save()).rejects.toBeInstanceOf(
+      mongoose.Error.ValidationError
+    );
   });
 
   test("insert product with excessively long name should fail", async () => {
@@ -96,35 +109,41 @@ describe("Product Model", () => {
       ...mockProduct,
       name: "a".repeat(1001)
     });
-  
-    await expect(productWithLongName.save()).rejects.toBeInstanceOf(mongoose.Error.ValidationError);
+
+    await expect(productWithLongName.save()).rejects.toBeInstanceOf(
+      mongoose.Error.ValidationError
+    );
   });
 
-//   test("insert product without colors should fail", async () => {
-//     const productWithoutColor = new Product({
-//       ...mockProduct,
-//       color: []
-//     });
-  
-//     await expect(productWithoutColor.save()).rejects.toBeInstanceOf(mongoose.Error.ValidationError);
-//   });
+  //   test("insert product without colors should fail", async () => {
+  //     const productWithoutColor = new Product({
+  //       ...mockProduct,
+  //       color: []
+  //     });
+
+  //     await expect(productWithoutColor.save()).rejects.toBeInstanceOf(mongoose.Error.ValidationError);
+  //   });
 
   test("insert product with negative price should fail", async () => {
     const productWithNegativePrice = new Product({
       ...mockProduct,
       price: -100
     });
-  
-    await expect(productWithNegativePrice.save()).rejects.toBeInstanceOf(mongoose.Error.ValidationError);
+
+    await expect(productWithNegativePrice.save()).rejects.toBeInstanceOf(
+      mongoose.Error.ValidationError
+    );
   });
-  
+
   test("insert product with excessively long name should fail", async () => {
     const productWithLongName = new Product({
       ...mockProduct,
       name: "a".repeat(1001)
     });
-  
-    await expect(productWithLongName.save()).rejects.toBeInstanceOf(mongoose.Error.ValidationError);
+
+    await expect(productWithLongName.save()).rejects.toBeInstanceOf(
+      mongoose.Error.ValidationError
+    );
   });
 
   test("insert product with non-url imageUrl should fail", async () => {
@@ -132,22 +151,20 @@ describe("Product Model", () => {
       ...mockProduct,
       imageUrl: "invalidImageUrl"
     });
-  
+
     // This assumes you have some URL validation in place.
-    await expect(productWithNonUrlImage.save()).rejects.toBeInstanceOf(mongoose.Error.ValidationError);
+    await expect(productWithNonUrlImage.save()).rejects.toBeInstanceOf(
+      mongoose.Error.ValidationError
+    );
   });
-  
 
   test("insert product with zero stock should be successful", async () => {
     const productWithZeroStock = new Product({
       ...mockProduct,
       stockCount: 0
     });
-  
+
     const savedProduct = await productWithZeroStock.save();
     expect(savedProduct.stockCount).toBe(0);
   });
-
-  
-  
 });

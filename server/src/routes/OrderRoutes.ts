@@ -8,7 +8,7 @@ import {
   getOrder,
   updateOrderStatus,
   deleteOrder,
-  getOrders,
+  getOrders
 } from "../controllers/orderController";
 import { authenticate, isAdmin } from "../middleware/authMiddleware";
 

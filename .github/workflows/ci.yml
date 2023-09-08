@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.16.0]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    # Client steps
+    - name: Install dependencies (Client)
+      working-directory: ./client
+      run: npm install
+
+    - name: Run Client linting
+      working-directory: ./client
+      run: npm run lint
+
+    - name: Run Client tests
+      working-directory: ./client
+      run: npm test
+
+    # Server steps
+    - name: Install dependencies (Server)
+      working-directory: ./server
+      run: npm install
+
+    - name: Run Server linting
+      working-directory: ./server
+      run: npm run lint
+
+    - name: Run Server tests
+      working-directory: ./server
+      run: npm test

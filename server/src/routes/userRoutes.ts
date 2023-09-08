@@ -1,11 +1,11 @@
 // routes/userRoutes.ts
 
-import { Router } from 'express';
-import { registerUser, loginUser } from '../controllers/userController';
+import { Router } from "express";
+import { registerUser, loginUser } from "../controllers/userController";
 
 const router = Router();
 
-router.post('/register', registerUser);
-router.post('/login', loginUser);
+router.post("/register", registerUser);
+router.post("/login", loginUser);
 
 export default router;

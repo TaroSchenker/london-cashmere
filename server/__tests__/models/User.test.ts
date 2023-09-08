@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import { MongoMemoryServer } from "mongodb-memory-server";
-import { User, IUserDocument } from "../../src/models/User";
+import { User } from "../../src/models/User";
 import { UserRole } from "../../src/types";
 
 let mongoServer: MongoMemoryServer;
@@ -9,7 +9,7 @@ beforeAll(async () => {
   mongoServer = await MongoMemoryServer.create();
   const uri = mongoServer.getUri();
   await mongoose.connect(uri);
-  await User.init(); 
+  await User.init();
 });
 
 beforeEach(async () => {});
@@ -59,9 +59,12 @@ describe("User Model", () => {
   test("create user with existing email should fail", async () => {
     // Save the mock user
     await new User(mockUser).save();
-  
+
     // Try to save another user with the same email
-    await expect(new User(mockUser).save()).rejects.toHaveProperty('code', 11000);
+    await expect(new User(mockUser).save()).rejects.toHaveProperty(
+      "code",
+      11000
+    );
   });
 
   test("create user without role should default to CUSTOMER", async () => {
