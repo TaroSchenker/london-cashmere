@@ -1,9 +1,9 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 
-import * as AuthHooks from "../../../../hooks/useAuth"; // Adjust the path
-import CartPage from "../../CartPage";
+import * as AuthHooks from "../../hooks/useAuth"; // Adjust the path
+import CartPage from "./CartPage";
+import "@testing-library/jest-dom";
 
 describe("CartPage", () => {
   const mockOnClose = jest.fn();
