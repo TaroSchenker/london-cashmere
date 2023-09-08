@@ -4,12 +4,12 @@ import { Order } from "../models/Order";
 import { OrderStatus } from "../types";
 
 export const getOrders = async (req: Request, res: Response) => {
-    try {
-        const orders = await Order.find();
-        res.status(200).json({ success: true, data: orders });
-    } catch (error) {
-        res.status(500).json({ success: false, error: (error as Error).message });
-    }
+  try {
+    const orders = await Order.find();
+    res.status(200).json({ success: true, data: orders });
+  } catch (error) {
+    res.status(500).json({ success: false, error: (error as Error).message });
+  }
 };
 
 export const createOrder = async (req: Request, res: Response) => {

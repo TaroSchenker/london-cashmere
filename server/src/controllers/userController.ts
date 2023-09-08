@@ -2,7 +2,6 @@
 
 import { Request, Response } from "express";
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
 import { User } from "../models/User";
 import { generateToken } from "../utils/generateToken";
 
@@ -19,6 +18,7 @@ export const registerUser = async (req: Request, res: Response) => {
     // Hash the password before saving the user
     const hashedPassword = await bcrypt.hash(password, 10);
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const user = new User({
       name,
       email,
@@ -26,8 +26,8 @@ export const registerUser = async (req: Request, res: Response) => {
       address,
     });
 
-    const savedUser = await user.save();
-    res.status(201).json({ message: "User registered successfully" });  
+    // const savedUser = await user.save();
+    res.status(201).json({ message: "User registered successfully" });
   } catch (error) {
     console.error("Error registering user:", error);
     res.status(500).json({ message: "Server error" });

@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import jwt, { JwtPayload } from "jsonwebtoken";
 import { IJwtPayload, UserRole } from "../types";
 declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace Express {
     interface Request {
       user?: IJwtPayload; // Use IJwtPayload instead of IUser
@@ -12,7 +13,7 @@ declare global {
 export const authenticate = (
   req: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) => {
   const token = req.headers.authorization?.split(" ")[1];
   if (!token) {
@@ -24,8 +25,7 @@ export const authenticate = (
     return res.status(403).json({ message: "Secret token not found" });
   }
   try {
-    const decoded = jwt.verify(token, secretToken) as JwtPayload &
-      IJwtPayload;
+    const decoded = jwt.verify(token, secretToken) as JwtPayload & IJwtPayload;
     if (typeof decoded === "object" && "_id" in decoded) {
       // Check for _id
       req.user = decoded;

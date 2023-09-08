@@ -9,10 +9,7 @@
     "outDir": "./dist",
     "types": ["node", "jest"]
   },
-  "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src/**/*.ts", "src/types/express.d.ts"],
+  "exclude": ["node_modules"]
 }
+  
