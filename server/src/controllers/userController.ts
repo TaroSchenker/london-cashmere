@@ -30,7 +30,8 @@ export const registerUser = async (
       address
     });
 
-    // const savedUser = await user.save();
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const savedUser = await user.save();
     res.status(201).json({ message: "User registered successfully" }).end();
     return;
   } catch (error) {

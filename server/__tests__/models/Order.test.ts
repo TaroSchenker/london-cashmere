@@ -25,17 +25,17 @@ describe("Order Model", () => {
     customerDetails: {
       name: "John Doe",
       email: "john.doe@example.com",
-      address: "123 Main St, Springfield",
+      address: "123 Main St, Springfield"
     },
     orderedProducts: [
       {
         productId: new mongoose.Types.ObjectId(),
-        quantity: 2,
-      },
+        quantity: 2
+      }
     ],
     totalAmount: 500,
     status: "Pending",
-    paymentId: "PAY123456789",
+    paymentId: "PAY123456789"
   };
 
   test("create & save order successfully", async () => {
@@ -61,8 +61,8 @@ describe("Order Model", () => {
     const orderWithoutRequiredField = new Order({
       customerDetails: {
         name: "John Doe",
-        email: "john.doe@example.com",
-      },
+        email: "john.doe@example.com"
+      }
     });
     await expect(orderWithoutRequiredField.save()).rejects.toBeInstanceOf(
       mongoose.Error.ValidationError
@@ -74,8 +74,8 @@ describe("Order Model", () => {
       ...mockOrder,
       customerDetails: {
         ...mockOrder.customerDetails,
-        email: "invalidEmail",
-      },
+        email: "invalidEmail"
+      }
     });
     await expect(orderWithInvalidEmail.save()).rejects.toBeInstanceOf(
       mongoose.Error.ValidationError
@@ -85,7 +85,7 @@ describe("Order Model", () => {
   test("insert order with negative totalAmount should fail", async () => {
     const orderWithNegativeAmount = new Order({
       ...mockOrder,
-      totalAmount: -100,
+      totalAmount: -100
     });
     await expect(orderWithNegativeAmount.save()).rejects.toBeInstanceOf(
       mongoose.Error.ValidationError
@@ -97,8 +97,8 @@ describe("Order Model", () => {
       ...mockOrder,
       customerDetails: {
         ...mockOrder.customerDetails,
-        name: "a".repeat(101),
-      },
+        name: "a".repeat(101)
+      }
     });
     await expect(orderWithLongName.save()).rejects.toBeInstanceOf(
       mongoose.Error.ValidationError
@@ -108,7 +108,7 @@ describe("Order Model", () => {
   test("insert order with invalid status should fail", async () => {
     const orderWithInvalidStatus = new Order({
       ...mockOrder,
-      status: "InvalidStatus",
+      status: "InvalidStatus"
     });
     await expect(orderWithInvalidStatus.save()).rejects.toBeInstanceOf(
       mongoose.Error.ValidationError

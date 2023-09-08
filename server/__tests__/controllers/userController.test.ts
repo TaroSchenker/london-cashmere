@@ -58,32 +58,32 @@ describe("User Controller", () => {
       await request(app).post("/api/users/register").send(mockUser);
     });
 
-    // test("should login successfully", async () => {
-    //   const res = await request(app).post("/api/users/login").send({
-    //     email: mockUser.email,
-    //     password: mockUser.password
-    //   });
-    //   expect(res.status).toBe(200);
-    //   expect(res.body.token).toBeDefined();
-    //   expect(res.body.userId).toBeDefined();
-    // });
+    test("should login successfully", async () => {
+      const res = await request(app).post("/api/users/login").send({
+        email: mockUser.email,
+        password: mockUser.password
+      });
+      expect(res.status).toBe(200);
+      expect(res.body.token).toBeDefined();
+      expect(res.body.userId).toBeDefined();
+    });
 
-    // test("should not login with a wrong password", async () => {
-    //   const res = await request(app).post("/api/users/login").send({
-    //     email: mockUser.email,
-    //     password: "wrongPassword"
-    //   });
-    //   expect(res.status).toBe(400);
-    //   expect(res.body.message).toBe("Invalid email or password");
-    // });
+    test("should not login with a wrong password", async () => {
+      const res = await request(app).post("/api/users/login").send({
+        email: mockUser.email,
+        password: "wrongPassword"
+      });
+      expect(res.status).toBe(400);
+      expect(res.body.message).toBe("Invalid email or password");
+    });
 
-    // test("should not login with a non-existent email", async () => {
-    //   const res = await request(app).post("/api/users/login").send({
-    //     email: "non.existent@example.com",
-    //     password: "password1234"
-    //   });
-    //   expect(res.status).toBe(400);
-    //   expect(res.body.message).toBe("Invalid email or password");
-    // });
+    test("should not login with a non-existent email", async () => {
+      const res = await request(app).post("/api/users/login").send({
+        email: "non.existent@example.com",
+        password: "password1234"
+      });
+      expect(res.status).toBe(400);
+      expect(res.body.message).toBe("Invalid email or password");
+    });
   });
 });

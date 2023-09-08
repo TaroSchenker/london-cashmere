@@ -18,11 +18,11 @@ beforeAll(async () => {
   await mongoose.connect(uri);
   adminToken = generateToken(
     new mongoose.Types.ObjectId().toString(),
-    UserRole.ADMIN,
+    UserRole.ADMIN
   );
   userToken = generateToken(
     new mongoose.Types.ObjectId().toString(),
-    UserRole.CUSTOMER,
+    UserRole.CUSTOMER
   );
 });
 
@@ -45,7 +45,7 @@ describe("Product Controller", () => {
     size: ["S", "M", "L"],
     color: ["Red", "Blue"],
     imageUrl: "http://example.com/image.jpg",
-    stockCount: 10,
+    stockCount: 10
   };
 
   test("should retrieve all products", async () => {
