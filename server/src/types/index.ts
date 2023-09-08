@@ -43,7 +43,7 @@ export interface IJwtPayload {
 
 export enum UserRole {
   ADMIN = "admin",
-  CUSTOMER = "customer",
+  CUSTOMER = "customer"
 }
 
 export enum OrderStatus {
@@ -51,7 +51,7 @@ export enum OrderStatus {
   PROCESSED = "Processed",
   SHIPPED = "Shipped",
   DELIVERED = "Delivered",
-  CANCELLED = "Cancelled",
+  CANCELLED = "Cancelled"
 }
 
 export interface AuthRequest extends Request {

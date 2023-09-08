@@ -13,8 +13,8 @@ declare global {
 export const authenticate = (
   req: Request,
   res: Response,
-  next: NextFunction,
-) => {
+  next: NextFunction
+): Response | void => {
   const token = req.headers.authorization?.split(" ")[1];
   if (!token) {
     return res.status(403).json({ message: "Authentication token required" });
@@ -38,7 +38,11 @@ export const authenticate = (
   }
 };
 
-export const isAdmin = (req: Request, res: Response, next: NextFunction) => {
+export const isAdmin = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Response | void => {
   if (req.user && req.user.role === UserRole.ADMIN) {
     next();
   } else {

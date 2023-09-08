@@ -28,30 +28,30 @@ const orderSchema = new Schema(
         required: true,
         trim: true,
         lowercase: true,
-        match: [/.+\@.+\..+/, "Please enter a valid email"],
+        match: [/.+\@.+\..+/, "Please enter a valid email"]
       },
-      address: { type: String, required: true, maxlength: 300 },
+      address: { type: String, required: true, maxlength: 300 }
     },
     orderedProducts: [
       {
         productId: {
           type: Schema.Types.ObjectId,
           ref: "Product",
-          required: true,
+          required: true
         },
-        quantity: { type: Number, required: true, min: 1, max: 100 },
-      },
+        quantity: { type: Number, required: true, min: 1, max: 100 }
+      }
     ],
     totalAmount: { type: Number, required: true, min: 0, max: 1000000 },
     status: {
       type: String,
       enum: Object.values(OrderStatus),
       default: "Pending",
-      required: true,
+      required: true
     },
-    paymentId: { type: String, required: true },
+    paymentId: { type: String, required: true }
   },
-  { timestamps: true },
+  { timestamps: true }
 );
 
 export const Order = mongoose.model<OrderDocument>("Order", orderSchema);

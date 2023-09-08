@@ -24,16 +24,16 @@ afterAll(async () => {
 });
 
 describe("User Controller", () => {
-    const mockUser = {
-      name: "John Doe",
-      email: "john.doe@example.com",
-      password: "password123",
-      address: "123 Main St",
-    };
+  const mockUser = {
+    name: "John Doe",
+    email: "john.doe@example.com",
+    password: "password123",
+    address: "123 Main St",
+  };
 
-    test("should register a new user successfully", async () => {
-      const res = await request(app).post("/api/users/register").send(mockUser);
-      expect(res.status).toBe(201);
-      expect(res.body.message).toBe("User registered successfully");
-    });
+  test("should register a new user successfully", async () => {
+    const res = await request(app).post("/api/users/register").send(mockUser);
+    expect(res.status).toBe(201);
+    expect(res.body.message).toBe("User registered successfully");
+  });
 });

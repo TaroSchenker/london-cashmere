@@ -1,14 +1,14 @@
 import request from "supertest";
 import app from "../../src/app";
 import { MongoMemoryServer } from "mongodb-memory-server";
-import mongoose, { ObjectId } from "mongoose";
+import mongoose from "mongoose";
 import { Product } from "../../src/models/Product";
-import jwt from "jsonwebtoken";
 import { generateToken } from "../../src/utils/generateToken";
 import { UserRole } from "../../src/types";
 
 let mongoServer: MongoMemoryServer;
 let adminToken: string;
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 let userToken: string;
 
 beforeAll(async () => {
@@ -16,8 +16,14 @@ beforeAll(async () => {
   const uri = mongoServer.getUri();
 
   await mongoose.connect(uri);
-  adminToken = generateToken(new mongoose.Types.ObjectId().toString(), UserRole.ADMIN);
-  userToken = generateToken(new mongoose.Types.ObjectId().toString(), UserRole.CUSTOMER);
+  adminToken = generateToken(
+    new mongoose.Types.ObjectId().toString(),
+    UserRole.ADMIN,
+  );
+  userToken = generateToken(
+    new mongoose.Types.ObjectId().toString(),
+    UserRole.CUSTOMER,
+  );
 });
 
 beforeEach(async () => {});
@@ -39,7 +45,7 @@ describe("Product Controller", () => {
     size: ["S", "M", "L"],
     color: ["Red", "Blue"],
     imageUrl: "http://example.com/image.jpg",
-    stockCount: 10
+    stockCount: 10,
   };
 
   test("should retrieve all products", async () => {
@@ -71,9 +77,11 @@ describe("Product Controller", () => {
     const product = new Product(mockProduct);
     await product.save();
 
-    const updatedData = { name: "Updated Product" };
+    // const updatedData = { name: "Updated Product" };
     // Add authentication logic here if needed
-    const res = await request(app).put(`/api/products/${product._id}`).set("Authorization", `Bearer ${adminToken}`) // Use the adminToken here.send(updatedData);
+    const res = await request(app)
+      .put(`/api/products/${product._id}`)
+      .set("Authorization", `Bearer ${adminToken}`); // Use the adminToken here.send(updatedData);
     expect(res.status).toBe(200);
     expect(res.body.name).toBe(mockProduct.name);
   });
@@ -83,7 +91,9 @@ describe("Product Controller", () => {
     await product.save();
 
     // Add authentication logic here if needed
-    const res = await request(app).delete(`/api/products/${product._id}`).set("Authorization", `Bearer ${adminToken}`) // Use the adminToken here;
+    const res = await request(app)
+      .delete(`/api/products/${product._id}`)
+      .set("Authorization", `Bearer ${adminToken}`); // Use the adminToken here;
     expect(res.status).toBe(200);
     expect(res.body.message).toBe("Product deleted");
   });

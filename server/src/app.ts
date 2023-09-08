@@ -21,7 +21,7 @@ const corsOptions = {
   origin: "https://yourfrontend.com", // Update this to your frontend domain
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
-  optionsSuccessStatus: 204,
+  optionsSuccessStatus: 204
 };
 
 app.use(helmet());
@@ -34,7 +34,7 @@ app.use(morgan("combined")); // You can adjust the format ('combined' logs in Ap
 // Set rate limiter
 const apiLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100,
+  max: 100
 });
 app.use("/api/", apiLimiter);
 
