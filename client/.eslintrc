@@ -10,10 +10,10 @@
     "plugin:prettier/recommended"
   ],
   "parserOptions": {
-"ecmaFeatures": {
+    "ecmaFeatures": {
       "jsx": true
-},
-    "project": "./tsconfig.json"
+    },
+    "project": ["./client/tsconfig.json", "./server/tsconfig.json"]
   },
   "rules": {
     "react/prop-types": "off",
