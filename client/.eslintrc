@@ -13,7 +13,7 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "project": ["**/tsconfig.json"]
+    "project": "tsconfig.json"
   },
   "rules": {
     "react/prop-types": "off",
