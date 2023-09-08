@@ -3,14 +3,14 @@
 import express from "express";
 const router = express.Router();
 
+import { authenticate, isAdmin } from "../middleware/authMiddleware";
 import {
+  getOrders,
   createOrder,
   getOrder,
   updateOrderStatus,
-  deleteOrder,
-  getOrders
-} from "../controllers/orderController";
-import { authenticate, isAdmin } from "../middleware/authMiddleware";
+  deleteOrder
+} from "../controllers/OrderController";
 
 router.get("/", authenticate, isAdmin, getOrders);
 router.post("/", authenticate, createOrder);
