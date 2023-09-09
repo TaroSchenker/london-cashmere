@@ -20,7 +20,7 @@ export const authenticate = (
     return res.status(403).json({ message: "Authentication token required" });
   }
 
-  const secretToken = process.env.SECRET_TOKEN;
+  const secretToken = process.env.SECRET_KEY;
   if (!secretToken) {
     return res.status(403).json({ message: "Secret token not found" });
   }
@@ -46,7 +46,7 @@ export const isAdmin = (
   if (req.user && req.user.role === UserRole.ADMIN) {
     next();
   } else {
-    return res.status(403).json({ message: "Access denied" });
+    return res.status(403).json({ message: "Access denied", user: req.user });
   }
 };
 

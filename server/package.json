@@ -6,8 +6,10 @@
   "scripts": {
     "test": "NODE_ENV=test jest",
     "start": "nodemon --exec ts-node ./src/server.ts",
+    "start:docker": "./node_modules/.bin/nodemon --exec ts-node ./src/server.ts",
     "lint": "eslint 'src/**/*.{js,ts}'",
-    "lint:fix": "eslint 'src/**/*.{js,ts}' --fix"
+    "lint:fix": "eslint 'src/**/*.{js,ts}' --fix",
+    "prettier": "prettier --write 'src/**/*.{ts,tsx,js,json,css}'"
   },
   "keywords": [],
   "author": "",

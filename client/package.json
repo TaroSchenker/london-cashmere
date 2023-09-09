@@ -5,11 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "dev:host": "./node_modules/.bin/vite --host 0.0.0.0 --port 3000",
+    "build": "tsc -p tsconfig.prod.json && vite build", 
     "preview": "vite preview",
     "test": "jest",
     "lint": "eslint './src/**/*.{ts,tsx}'",
     "lint:fix": "eslint './src/**/*.{ts,tsx}' --fix"
+    
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
