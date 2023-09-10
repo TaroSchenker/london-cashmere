@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepush": "cd server && npm run test && npm run lint && cd ../client && npm run test && npm run lint",
-    "pre-commit": "cd server && npm run lint && cd ../client && npm run lint"
+    "pre-commit": "echo 'Running pre-commit hook' && cd server && npm run lint && cd ../client && npm run lint"
   },
   "repository": {
     "type": "git",

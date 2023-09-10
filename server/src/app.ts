@@ -24,7 +24,6 @@ const app = express();
 //   optionsSuccessStatus: 204
 // };
 
-
 app.use(helmet()); // set HTTP headers for security. See https://helmetjs.github.io/
 // app.use(cors(corsOptions));
 app.use(cors()); //temp until the options are ready to be set
