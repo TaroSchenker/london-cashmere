@@ -1,0 +1,51 @@
+version: '3'
+
+services:
+  client:
+    build:
+      context: .
+      dockerfile: ./client/Dockerfile
+    image: outageoutrage_client:latest
+    environment:
+    - API_BASE_URL=http://server:3001/api
+    - VITE_API_BASE_URL=http://server:3001/api
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client:/usr/src/app
+      - /usr/src/app/node_modules
+
+  server:
+    build:
+      context: .
+      dockerfile: ./server/Dockerfile
+    image: outageoutrage_server:latest
+    ports:
+      - "3001:3001"
+    environment:
+      - MONGO_URI
+    volumes:
+      - ./server:/usr/src/app
+      - /usr/src/app/node_modules
+
+
+# version: "3"
+# services:
+#   server:
+#     build: ./server
+#     ports:
+#       - "8000:8000"
+#     depends_on:
+#       - mongo
+#     environment:
+#       - MONGO_URI=mongodb://mongo:27017/outageOutrage
+
+#   client:
+#     build: ./client
+#     ports:
+#       - "3000:3000"
+
+#   mongo:
+#     image: mongo
+#     ports:
+#       - "27017:27017"

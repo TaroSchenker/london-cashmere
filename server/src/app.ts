@@ -17,19 +17,20 @@ dotenvConfig();
 
 const app = express();
 
-const corsOptions = {
-  origin: "https://yourfrontend.com", // Update this to your frontend domain
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  credentials: true,
-  optionsSuccessStatus: 204
-};
+// const corsOptions = {
+//   origin: "https://yourfrontend.com", // Update this to your frontend domain
+//   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//   credentials: true,
+//   optionsSuccessStatus: 204
+// };
 
-app.use(helmet());
-app.use(cors(corsOptions));
-app.use(bodyParser.json());
-app.use(mongoSanitize());
-app.use(hpp());
-app.use(morgan("combined")); // You can adjust the format ('combined' logs in Apache combined format)
+app.use(helmet()); // set HTTP headers for security. See https://helmetjs.github.io/
+// app.use(cors(corsOptions));
+app.use(cors()); //temp until the options are ready to be set
+app.use(bodyParser.json()); // parse JSON body
+app.use(mongoSanitize()); // protect against NoSQL Injection attacks
+app.use(hpp()); // protect against HTTP Parameter Pollution attacks
+app.use(morgan("combined")); // logging middleware, use "tiny" or "combined" for different levels of logging.
 
 // Set rate limiter
 const apiLimiter = rateLimit({

@@ -35,9 +35,8 @@ export const createProduct = async (
   req: Request,
   res: Response
 ): Promise<void> => {
-  const newProduct: IProductDocument = new Product(req.body);
-
   try {
+    const newProduct: IProductDocument = new Product(req.body);
     await newProduct.save();
     res.status(201).json(newProduct).end();
     return;

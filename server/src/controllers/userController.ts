@@ -10,7 +10,7 @@ export const registerUser = async (
   res: Response
 ): Promise<void> => {
   try {
-    const { name, email, password, address } = req.body;
+    const { name, email, password, address, role } = req.body;
 
     // Check if user with this email already exists
     const existingUser = await User.findOne({ email });
@@ -27,7 +27,8 @@ export const registerUser = async (
       name,
       email,
       hashedPassword,
-      address
+      address,
+      role
     });
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -59,6 +60,7 @@ export const loginUser = async (req: Request, res: Response): Promise<void> => {
 
     const token = generateToken(user.id, user.role);
     res.json({ token, userId: user.id }).end();
+    return;
   } catch (error) {
     console.error("Error logging in user:", error);
     res.status(500).json({ message: "Server error" }).end();
