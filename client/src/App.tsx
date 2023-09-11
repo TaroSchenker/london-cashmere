@@ -31,19 +31,21 @@ const routes = [
       {
         index: true, // The index route for '/'
         element: <Landing />,
+        loader: useProductsLoader,
       },
+
       {
         path: "products",
         children: [
           {
             index: true,
-            element: <ProductListPage />,
             loader: useProductsLoader,
+            element: <ProductListPage />,
           },
           {
             path: ":id",
-            element: <ProductDetailPage />,
             loader: useProductByIdLoader,
+            element: <ProductDetailPage />,
           },
         ],
       },
