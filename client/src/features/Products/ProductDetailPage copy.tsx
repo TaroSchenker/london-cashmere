@@ -25,20 +25,21 @@ const ProductDetailPage: React.FC = () => {
   const { product } = data;
 
   return (
-    <div className="p-4 md:p-8 bg-background-color flex flex-col md:flex-row justify-center items-center">
-      {/* go back button -  
-      go back button needs to be fixed, its positioning is not correct.
-      */}
-      <div className="mb-4 md:mb-0 md:absolute md:top-1/2 md:-translate-y-1/2 md:left-8 bg-primary-color text-background-color px-4 py-2 rounded transform">
-        <button onClick={() => navigate(-1)}>← Go Back</button>
-      </div>
-      <div className="max-w-full md:max-w-4xl w-full border border-gray-300 rounded-lg hover:shadow-xl transition-shadow duration-300 bg-white flex flex-col md:flex-row">
+    <div className="p-8 bg-background-color">
+      <button
+        onClick={() => navigate(-1)}
+        className="mb-4 bg-primary-color text-background-color px-4 py-2 rounded"
+      >
+        ← Go Back
+      </button>
+
+      <div className="max-w-2xl mx-auto border border-gray-300 rounded-lg hover:shadow-xl transition-shadow duration-300 bg-white">
         {/* Image */}
-        <div className="relative w-full md:w-1/2 p-6">
+        <div className="relative group">
           <img
             src={product.imageUrl}
             alt={product.name}
-            className={`w-full h-64 md:h-full object-cover transition-transform duration-300 group-hover:scale-105 rounded-t-lg ${
+            className={`w-full h-96 object-cover transition-transform duration-300 group-hover:scale-105 rounded-t-lg ${
               isZoomed ? "scale-150" : ""
             }`}
             onClick={() => setIsZoomed(!isZoomed)}
@@ -51,8 +52,8 @@ const ProductDetailPage: React.FC = () => {
         </div>
 
         {/* Product details */}
-        <div className="p-6 w-full md:w-1/2">
-          <h2 className="text-black font-serif font-bold text-2xl mb-2">
+        <div className="p-6">
+          <h2 className="text-black font-serif font-bold text-xl mb-2">
             {product.name}
           </h2>
           <p className="text-gray-600 mb-4">{product.description}</p>
@@ -66,19 +67,19 @@ const ProductDetailPage: React.FC = () => {
             </span>
           </div>
 
-          <div className="mb-4 flex items-center flex-wrap">
+          <div className="mb-4 flex items-center">
             <span className="text-sm text-gray-500 mr-2">Colors:</span>
             {product.color.map((c, index) => (
               <span
                 key={index}
-                className="inline-block w-6 h-6 mr-1 mt-1 rounded-full"
+                className="inline-block w-6 h-6 mr-1 rounded-full"
                 style={{ backgroundColor: c }}
               ></span>
             ))}
           </div>
 
           <div className="flex items-center justify-between mb-4">
-            <span className="font-serif font-bold text-2xl text-black">
+            <span className="font-serif font-bold text-xl text-black">
               £{product.price.toFixed(2)}
             </span>
             <button
@@ -99,8 +100,8 @@ const ProductDetailPage: React.FC = () => {
           </div>
 
           {/* Save for Later & Share buttons */}
-          <div className="flex items-center justify-between flex-wrap">
-            <button className="bg-neutral text-background-color px-6 py-2 rounded mb-2 md:mb-0">
+          <div className="flex items-center justify-between">
+            <button className="bg-neutral text-background-color px-6 py-2 rounded">
               Save for Later
             </button>
             <button className="bg-neutral text-background-color px-6 py-2 rounded">

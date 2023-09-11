@@ -4,7 +4,7 @@ import luxuryImage from "../assets/images/stock-photo-stack-of-white-and-gray-co
 const ProductListHeader: React.FC = () => {
   return (
     <div
-      className="relative h-48 md:h-64 lg:h-80 bg-center bg-cover mb-3"
+      className="relative h-28 md:h-40 lg:h-48 bg-center bg-cover mb-3"
       style={{ backgroundImage: `url(${luxuryImage})` }}
     >
       {/* Overlay to make text stand out on top of the image */}
