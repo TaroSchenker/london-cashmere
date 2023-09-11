@@ -2,12 +2,15 @@ import { BrowserRouter } from "react-router-dom";
 import HomePage from "./HomePage";
 import { screen, render } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { AuthProvider } from "../../context/AuthContext";
 
 describe("HomePage", () => {
   beforeEach(() => {
     render(
       <BrowserRouter>
-        <HomePage />
+        <AuthProvider>
+          <HomePage />
+        </AuthProvider>
       </BrowserRouter>,
     );
   });

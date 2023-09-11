@@ -1,7 +1,7 @@
 import {
-  faBell,
-  faHeart,
-  faHome,
+  // faBell,
+  // faHeart,
+  // faHome,
   faSearch,
   faShoppingCart,
   faUser,
@@ -16,24 +16,24 @@ const DesktopIcons: React.FC<DesktopIconProps> = ({ setCartSidebarOpen }) => {
   const navigate = useNavigate();
   return (
     <div className="hidden md:flex space-x-6">
-      <NavLink to="/">
+      {/* <NavLink to="/">
         <FontAwesomeIcon
           icon={faHome}
           className="text-xl hover:text-secondary-color"
         />
-      </NavLink>
+      </NavLink> */}
       <button onClick={() => navigate("/")}>
         <FontAwesomeIcon
           icon={faSearch}
           className="text-xl hover:text-secondary-color"
         />
       </button>
-      <NavLink to="/">
+      {/* <NavLink to="/">
         <FontAwesomeIcon
           icon={faHeart}
           className="text-xl hover:text-secondary-color"
         />
-      </NavLink>
+      </NavLink> */}
       <button onClick={() => setCartSidebarOpen((prev) => !prev)}>
         <FontAwesomeIcon
           icon={faShoppingCart}
@@ -46,12 +46,12 @@ const DesktopIcons: React.FC<DesktopIconProps> = ({ setCartSidebarOpen }) => {
           className="text-xl hover:text-secondary-color"
         />
       </NavLink>
-      <NavLink to="/">
+      {/* <NavLink to="/">
         <FontAwesomeIcon
           icon={faBell}
           className="text-xl hover:text-secondary-color"
         />
-      </NavLink>
+      </NavLink> */}
     </div>
   );
 };
