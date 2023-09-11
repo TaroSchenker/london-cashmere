@@ -1,5 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { createContext, useContext, useState, ReactNode } from "react";
+import axios from "axios";
 
 interface User {
   id: number;
@@ -10,33 +10,64 @@ interface AuthProviderProps {
   children: ReactNode;
 }
 
-export const AuthContext = createContext<User | null>(null);
+export const AuthContext = createContext<{
+  currentUser: User | null;
+  register: (data: RegisterData) => Promise<void>;
+  login: (email: string, password: string) => Promise<void>;
+} | null>(null);
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState<User | null>({
-    id: 1,
-    name: "Test User",
-  }); // default for testing
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
 
-  // const login = () => {
-  //   setCurrentUser({ id: 1, name: "Test User" }); // Simulated login for now
-  // };
+  const register = async (data: RegisterData) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:3001/api/users/register",
+        data,
+      );
+      // You can set the current user here if the response contains user details.
+      setCurrentUser(response.data.user);
+    } catch (error) {
+      console.error("Error registering user:", error);
+    }
+  };
 
-  // const logout = () => {
-  //   setCurrentUser(null);
-  // };
+  const login = async (email: string, password: string) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:3001/api/users/login",
+        {
+          email,
+          password,
+        },
+      );
+      // Assuming the response contains a user object and JWT token.
+      setCurrentUser(response.data.user);
+      localStorage.setItem("token", response.data.token); // Storing the JWT token in localStorage.
+    } catch (error) {
+      console.error("Error logging in:", error);
+    }
+  };
 
   return (
-    <AuthContext.Provider value={currentUser}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ currentUser, register, login }}>
+      {children}
+    </AuthContext.Provider>
   );
 };
 
 export const useAuth = () => {
-  const currentUser = useContext(AuthContext);
-  if (currentUser === null) {
-    throw new Error(
-      "useAuth must be used within an AuthProvider that sets a user.",
-    );
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("useAuth must be used within an AuthProvider.");
   }
-  return currentUser;
+  return context;
 };
+
+interface RegisterData {
+  name: string;
+  email: string;
+  address: string;
+  password: string;
+  role?: string;
+}
