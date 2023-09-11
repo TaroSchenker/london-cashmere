@@ -18,7 +18,10 @@ import { AuthProvider } from "./context/AuthContext";
 import CashmereInfo from "./pages/AboutPage/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import StoryPage from "./pages/StoryPage";
-import { useProductsLoader } from "./hooks/useProductsLoader";
+import {
+  useProductByIdLoader,
+  useProductsLoader,
+} from "./hooks/useProductsLoader";
 
 const routes = [
   {
@@ -42,6 +45,7 @@ const routes = [
           {
             path: ":id",
             element: <ProductDetailPage />,
+            loader: useProductByIdLoader,
           },
         ],
       },
