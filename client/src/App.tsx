@@ -31,19 +31,21 @@ const routes = [
       {
         index: true, // The index route for '/'
         element: <Landing />,
+        loader: useProductsLoader,
       },
+
       {
         path: "products",
         children: [
           {
             index: true,
-            element: <ProductListPage />,
             loader: useProductsLoader,
+            element: <ProductListPage />,
           },
           {
             path: ":id",
-            element: <ProductDetailPage />,
             loader: useProductByIdLoader,
+            element: <ProductDetailPage />,
           },
         ],
       },
@@ -106,14 +108,3 @@ const App: React.FC = () => {
 };
 
 export default App;
-
-// features/Products/productLoaders.ts
-// export const productDetailLoader = ({ params }) => {
-//   // You'd typically make an API call here using the params from the route.
-//   // For this example, I'll return mock data.
-
-//   const productId = params.id;
-
-//   return fetch(`/api/products/${productId}`)
-//     .then(response => response.json());
-// }

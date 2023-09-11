@@ -23,7 +23,6 @@ const ProductDetailPage: React.FC = () => {
   const navigate = useNavigate();
   const data = useLoaderData() as { product: IProduct };
   const { product } = data;
-  console.log("product detail page", product);
   return (
     <div className="p-8 bg-background-color">
       <button

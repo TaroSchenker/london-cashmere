@@ -10,6 +10,7 @@ import { IProduct } from "../../types";
 const ProductListPage: React.FC = () => {
   const data = useLoaderData() as { products: IProduct[] };
   const { products } = data;
+
   return (
     <div className="bg-background-color min-h-screen py-10">
       <div className="container mx-auto px-6">

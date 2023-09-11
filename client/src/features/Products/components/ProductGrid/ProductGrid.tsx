@@ -7,7 +7,6 @@ interface ProductGridProps {
   products: IProduct[];
 }
 const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
-  console.log("ProductGrid", products);
   return (
     <div>
       {/* Products grid */}
