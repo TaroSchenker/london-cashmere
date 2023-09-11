@@ -2,7 +2,7 @@
 
 export default {
   preset: "ts-jest",
-  testEnvironment: "jest-environment-jsdom",
+  testEnvironment: "jest-environment-jsdom", //or jsdom? 
   transform: {
     "^.+\\.tsx?$": "ts-jest",
     // process `*.tsx` files with `ts-jest`

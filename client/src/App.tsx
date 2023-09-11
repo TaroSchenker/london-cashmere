@@ -108,14 +108,3 @@ const App: React.FC = () => {
 };
 
 export default App;
-
-// features/Products/productLoaders.ts
-// export const productDetailLoader = ({ params }) => {
-//   // You'd typically make an API call here using the params from the route.
-//   // For this example, I'll return mock data.
-
-//   const productId = params.id;
-
-//   return fetch(`/api/products/${productId}`)
-//     .then(response => response.json());
-// }
