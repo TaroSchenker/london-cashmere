@@ -36,6 +36,10 @@ describe("User Controller", () => {
       const res = await request(app).post("/api/users/register").send(mockUser);
       expect(res.status).toBe(201);
       expect(res.body.message).toBe("User registered successfully");
+      expect(res.body.user.id).toBeDefined();
+      expect(res.body.user.name).toBe(mockUser.name);
+      expect(res.body.user.email).toBe(mockUser.email);
+      expect(res.body.user.hashedPassword).not.toBeDefined();
     });
 
     test("should not register a user with an already existing email", async () => {
@@ -65,7 +69,9 @@ describe("User Controller", () => {
       });
       expect(res.status).toBe(200);
       expect(res.body.token).toBeDefined();
-      expect(res.body.userId).toBeDefined();
+      expect(res.body.user.email).toBeDefined();
+      expect(res.body.user.id).toBeDefined();
+      expect(res.body.user.hashedPassword).not.toBeDefined();
     });
 
     test("should not login with a wrong password", async () => {

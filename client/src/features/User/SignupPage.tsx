@@ -1,15 +1,36 @@
-// src/components/SignUpPage.tsx
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth"; // Adjust the path as needed to point to your AuthContext file
 
 const SignUpPage: React.FC = () => {
+  // Using state to maintain form fields
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const { register } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const data = {
+      name: username,
+      email: email,
+      password: password,
+      address: email,
+      // If you have additional fields like address and role, add them here.
+    };
+    await register(data);
+    navigate("/products"); // Redirect
+  };
+
   return (
     <div className="min-h-screen bg-neutral-lightest flex items-center justify-center">
       <div className="bg-white p-large rounded shadow-lg w-96">
         <h1 className="text-primary-color text-2xl mb-medium font-bold">
           Sign Up
         </h1>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="mb-small">
             <label
               className="block mb-small text-neutral-dark"
@@ -22,6 +43,8 @@ const SignUpPage: React.FC = () => {
               type="text"
               id="username"
               placeholder="Choose a username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
           </div>
           <div className="mb-small">
@@ -33,6 +56,8 @@ const SignUpPage: React.FC = () => {
               type="email"
               id="email"
               placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="mb-medium">
@@ -47,6 +72,8 @@ const SignUpPage: React.FC = () => {
               type="password"
               id="password"
               placeholder="Create a password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <button

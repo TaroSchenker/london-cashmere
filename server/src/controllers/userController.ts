@@ -12,17 +12,14 @@ export const registerUser = async (
   try {
     const { name, email, password, address, role } = req.body;
 
-    // Check if user with this email already exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      res.status(400).json({ message: "User already exists" }).end();
+      res.status(400).json({ message: "User already exists" });
       return;
     }
 
-    // Hash the password before saving the user
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const user = new User({
       name,
       email,
@@ -31,13 +28,20 @@ export const registerUser = async (
       role
     });
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const savedUser = await user.save();
-    res.status(201).json({ message: "User registered successfully" }).end();
-    return;
+
+    // Return some basic user info without sensitive data
+    res.status(201).json({
+      message: "User registered successfully",
+      user: {
+        id: savedUser.id,
+        name: savedUser.name,
+        email: savedUser.email
+      }
+    });
   } catch (error) {
     console.error("Error registering user:", error);
-    res.status(500).json({ message: "Server error" }).end();
+    res.status(500).json({ message: "Server error" });
     return;
   }
 };
@@ -48,22 +52,30 @@ export const loginUser = async (req: Request, res: Response): Promise<void> => {
 
     const user = await User.findOne({ email });
     if (!user) {
-      res.status(400).json({ message: "Invalid email or password" }).end();
+      res.status(400).json({ message: "Invalid email or password" });
       return;
     }
 
     const isMatch = await bcrypt.compare(password, user.hashedPassword);
     if (!isMatch) {
-      res.status(400).json({ message: "Invalid email or password" }).end();
+      res.status(400).json({ message: "Invalid email or password" });
       return;
     }
 
     const token = generateToken(user.id, user.role);
-    res.json({ token, userId: user.id }).end();
-    return;
+
+    // Return token and some basic user info
+    res.json({
+      token,
+      user: {
+        id: user.id,
+        name: user.name,
+        email: user.email
+      }
+    });
   } catch (error) {
     console.error("Error logging in user:", error);
-    res.status(500).json({ message: "Server error" }).end();
+    res.status(500).json({ message: "Server error" });
     return;
   }
 };

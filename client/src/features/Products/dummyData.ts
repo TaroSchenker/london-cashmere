@@ -1,4 +1,4 @@
-import { IProduct } from "../../types"; // Assuming your types are in a file called types.ts
+import { IProduct } from "../../types";
 import cashmere from "../../common/assets/images/cashmere.jpg";
 export const dummyProducts: IProduct[] = [
   {
@@ -61,6 +61,4 @@ export const dummyProducts: IProduct[] = [
     imageUrl: cashmere,
     stockCount: 12,
   },
-
-  // ... Add more dummy products as needed
 ];

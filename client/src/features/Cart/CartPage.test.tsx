@@ -3,11 +3,24 @@ import { BrowserRouter } from "react-router-dom";
 
 import * as AuthHooks from "../../hooks/useAuth"; // Adjust the path
 import CartPage from "./CartPage";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import mockAxios from "jest-mock-axios";
 import "@testing-library/jest-dom";
 
 describe("CartPage", () => {
   const mockOnClose = jest.fn();
-  const mockUser = { id: 1, name: "Test User" };
+  const mockUser = {
+    id: 1,
+    name: "Test User",
+    email: "test@mail.com",
+    password: "test",
+  };
+
+  const mockAuthValue = {
+    currentUser: mockUser,
+    register: jest.fn(),
+    login: jest.fn(),
+  };
 
   const defaultProps = {
     isOpen: true,
@@ -20,7 +33,16 @@ describe("CartPage", () => {
   };
 
   // Mock the useAuth hook before your tests
-  jest.spyOn(AuthHooks, "useAuth").mockReturnValue(mockUser);
+  jest.spyOn(AuthHooks, "useAuth").mockReturnValue(mockAuthValue);
+
+  afterEach(() => {
+    mockAxios.reset();
+  });
+
+  // Restore the mock after the tests
+  afterAll(() => {
+    jest.restoreAllMocks();
+  });
 
   test("should render the cart sidebar when isOpen is true", () => {
     render(
@@ -61,12 +83,5 @@ describe("CartPage", () => {
     );
     const cartProducts = screen.getAllByRole("listitem");
     expect(cartProducts.length).toBeGreaterThan(0); // Ensure there are cart products
-  });
-
-  // ... rest of your tests
-
-  // Restore the mock after the tests
-  afterAll(() => {
-    jest.restoreAllMocks();
   });
 });
