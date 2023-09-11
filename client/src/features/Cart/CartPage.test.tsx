@@ -6,6 +6,7 @@ import CartPage from "./CartPage";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import mockAxios from "jest-mock-axios";
 import "@testing-library/jest-dom";
+import { AuthProvider } from "../../context/AuthContext";
 
 describe("CartPage", () => {
   const mockOnClose = jest.fn();
@@ -20,6 +21,7 @@ describe("CartPage", () => {
     currentUser: mockUser,
     register: jest.fn(),
     login: jest.fn(),
+    logout: jest.fn(),
   };
 
   const defaultProps = {
@@ -47,7 +49,9 @@ describe("CartPage", () => {
   test("should render the cart sidebar when isOpen is true", () => {
     render(
       <BrowserRouter>
-        <CartPage {...defaultProps} />
+        <AuthProvider>
+          <CartPage {...defaultProps} />
+        </AuthProvider>
       </BrowserRouter>,
     );
     const cartSideBar = screen.getByRole("complementary");

@@ -10,10 +10,19 @@ interface AuthProviderProps {
   children: ReactNode;
 }
 
+interface RegisterData {
+  name: string;
+  email: string;
+  address: string;
+  password: string;
+  role?: string;
+}
+
 export const AuthContext = createContext<{
   currentUser: User | null;
   register: (data: RegisterData) => Promise<void>;
   login: (email: string, password: string) => Promise<void>;
+  logout: () => void;
 } | null>(null);
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
@@ -41,7 +50,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
           password,
         },
       );
-      // Assuming the response contains a user object and JWT token.
       setCurrentUser(response.data.user);
       localStorage.setItem("token", response.data.token); // Storing the JWT token in localStorage.
     } catch (error) {
@@ -49,8 +57,19 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
   };
 
+  const logout = () => {
+    // Remove the JWT token from localStorage
+    localStorage.removeItem("token");
+
+    // Set the current user to null
+    setCurrentUser(null);
+
+    // call the backend API logout endpoint once it's ready, if it's needed.
+    // axios.post("http://localhost:3001/api/users/logout");
+  };
+
   return (
-    <AuthContext.Provider value={{ currentUser, register, login }}>
+    <AuthContext.Provider value={{ currentUser, register, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
@@ -63,11 +82,3 @@ export const useAuth = () => {
   }
   return context;
 };
-
-interface RegisterData {
-  name: string;
-  email: string;
-  address: string;
-  password: string;
-  role?: string;
-}

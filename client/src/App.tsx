@@ -59,12 +59,11 @@ const routes = [
         children: [
           {
             path: "profile",
-            element: <AuthRoute />, // wrap this around your user routes
-            children: [
-              {
-                element: <UserProfilePage />,
-              },
-            ],
+            element: (
+              <AuthRoute>
+                <UserProfilePage />
+              </AuthRoute>
+            ), // wrap this around your user routes
           },
           {
             path: "register",

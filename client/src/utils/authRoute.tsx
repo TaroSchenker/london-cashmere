@@ -3,7 +3,11 @@ import React from "react";
 import { useAuth } from "../context/AuthContext";
 import { Navigate } from "react-router-dom";
 
-const AuthRoute: React.FC = ({ children }: any) => {
+interface AuthRouteProps {
+  children: React.ReactNode;
+}
+
+const AuthRoute: React.FC<AuthRouteProps> = ({ children }) => {
   const currentUser = useAuth();
 
   if (!currentUser) {
