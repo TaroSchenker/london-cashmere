@@ -10,8 +10,6 @@ import UserAuth from "./features/User/UserAuth";
 import AdminDashboard from "./features/Admin/AdminDashboard";
 import CheckoutPage from "./features/Checkout/CheckoutPage";
 
-// Assuming you have a header and footer in the common layout
-
 import LoadingSpinner from "./common/components/LoadingSpinner/LoadingSpinner";
 import SignUpPage from "./features/User/SignupPage";
 import Landing from "./common/layout/Landing";
@@ -20,6 +18,7 @@ import { AuthProvider } from "./context/AuthContext";
 import CashmereInfo from "./pages/AboutPage/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import StoryPage from "./pages/StoryPage";
+import { useProductsLoader } from "./hooks/useProductsLoader";
 
 const routes = [
   {
@@ -36,6 +35,7 @@ const routes = [
           {
             index: true,
             element: <ProductListPage />,
+            loader: useProductsLoader,
           },
           {
             path: ":id",
