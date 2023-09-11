@@ -17,20 +17,19 @@ dotenvConfig();
 
 const app = express();
 
-// const corsOptions = {
-//   origin: "https://yourfrontend.com", // Update this to your frontend domain
-//   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-//   credentials: true,
-//   optionsSuccessStatus: 204
-// };
+const corsOptions = {
+  origin: "http://localhost:3000",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+  optionsSuccessStatus: 204
+};
 
 app.use(helmet()); // set HTTP headers for security. See https://helmetjs.github.io/
-// app.use(cors(corsOptions));
-app.use(cors()); //temp until the options are ready to be set
+app.use(cors(corsOptions));
 app.use(bodyParser.json()); // parse JSON body
 app.use(mongoSanitize()); // protect against NoSQL Injection attacks
 app.use(hpp()); // protect against HTTP Parameter Pollution attacks
-app.use(morgan("combined")); // logging middleware, use "tiny" or "combined" for different levels of logging.
+app.use(morgan("combined")); // logging middleware, use "tiny" or "combined" for different levels of logging. use  tiny for production, combined for development. combined reveals the IP address of the client and other sensitive information.
 
 // Set rate limiter
 const apiLimiter = rateLimit({
