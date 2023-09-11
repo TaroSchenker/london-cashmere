@@ -12,9 +12,9 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
     <div>
       {/* Products grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
-        {products.map((product, index) => (
-          <Link key={index} to={`/products/${index}`}>
-            <ProductCard key={`${product} + ${index}`} product={product} />
+        {products.map((product) => (
+          <Link key={product._id} to={`/products/${product._id}`}>
+            <ProductCard product={product} />
           </Link>
         ))}
       </div>

@@ -1,25 +1,29 @@
 import React, { useState } from "react";
 // import { IProduct } from "../../types";
-import cashmere from "../../common/assets/images/cashmere.jpg";
-import { useNavigate } from "react-router-dom";
+// import cashmere from "../../common/assets/images/cashmere.jpg";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import { IProduct } from "../../types";
 // interface ProductDetailPageProps {
 //   product: IProduct;
 // }
 
-const product = {
-  _id: "60684691d8e1dc23345fe7e6",
-  name: "Classic Cashmere Jumper",
-  description: "A soft, classic cashmere jumper perfect for any occasion.",
-  price: 120,
-  size: ["S", "M", "L", "XL"],
-  color: ["White", "Black", "Gray"],
-  imageUrl: cashmere,
-  stockCount: 12,
-};
+// const product = {
+//   _id: "60684691d8e1dc23345fe7e6",
+//   name: "Classic Cashmere Jumper",
+//   description: "A soft, classic cashmere jumper perfect for any occasion.",
+//   price: 120,
+//   size: ["S", "M", "L", "XL"],
+//   color: ["White", "Black", "Gray"],
+//   imageUrl: cashmere,
+//   stockCount: 12,
+// };
+
 const ProductDetailPage: React.FC = () => {
   const [isZoomed, setIsZoomed] = useState(false);
   const navigate = useNavigate();
-
+  const data = useLoaderData() as { product: IProduct };
+  const { product } = data;
+  console.log("product detail page", product);
   return (
     <div className="p-8 bg-background-color">
       <button
