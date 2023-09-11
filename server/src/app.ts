@@ -29,7 +29,7 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json()); // parse JSON body
 app.use(mongoSanitize()); // protect against NoSQL Injection attacks
 app.use(hpp()); // protect against HTTP Parameter Pollution attacks
-app.use(morgan("combined")); // logging middleware, use "tiny" or "combined" for different levels of logging. use  tiny for production, combined for development. combined reveals the IP address of the client and other sensitive information.
+app.use(morgan("combined")); // logging middleware, use "tiny" or "combined" for different levels of logging. use  tiny for production, combined for development. combined reveals sensitive information.
 
 // Set rate limiter
 const apiLimiter = rateLimit({
