@@ -22,6 +22,7 @@ import {
   useProductByIdLoader,
   useProductsLoader,
 } from "./hooks/useProductsLoader";
+import ErrorBoundary from "./common/components/ErrorBoundry/ErrorBoundary";
 
 const routes = [
   {
@@ -40,11 +41,19 @@ const routes = [
           {
             index: true,
             loader: useProductsLoader,
-            element: <ProductListPage />,
+            element: (
+              <ErrorBoundary>
+                <ProductListPage />
+              </ErrorBoundary>
+            ),
           },
           {
             path: ":id",
-            element: <ProductDetailPage />,
+            element: (
+              <ErrorBoundary>
+                <ProductDetailPage />
+              </ErrorBoundary>
+            ),
             loader: useProductByIdLoader,
           },
         ],
@@ -60,29 +69,52 @@ const routes = [
           {
             path: "profile",
             element: (
-              <AuthRoute>
-                <UserProfilePage />
-              </AuthRoute>
+              <ErrorBoundary>
+                <AuthRoute>
+                  <UserProfilePage />
+                </AuthRoute>
+              </ErrorBoundary>
             ), // wrap this around your user routes
           },
           {
             path: "register",
-            element: <SignUpPage />,
+            element: (
+              <ErrorBoundary>
+                <SignUpPage />
+              </ErrorBoundary>
+            ),
           },
           {
             path: "auth",
-            element: <UserAuth />,
+            element: (
+              <ErrorBoundary>
+                <UserAuth />
+              </ErrorBoundary>
+            ),
           },
         ],
       },
       {
         path: "admin",
         // element: <AuthRoute />,
-        children: [{ path: "", element: <AdminDashboard /> }],
+        children: [
+          {
+            path: "",
+            element: (
+              <ErrorBoundary>
+                <AdminDashboard />
+              </ErrorBoundary>
+            ),
+          },
+        ],
       },
       {
         path: "checkout",
-        element: <CheckoutPage />,
+        element: (
+          <ErrorBoundary>
+            <CheckoutPage />
+          </ErrorBoundary>
+        ),
       },
       {
         path: "about",
@@ -100,9 +132,11 @@ const router = createBrowserRouter(routes);
 
 const App: React.FC = () => {
   return (
-    <AuthProvider>
-      <RouterProvider router={router} fallbackElement={<LoadingSpinner />} />
-    </AuthProvider>
+    <ErrorBoundary>
+      <AuthProvider>
+        <RouterProvider router={router} fallbackElement={<LoadingSpinner />} />
+      </AuthProvider>
+    </ErrorBoundary>
   );
 };
 
