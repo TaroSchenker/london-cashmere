@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div>
+    <div role="contentinfo">
       {/* Footer information */}
       <div className="mt-16 border-t pt-10">
         <ul className="flex space-x-6">
@@ -22,7 +22,6 @@ const Footer = () => {
               Return Policy
             </Link>
           </li>
-          {/* Add more essential links as needed */}
         </ul>
       </div>
     </div>

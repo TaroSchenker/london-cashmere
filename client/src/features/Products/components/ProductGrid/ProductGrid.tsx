@@ -8,11 +8,11 @@ interface ProductGridProps {
 }
 const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
   return (
-    <div>
+    <div role="grid">
       {/* Products grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
         {products.map((product) => (
-          <Link key={product._id} to={`/products/${product._id}`}>
+          <Link role="link" key={product._id} to={`/products/${product._id}`}>
             <ProductCard product={product} />
           </Link>
         ))}
