@@ -41,9 +41,9 @@ const CartPage: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => {
           </button>
           <div className="flex-grow overflow-y-auto mb-4" role="listitem">
             <ul>
-              {cart.map((item: ICartItem) => (
+              {cart.map((item: ICartItem, index: number) => (
                 <li
-                  key={item.product._id}
+                  key={item.product._id + index}
                   className="mb-5 border-b border-red-800"
                 >
                   {/* Product Details */}
