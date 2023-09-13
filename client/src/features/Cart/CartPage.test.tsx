@@ -1,12 +1,11 @@
-import { render, screen } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
+import { screen } from "@testing-library/react";
 
 import * as AuthHooks from "../../hooks/useAuth"; // Adjust the path
 import CartPage from "./CartPage";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import mockAxios from "jest-mock-axios";
 import "@testing-library/jest-dom";
-import { AuthProvider } from "../../context/AuthContext";
+import { customRender } from "../../__test__/helpers/renderWithProvider";
 
 describe("CartPage", () => {
   const mockOnClose = jest.fn();
@@ -47,44 +46,42 @@ describe("CartPage", () => {
   });
 
   test("should render the cart sidebar when isOpen is true", () => {
-    render(
-      <BrowserRouter>
-        <AuthProvider>
-          <CartPage {...defaultProps} />
-        </AuthProvider>
-      </BrowserRouter>,
-    );
+    customRender(<CartPage {...defaultProps} />, {
+      withAuth: true,
+      withRouter: true,
+      withCart: true,
+    });
     const cartSideBar = screen.getByRole("complementary");
     expect(cartSideBar).toBeInTheDocument();
     expect(cartSideBar).toHaveClass("translate-x-0"); // Ensure the sidebar is visible
   });
 
   test("should not render the cart sidebar when isOpen is false", () => {
-    render(
-      <BrowserRouter>
-        <CartPage {...closedProps} />
-      </BrowserRouter>,
-    );
+    customRender(<CartPage {...closedProps} />, {
+      withAuth: true,
+      withRouter: true,
+      withCart: true,
+    });
     const cartSideBar = screen.getByRole("complementary");
     expect(cartSideBar).toHaveClass("translate-x-full"); // Ensure the sidebar is hidden
   });
 
   test("should render the close button", () => {
-    render(
-      <BrowserRouter>
-        <CartPage {...defaultProps} />
-      </BrowserRouter>,
-    );
+    customRender(<CartPage {...defaultProps} />, {
+      withAuth: true,
+      withRouter: true,
+      withCart: true,
+    });
     const closeButton = screen.getByRole("button");
     expect(closeButton).toBeInTheDocument();
   });
 
   test("should render the cart products", () => {
-    render(
-      <BrowserRouter>
-        <CartPage {...defaultProps} />
-      </BrowserRouter>,
-    );
+    customRender(<CartPage {...defaultProps} />, {
+      withAuth: true,
+      withRouter: true,
+      withCart: true,
+    });
     const cartProducts = screen.getAllByRole("listitem");
     expect(cartProducts.length).toBeGreaterThan(0); // Ensure there are cart products
   });

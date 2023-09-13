@@ -1,10 +1,12 @@
 import React from "react";
 import { IProduct } from "../../../../types/index";
+import { useAddToCart } from "../../../../hooks/useAddToCart";
 
 interface ProductCardProps {
   product: IProduct;
 }
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+  const addToCartHandler = useAddToCart(product);
   return (
     <div className="border border-gray-300 rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 bg-white">
       <div className="relative group">
@@ -53,6 +55,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               : "hover:scale-105"
           }`}
           disabled={product.stockCount === 0}
+          onClick={addToCartHandler}
         >
           Add to Cart
         </button>

@@ -1,15 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState } from "react";
-import { IProduct } from "../../types";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import CartTotal from "./components/CartTotal/CartTotal";
 import CartProductItem from "./components/CartProductItem/CartProductItem";
-import { dummyCartData } from "./dummyCartData";
-
-export interface CartProduct extends IProduct {
-  quantity: number;
-}
+import { useCart } from "../../hooks/useCart"; // Make sure to provide the correct path
+import { ICartItem } from "../../context/CartContext";
 
 interface CartSidebarProps {
   isOpen: boolean;
@@ -17,13 +12,13 @@ interface CartSidebarProps {
 }
 
 const CartPage: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => {
-  const [cartProducts, setCartProducts] =
-    useState<CartProduct[]>(dummyCartData);
+  const { cart, removeFromCart } = useCart();
 
-  const totalAmount = cartProducts.reduce(
-    (total, product) => total + product.price * product.quantity,
+  const totalAmount = cart.reduce(
+    (total, item) => total + item.product.price * item.quantity,
     0,
   );
+
   return (
     <>
       {isOpen && (
@@ -44,10 +39,26 @@ const CartPage: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => {
           >
             <FontAwesomeIcon icon={faTimes} size="lg" />
           </button>
-          <div className="flex-grow overflow-y-auto mb-4">
+          <div className="flex-grow overflow-y-auto mb-4" role="listitem">
             <ul>
-              {cartProducts.map((product, index) => (
-                <CartProductItem key={index} product={product} />
+              {cart.map((item: ICartItem) => (
+                <li
+                  key={item.product._id}
+                  className="mb-5 border-b border-red-800"
+                >
+                  {/* Product Details */}
+                  <div className="flex items-center mb-2">
+                    <CartProductItem product={item} />
+                  </div>
+
+                  {/* Remove Button */}
+                  <button
+                    onClick={() => removeFromCart(item.product._id)}
+                    className="pb-4 text-xs hover:underline"
+                  >
+                    Remove item from cart
+                  </button>
+                </li>
               ))}
             </ul>
           </div>
