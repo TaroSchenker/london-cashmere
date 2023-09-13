@@ -9,6 +9,7 @@ import { IProduct } from "../../types";
 
 const ProductListPage: React.FC = () => {
   const data = useLoaderData() as { products: IProduct[] };
+
   const { products } = data;
 
   return (

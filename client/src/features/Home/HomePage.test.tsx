@@ -1,18 +1,16 @@
-import { BrowserRouter } from "react-router-dom";
 import HomePage from "./HomePage";
-import { screen, render } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { AuthProvider } from "../../context/AuthContext";
+
+import { customRender } from "../../__test__/helpers/renderWithProvider";
 
 describe("HomePage", () => {
   beforeEach(() => {
-    render(
-      <BrowserRouter>
-        <AuthProvider>
-          <HomePage />
-        </AuthProvider>
-      </BrowserRouter>,
-    );
+    customRender(<HomePage />, {
+      withAuth: true,
+      withRouter: true,
+      withCart: true,
+    });
   });
   test("renders the Menu title", () => {
     expect(screen.getByText("Menu")).toBeInTheDocument();

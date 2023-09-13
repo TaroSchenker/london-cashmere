@@ -5,6 +5,7 @@ import { IProduct } from "../../../../types";
 
 interface ProductGridProps {
   products: IProduct[];
+  // addToCart: (product: IProduct, quantity: number) => void;
 }
 const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
   return (
