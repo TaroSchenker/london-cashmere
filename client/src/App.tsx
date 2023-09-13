@@ -23,6 +23,7 @@ import {
   useProductsLoader,
 } from "./hooks/useProductsLoader";
 import ErrorBoundary from "./common/components/ErrorBoundry/ErrorBoundary";
+import { CartProvider } from "./context/CartContext";
 
 const routes = [
   {
@@ -134,7 +135,12 @@ const App: React.FC = () => {
   return (
     <ErrorBoundary>
       <AuthProvider>
-        <RouterProvider router={router} fallbackElement={<LoadingSpinner />} />
+        <CartProvider>
+          <RouterProvider
+            router={router}
+            fallbackElement={<LoadingSpinner />}
+          />
+        </CartProvider>
       </AuthProvider>
     </ErrorBoundary>
   );
