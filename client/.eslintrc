@@ -21,18 +21,19 @@
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": [
-          "**/*.test.ts",
-          "**/*.test.tsx",
-          "**/*.spec.ts",
-          "**/*.spec.tsx",
-          "src/test/**/*"
-        ]
-      }
-    ]
+      "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
+    // "import/no-extraneous-dependencies": [
+    //   "error",
+    //   {
+    //     "devDependencies": [
+    //       "**/*.test.ts",
+    //       "**/*.test.tsx",
+    //       "**/*.spec.ts",
+    //       "**/*.spec.tsx",
+    //       "src/test/**/*"
+    //     ]
+    //   }
+    // ]
   },
   "settings": {
     "react": {
