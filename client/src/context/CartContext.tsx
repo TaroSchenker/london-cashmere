@@ -8,6 +8,7 @@ export interface ICartItem {
 
 interface CartProviderProps {
   children: React.ReactNode;
+  initialValue?: ICartItem[];
 }
 interface CartContextProps {
   cart: ICartItem[];
@@ -15,14 +16,18 @@ interface CartContextProps {
   removeFromCart: (productId: string) => void;
   updateQuantity: (productId: string, newQuantity: number) => void;
   clearCart: () => void;
+  cartItemCount: number;
 }
 
 export const CartContext = createContext<CartContextProps | undefined>(
   undefined,
 );
 
-export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
-  const [cart, setCart] = useState<ICartItem[]>([]);
+export const CartProvider: React.FC<CartProviderProps> = ({
+  children,
+  initialValue = [],
+}) => {
+  const [cart, setCart] = useState<ICartItem[]>(initialValue);
 
   const addToCart = (product: IProduct, quantity: number) => {
     setCart([...cart, { product, quantity }]);
@@ -42,13 +47,22 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     );
   };
 
+  const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
+
   const clearCart = () => {
     setCart([]);
   };
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, updateQuantity, clearCart }}
+      value={{
+        cart,
+        addToCart,
+        removeFromCart,
+        updateQuantity,
+        clearCart,
+        cartItemCount,
+      }}
     >
       {children}
     </CartContext.Provider>
