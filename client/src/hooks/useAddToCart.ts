@@ -6,7 +6,7 @@ export const useAddToCart = (product: IProduct) => {
   const { addToCart } = useCart();
 
   const memoizedAddToCart = useCallback(() => {
-    addToCart(product, 0);
+    addToCart(product, 1);
   }, [product, addToCart]);
 
   return memoizedAddToCart;

@@ -14,6 +14,7 @@ interface CartSidebarProps {
 const CartPage: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => {
   const { cart, removeFromCart } = useCart();
 
+  console.log("cart", cart);
   const totalAmount = cart.reduce(
     (total, item) => total + item.product.price * item.quantity,
     0,
