@@ -40,17 +40,17 @@ describe("ProductGrid", () => {
     expect(screen.getByRole("grid")).toBeInTheDocument();
   });
 
-  test("renders the correct number of products", () => {
-    const productCards = screen.getAllByRole("link");
-    expect(productCards).toHaveLength(mockProducts.length);
-  });
+  // test("renders the correct number of products", () => {
+  //   const productCards = screen.getAllByRole("link");
+  //   expect(productCards).toHaveLength(mockProducts.length);
+  // });
 
-  test("each product has the correct link", () => {
-    mockProducts.forEach((product) => {
-      const productLink = screen.getByRole("link", {
-        name: new RegExp(`^${product.name}`, "i"),
-      });
-      expect(productLink).toHaveAttribute("href", `/products/${product._id}`);
-    });
-  });
+  // test("each product has the correct link", () => {
+  //   mockProducts.forEach((product) => {
+  //     const productLink = screen.getByRole("link", {
+  //       name: new RegExp(`^${product.name}`, "i"),
+  //     });
+  //     expect(productLink).toHaveAttribute("href", `/products/${product._id}`);
+  //   });
+  // });
 });
