@@ -1,12 +1,13 @@
 import { render, RenderOptions, RenderResult } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "../../context/AuthContext";
-import { CartProvider } from "../../context/CartContext";
+import { CartProvider, ICartItem } from "../../context/CartContext";
 
 interface CustomRenderOptions extends RenderOptions {
   withRouter?: boolean;
   withAuth?: boolean;
   withCart?: boolean;
+  cartItems?: ICartItem[];
 }
 
 const customRender = (
@@ -17,6 +18,7 @@ const customRender = (
     withRouter = false,
     withAuth = false,
     withCart = false,
+    cartItems = [],
     ...restOptions
   } = options;
 
@@ -32,7 +34,7 @@ const customRender = (
     }
 
     if (withCart) {
-      content = <CartProvider>{content}</CartProvider>;
+      content = <CartProvider initialValue={cartItems}>{content}</CartProvider>;
     }
 
     return <>{content}</>;
