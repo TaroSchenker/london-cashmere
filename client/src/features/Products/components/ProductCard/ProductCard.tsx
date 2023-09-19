@@ -13,7 +13,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const handleAddToCart = () => {
     addToCartHandler();
     toast.success(`${product.name} added to cart`, {
-      position: toast.POSITION.TOP_RIGHT,
+      position: toast.POSITION.TOP_LEFT,
       autoClose: 1000,
     });
   };
