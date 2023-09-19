@@ -25,7 +25,7 @@ const Landing = () => {
             className="text-7xl font-bold mb-6 text-white leading-tight"
             style={{ fontFamily: "'Oswald', sans-serif" }}
           >
-            PAM'S
+            LONDON
           </h1>
           <span
             className="text-4xl text-gray-200"
