@@ -20,7 +20,7 @@ describe("ProductCard", () => {
   test("renders product name and description", () => {
     customRender(<ProductCard product={mockProduct} />, {
       withAuth: false,
-      withRouter: false,
+      withRouter: true,
       withCart: true,
     });
     expect(screen.getByText(mockProduct.name)).toBeInTheDocument();
@@ -30,7 +30,7 @@ describe("ProductCard", () => {
   test("displays product image with correct alt attribute", () => {
     customRender(<ProductCard product={mockProduct} />, {
       withAuth: false,
-      withRouter: false,
+      withRouter: true,
       withCart: true,
     });
     const img = screen.getByAltText(mockProduct.name) as HTMLImageElement;
@@ -41,7 +41,7 @@ describe("ProductCard", () => {
     const outOfStockProduct = { ...mockProduct, stockCount: 0 };
     customRender(<ProductCard product={outOfStockProduct} />, {
       withAuth: false,
-      withRouter: false,
+      withRouter: true,
       withCart: true,
     });
     expect(screen.getByText("Out of Stock")).toBeInTheDocument();
@@ -51,7 +51,7 @@ describe("ProductCard", () => {
     const outOfStockProduct = { ...mockProduct, stockCount: 0 };
     customRender(<ProductCard product={outOfStockProduct} />, {
       withAuth: false,
-      withRouter: false,
+      withRouter: true,
       withCart: true,
     });
     const btn = screen.getByText("Add to Cart");
@@ -72,7 +72,7 @@ describe("ProductCard", () => {
   test("displays the price correctly", () => {
     customRender(<ProductCard product={mockProduct} />, {
       withAuth: false,
-      withRouter: false,
+      withRouter: true,
       withCart: true,
     });
     expect(
