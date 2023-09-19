@@ -1,6 +1,5 @@
 import * as React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-// eslint-disable-next-line import/no-extraneous-dependencies
 import "react-toastify/dist/ReactToastify.css";
 
 // Features
@@ -26,7 +25,6 @@ import {
 } from "./hooks/useProductsLoader";
 import ErrorBoundary from "./common/components/ErrorBoundry/ErrorBoundary";
 import { CartProvider } from "./context/CartContext";
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { ToastContainer } from "react-toastify";
 
 const routes = [
