@@ -1,0 +1,38 @@
+// services/userService.ts
+
+import bcrypt from "bcrypt";
+import { User } from "../models/User";
+import { IUser } from "../types";
+
+class UserService {
+  static async register(userData: IUser) {
+    const existingUser = await User.findOne({ email: userData.email });
+    if (existingUser) {
+      throw new Error("User already exists");
+    }
+
+    const hashedPassword = await bcrypt.hash(userData.password, 10);
+    const user = new User({
+      ...userData,
+      hashedPassword
+    });
+
+    return await user.save();
+  }
+
+  static async login(email: string, password: string) {
+    const user = await User.findOne({ email });
+    if (!user) {
+      throw new Error("Invalid email or password");
+    }
+
+    const isMatch = await bcrypt.compare(password, user.hashedPassword);
+    if (!isMatch) {
+      throw new Error("Invalid email or password");
+    }
+
+    return user;
+  }
+}
+
+export default UserService;
