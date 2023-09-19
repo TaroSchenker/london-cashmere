@@ -1,4 +1,5 @@
-import { screen } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
+import { userEvent } from "@testing-library/user-event";
 
 import * as AuthHooks from "../../hooks/useAuth"; // Adjust the path
 import CartPage from "./CartPage";
@@ -38,6 +39,7 @@ describe("CartPage", () => {
 
   afterEach(() => {
     mockAxios.reset();
+    jest.clearAllMocks();
   });
 
   // Restore the mock after the tests
@@ -62,8 +64,8 @@ describe("CartPage", () => {
       withRouter: true,
       withCart: true,
     });
-    const cartSideBar = screen.getByRole("complementary");
-    expect(cartSideBar).toHaveClass("translate-x-full"); // Ensure the sidebar is hidden
+    const cartSideBar = screen.queryByRole("complementary");
+    expect(cartSideBar).not.toBeInTheDocument();
   });
 
   test("should render the close button", () => {
@@ -84,5 +86,31 @@ describe("CartPage", () => {
     });
     const cartProducts = screen.getAllByRole("listitem");
     expect(cartProducts.length).toBeGreaterThan(0); // Ensure there are cart products
+  });
+  test("should close the cart when clicking outside", async () => {
+    customRender(<CartPage {...defaultProps} />, {
+      withAuth: true,
+      withRouter: true,
+      withCart: true,
+    });
+
+    // Simulate a click on the outer div
+    const background = screen.getByTestId("background-overlay");
+    userEvent.click(background);
+    await waitFor(() => expect(mockOnClose).toHaveBeenCalledTimes(1));
+  });
+
+  test("should not close the cart when clicking inside", () => {
+    customRender(<CartPage {...defaultProps} />, {
+      withAuth: true,
+      withRouter: true,
+      withCart: true,
+    });
+
+    // Simulate a click on the cart
+    const cartSideBar = screen.getByRole("complementary");
+    userEvent.click(cartSideBar);
+
+    expect(mockOnClose).not.toHaveBeenCalled();
   });
 });
