@@ -18,7 +18,6 @@ const handleCartClick = (e: React.MouseEvent) => {
 const CartPage: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => {
   const { cart, removeFromCart } = useCart();
 
-  console.log("cart", cart);
   const totalAmount = cart.reduce(
     (total, item) => total + item.product.price * item.quantity,
     0,
@@ -30,9 +29,9 @@ const CartPage: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => {
         <div
           className="fixed inset-0 z-20 flex items-center justify-end"
           onClick={onClose}
+          data-testid="background-overlay"
         >
           <div className="fixed inset-0 bg-black opacity-50"></div>
-
           <aside
             onClick={handleCartClick}
             className={`bg-white transform w-80 h-full fixed top-0 right-0 shadow-lg
