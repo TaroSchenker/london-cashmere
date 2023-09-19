@@ -2,7 +2,7 @@ import React from "react";
 import { IProduct } from "../../../../types/index";
 import { useAddToCart } from "../../../../hooks/useAddToCart";
 import { Link } from "react-router-dom";
-// eslint-disable-next-line import/no-extraneous-dependencies
+
 import { toast } from "react-toastify";
 
 interface ProductCardProps {
