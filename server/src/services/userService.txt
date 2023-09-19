@@ -5,7 +5,7 @@ import { User } from "../models/User";
 import { IUser } from "../types";
 
 class UserService {
-  static async register(userData: IUser) {
+  static async register(userData: IUser): Promise<IUser> {
     const existingUser = await User.findOne({ email: userData.email });
     if (existingUser) {
       throw new Error("User already exists");
