@@ -7,7 +7,7 @@ const Logo = () => (
         style={{ fontFamily: "'Oswald', sans-serif" }}
         className="text-2xl text-gray-800"
       >
-        PAM&apos;S
+        LONDON
       </h1>
       <span
         style={{ fontFamily: "'Dancing Script', cursive" }}

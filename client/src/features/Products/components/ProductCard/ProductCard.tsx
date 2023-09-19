@@ -2,12 +2,22 @@ import React from "react";
 import { IProduct } from "../../../../types/index";
 import { useAddToCart } from "../../../../hooks/useAddToCart";
 import { Link } from "react-router-dom";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { toast } from "react-toastify";
 
 interface ProductCardProps {
   product: IProduct;
 }
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const addToCartHandler = useAddToCart(product);
+  const handleAddToCart = () => {
+    addToCartHandler();
+    toast.success(`${product.name} added to cart`, {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose: 1000,
+    });
+  };
+
   return (
     <div className="border border-gray-300 rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 bg-white">
       <div className="relative group">
@@ -60,7 +70,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               : "hover:scale-105"
           }`}
           disabled={product.stockCount === 0}
-          onClick={addToCartHandler}
+          onClick={handleAddToCart}
         >
           Add to Cart
         </button>
