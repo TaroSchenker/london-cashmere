@@ -1,6 +1,7 @@
 import React from "react";
 import { IProduct } from "../../../../types";
 import { useAddToCart } from "../../../../hooks/useAddToCart";
+import { toast } from "react-toastify";
 
 interface ProductInfoProps {
   product: IProduct;
@@ -8,6 +9,14 @@ interface ProductInfoProps {
 
 const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
   const addToCartHandler = useAddToCart(product);
+  const handleAddToCart = () => {
+    addToCartHandler();
+    toast.success(`${product.name} added to cart`, {
+      position: toast.POSITION.TOP_LEFT,
+      autoClose: 1000,
+    });
+  };
+
   return (
     <div className="p-6 w-full md:w-1/2">
       <h2 className="text-black font-serif font-bold text-2xl mb-2">
@@ -44,7 +53,7 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
               : "hover:scale-105"
           }`}
           disabled={product.stockCount === 0}
-          onClick={addToCartHandler}
+          onClick={handleAddToCart}
         >
           Add to Cart
         </button>
