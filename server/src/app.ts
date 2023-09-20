@@ -17,16 +17,16 @@ dotenvConfig();
 
 const app = express();
 
-const corsOptions = {
-  origin: "http://localhost:3000",
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  credentials: true,
-  optionsSuccessStatus: 204
-};
+// const corsOptions = {
+//   origin: "http://localhost:3000",
+//   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//   credentials: true,
+//   optionsSuccessStatus: 204
+// };
 
 app.use(helmet()); // set HTTP headers for security. See https://helmetjs.github.io/
-app.use(cors(corsOptions));
-// app.use(cors());
+// app.use(cors(corsOptions));
+app.use(cors());
 app.use(bodyParser.json()); // parse JSON body
 app.use(mongoSanitize()); // protect against NoSQL Injection attacks
 app.use(hpp()); // protect against HTTP Parameter Pollution attacks
