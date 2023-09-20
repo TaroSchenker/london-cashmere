@@ -6,6 +6,7 @@ export const useProductsLoader = async () => {
     return { products };
   } catch (e) {
     console.log("use product loader error:", e);
+    return null;
   }
 };
 
@@ -16,5 +17,6 @@ export const useProductByIdLoader = async ({ params }: LoaderFunctionArgs) => {
     return { product };
   } catch (e) {
     throw new Error("use proudct loader error ");
+    return null;
   }
 };

@@ -1,3 +1,9 @@
 to get full directory produced in terminal run  `tree -f -I 'node_modules|.git|dist|build|.vscode|.next|.cache|.idea'`
 
 
+to delete both node module folders if docker is having trouble building the server because of the bcrypt package, run 'rm -rf ./client/node_modules
+rm -rf ./server/node_modules' to remove them and then rebuild 'docker-compose build --no-cache
+docker-compose up' 
+
+    
+

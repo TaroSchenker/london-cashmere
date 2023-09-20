@@ -7,3 +7,5 @@ if (typeof global.process === "undefined") {
   const { server } = require("./node");
   server.listen();
 }
+
+export {};
