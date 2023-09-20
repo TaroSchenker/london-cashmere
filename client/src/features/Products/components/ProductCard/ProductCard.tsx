@@ -53,7 +53,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       </div>
 
       <div className="flex mt-4 items-center">
-        <div className="flex-1">
+        {/* <div className="flex-1">
           <span className="text-sm text-gray-500">Colors: </span>
           {product.color.map((c, index) => (
             <span
@@ -62,7 +62,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               style={{ backgroundColor: c }}
             ></span>
           ))}
-        </div>
+        </div> */}
         <button
           className={`bg-black text-white px-4 py-2 rounded transition-transform duration-300 transform ${
             product.stockCount === 0

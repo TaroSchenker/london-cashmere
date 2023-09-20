@@ -31,7 +31,7 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
         </span>
       </div>
 
-      <div className="mb-4 flex items-center flex-wrap">
+      {/* <div className="mb-4 flex items-center flex-wrap">
         <span className="text-sm text-gray-500 mr-2">Colors:</span>
         {product.color.map((c, index) => (
           <span
@@ -40,7 +40,7 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
             style={{ backgroundColor: c }}
           ></span>
         ))}
-      </div>
+      </div> */}
 
       <div className="flex items-center justify-between mb-4">
         <span className="font-serif font-bold text-2xl text-black">
