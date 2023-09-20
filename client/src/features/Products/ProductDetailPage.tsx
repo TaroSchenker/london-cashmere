@@ -8,6 +8,9 @@ const ProductDetailPage: React.FC = () => {
   const [isZoomed, setIsZoomed] = useState(false);
   const navigate = useNavigate();
   const data = useLoaderData() as { product: IProduct };
+  if (!data || !data.product) {
+    return <div>Error loading product</div>;
+  }
   const { product } = data;
 
   return (

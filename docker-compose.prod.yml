@@ -8,23 +8,11 @@ services:
     image: outageoutrage_client:latest
     environment:
       - API_BASE_URL=http://server:3001/api
-      - VITE_API_BASE_URL=http://server:3001/api
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./client:/usr/src/app
-      - /usr/src/app/node_modules
 
   server:
     build:
       context: .
       dockerfile: ./server/Dockerfile
     image: outageoutrage_server:latest
-    command: ["npm", "run", "start:docker"] # Explicit command
-    ports:
-      - "3001:3001"
     environment:
       - MONGO_URI
-    volumes:
-      - ./server:/usr/src/app
-      - /usr/src/app/node_modules

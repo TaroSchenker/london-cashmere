@@ -1,5 +1,3 @@
-#Client Dockerfile
-
 # Use the official Node.js runtime as the base image
 FROM node:16
 
@@ -13,8 +11,8 @@ RUN npm install
 # Bundle app source
 COPY ./client ./
 
-# Install vite
-RUN npm install -g vite
+# Install vite (As part of the project, not globally)
+# Removed the global installation step
 
 # Start the client
 CMD [ "npm", "run", "dev:host" ]
