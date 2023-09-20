@@ -1,39 +1,68 @@
-# Running the Project:
-You can run the project lcally using either docker or a script which will start the client and server in a CLI.
+# London Cashmere
 
-#### Creating your env variables. 
+London Cashmere is a full-stack e-commerce platform designed to provide a seamless shopping experience for high-quality cashmere products.
 
-##### Client .env
-- In the client root create a .env with the following variables.
-- `VITE_API_BASE_URL=http://localhost:3001/api`
+## Setup
 
-##### Server .env
-- In the server root create a .env with the following variables
-- `MONGO_URI="mongodb+srv://<username>:<password>@<cluster-url>/?retryWrites=true&w=majority"`
-- `PORT=3001`
-- `SECRET_KEY="YOUR_SECRET_KEY"`
+### Environment Variables
 
-- Remember to replace placeholders like username, password, and cluster-url with your actual MongoDB Atlas credentials.
+#### Client
+
+In the client root, create a `.env` file with the following variables:
+
+    VITE_API_BASE_URL=http://localhost:3001/api
 
 
-## Using CLI:
-- To make the script executable, run \`chmod +x start-both.sh\`.
-- Before running this script, ensure all npm packages are installed by executing \`npm install\` within the \`client\` and \`server\` directories.
-- Execute the \`start-both.sh\` script.
+#### Server
 
-## Using Docker:
-- Use the provided \`docker-compose.yml\` file to run both the client and server.
-- Execute \`docker-compose up\` to start the services.
+In the server root, create a `.env` file with the following variables:
 
-# Setting Up the Database:
+    MONGO_URI="mongodb+srv://<username>:<password>@<cluster-url>/?retryWrites=true&w=majority"
+PORT=3001
+SECRET_KEY="YOUR_SECRET_KEY"
 
-## MongoDB Atlas:
-- Create or log in to your MongoDB Atlas account.
-- Set up a new cluster and obtain the connection string.
-- The connection string will look something like this: \`mongodb+srv://<username>:<password>@<cluster-url>/?retryWrites=true&w=majority\`.
-- Place this connection string in a \`.env\` file under the key \`MONGO_URI\`.
 
-## Local MongoDB Setup:
-- If you prefer to use a local MongoDB instance, you can set it up by following the latest official MongoDB documentation.
-- The server is configured to fall back to a local database connection if the Atlas connection fails. The local connection string is \`mongodb://localhost:27017/london-cashmere\`.
+> **Note:** Replace placeholders like `<username>`, `<password>`, and `<cluster-url>` with your actual MongoDB Atlas credentials.
+
+### Running the Project
+
+#### Using CLI
+
+1. Make the script executable: `chmod +x start-both.sh`.
+2. Install npm packages in both `client` and `server` directories: `npm install`.
+3. Execute the script: `./start-both.sh`.
+
+#### Using Docker
+
+1. Use the provided `docker-compose.yml` file.
+2. Start the services: `docker-compose up`.
+
+## Database Setup
+
+### MongoDB Atlas
+
+1. Create or log in to your MongoDB Atlas account.
+2. Set up a new cluster and obtain the connection string.
+3. Place the connection string in the `.env` file under the key `MONGO_URI`.
+
+### Local MongoDB
+
+- Follow the official MongoDB documentation for local setup.
+- The server falls back to a local database connection (`mongodb://localhost:27017/london-cashmere`) if the Atlas connection fails.
+
+## API Endpoints
+
+- **Users:** `/api/users`
+- **Products:** `/api/products`
+- **Orders:** `/api/orders`
+
+## Error Handling
+
+- **Database Connection:** Ensure MongoDB Atlas credentials are correct. For local database issues, ensure MongoDB is running.
+
+## Dependencies
+
+- **Express:** Server setup.
+- **Mongoose:** MongoDB operations.
+- **Helmet, mongoSanitize, hpp:** Security.
 
