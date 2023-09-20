@@ -36,13 +36,35 @@ export const createProduct = async (
   res: Response
 ): Promise<void> => {
   try {
+    console.log("Create Product Request Body: ", req.body);
     const newProduct: IProductDocument = new Product(req.body);
+    console.log("is a new product created", newProduct);
     await newProduct.save();
-    res.status(201).json(newProduct).end();
+    console.log("Saved product", newProduct);
+    res.status(201).json(newProduct);
     return;
   } catch (error) {
     res.status(500).json({ message: "Error creating product" }).end();
     return;
+  }
+};
+
+export const createMultipleProducts = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  const products: IProductDocument[] = req.body;
+
+  if (!Array.isArray(products)) {
+    res.status(400).json({ message: "Expected an array of products" }).end();
+    return;
+  }
+
+  try {
+    const createdProducts = await Product.insertMany(products);
+    res.status(201).json(createdProducts).end();
+  } catch (error) {
+    res.status(500).json({ message: "Error creating products" }).end();
   }
 };
 

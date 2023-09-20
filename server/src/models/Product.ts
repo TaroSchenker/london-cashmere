@@ -56,9 +56,9 @@ const productSchema = new Schema({
     minlength: 1,
     validate: {
       validator: (v: string): boolean => {
-        // Using a simple regex pattern to ensure some basic URL validation
+        // Improved regex pattern for URL validation
         const urlRegex =
-          /^(https?:\/\/)([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+          /^(https?:\/\/)(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/;
         return urlRegex.test(v);
       },
       message: (props): string => `${props.value} is not a valid URL!`

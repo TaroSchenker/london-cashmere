@@ -9,5 +9,6 @@ router.get("/:id", ProductController.getProductById);
 router.post("/", authenticate, isAdmin, ProductController.createProduct);
 router.put("/:id", authenticate, isAdmin, ProductController.updateProduct);
 router.delete("/:id", authenticate, isAdmin, ProductController.deleteProduct);
+router.post("/multiple", ProductController.createMultipleProducts);
 
 export default router;
