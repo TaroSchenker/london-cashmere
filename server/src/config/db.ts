@@ -13,7 +13,8 @@ const connectDB = async (): Promise<void> => {
 
       // Connect to local database
       const conn = await mongoose.connect(
-        "mongodb://localhost:27017/london-cashmere"
+        process.env.MONGO_URI_LOCAL ||
+          "mongodb://localhost:27017/london-cashmere"
       );
       console.log(
         `MongoDB connected to local database: ${conn.connection.host}`

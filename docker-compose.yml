@@ -7,8 +7,10 @@ services:
       dockerfile: ./client/Dockerfile
     image: outageoutrage_client:latest
     environment:
-      - API_BASE_URL=http://server:3001/api
-      - VITE_API_BASE_URL=http://server:3001/api
+      - API_BASE_URL=http://localhost:3001/api
+      - VITE_API_BASE_URL=http://localhost:3001/api
+    depends_on:
+      - server
     ports:
       - "3000:3000"
     volumes:
@@ -20,11 +22,22 @@ services:
       context: .
       dockerfile: ./server/Dockerfile
     image: outageoutrage_server:latest
-    command: ["npm", "run", "start:docker"] # Explicit command
+    command: ["npm", "run", "start:docker"]
     ports:
       - "3001:3001"
+    env_file:
+      - ./server/.env
     environment:
-      - MONGO_URI
+        - MONGO_URI_LOCAL=mongodb://mongo:27017/london-cashmere
+    depends_on:
+      - mongo
     volumes:
       - ./server:/usr/src/app
       - /usr/src/app/node_modules
+  mongo:
+    image: mongo:latest
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:
