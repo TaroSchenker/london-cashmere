@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1694633523668" clover="3.2.0">
-  <project timestamp="1694633523668" name="All files">
-    <metrics statements="223" coveredstatements="184" conditionals="43" coveredconditionals="27" methods="64" coveredmethods="39" elements="330" coveredelements="250" complexity="0" loc="223" ncloc="223" packages="19" files="25" classes="25"/>
+<coverage generated="1695287678760" clover="3.2.0">
+  <project timestamp="1695287678760" name="All files">
+    <metrics statements="260" coveredstatements="212" conditionals="49" coveredconditionals="30" methods="72" coveredmethods="44" elements="381" coveredelements="286" complexity="0" loc="260" ncloc="260" packages="21" files="29" classes="29"/>
     <package name="__test__.helpers">
-      <metrics statements="17" coveredstatements="17" conditionals="7" coveredconditionals="7" methods="2" coveredmethods="2"/>
+      <metrics statements="17" coveredstatements="17" conditionals="8" coveredconditionals="8" methods="2" coveredmethods="2"/>
       <file name="renderWithProvider.tsx" path="/Users/taroschenker/Documents/Web Development/2023/Projects/2023 Q4/london-cashmere/client/src/__test__/helpers/renderWithProvider.tsx">
-        <metrics statements="17" coveredstatements="17" conditionals="7" coveredconditionals="7" methods="2" coveredmethods="2"/>
-        <line num="1" count="7" type="stmt"/>
-        <line num="2" count="7" type="stmt"/>
-        <line num="3" count="7" type="stmt"/>
-        <line num="4" count="7" type="stmt"/>
-        <line num="12" count="7" type="stmt"/>
-        <line num="21" count="32" type="stmt"/>
-        <line num="23" count="32" type="stmt"/>
-        <line num="24" count="32" type="stmt"/>
-        <line num="26" count="32" type="cond" truecount="1" falsecount="0"/>
-        <line num="27" count="16" type="stmt"/>
-        <line num="30" count="32" type="cond" truecount="1" falsecount="0"/>
-        <line num="31" count="8" type="stmt"/>
-        <line num="34" count="32" type="cond" truecount="1" falsecount="0"/>
-        <line num="35" count="25" type="stmt"/>
-        <line num="38" count="32" type="stmt"/>
-        <line num="41" count="32" type="stmt"/>
-        <line num="44" count="7" type="stmt"/>
+        <metrics statements="17" coveredstatements="17" conditionals="8" coveredconditionals="8" methods="2" coveredmethods="2"/>
+        <line num="1" count="8" type="stmt"/>
+        <line num="2" count="8" type="stmt"/>
+        <line num="3" count="8" type="stmt"/>
+        <line num="4" count="8" type="stmt"/>
+        <line num="13" count="8" type="stmt"/>
+        <line num="23" count="35" type="stmt"/>
+        <line num="25" count="35" type="stmt"/>
+        <line num="26" count="35" type="stmt"/>
+        <line num="28" count="35" type="cond" truecount="1" falsecount="0"/>
+        <line num="29" count="24" type="stmt"/>
+        <line num="32" count="35" type="cond" truecount="1" falsecount="0"/>
+        <line num="33" count="10" type="stmt"/>
+        <line num="36" count="35" type="cond" truecount="1" falsecount="0"/>
+        <line num="37" count="28" type="stmt"/>
+        <line num="40" count="35" type="stmt"/>
+        <line num="43" count="35" type="stmt"/>
+        <line num="46" count="8" type="stmt"/>
       </file>
     </package>
     <package name="common.components.ErrorBoundry">
@@ -40,18 +40,20 @@
       </file>
     </package>
     <package name="common.components.Icons.DesktopIcons">
-      <metrics statements="9" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
+      <metrics statements="11" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="1"/>
       <file name="DesktopIcons.tsx" path="/Users/taroschenker/Documents/Web Development/2023/Projects/2023 Q4/london-cashmere/client/src/common/components/Icons/DesktopIcons/DesktopIcons.tsx">
-        <metrics statements="9" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="16" count="4" type="stmt"/>
-        <line num="17" count="4" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="59" count="1" type="stmt"/>
+        <metrics statements="11" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="18" count="7" type="stmt"/>
+        <line num="19" count="7" type="stmt"/>
+        <line num="21" count="7" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="59" count="2" type="stmt"/>
       </file>
     </package>
     <package name="common.components.Icons.MobileIcons">
@@ -145,70 +147,73 @@
       </file>
     </package>
     <package name="context">
-      <metrics statements="39" coveredstatements="19" conditionals="3" coveredconditionals="0" methods="12" coveredmethods="2"/>
+      <metrics statements="40" coveredstatements="20" conditionals="4" coveredconditionals="0" methods="13" coveredmethods="3"/>
       <file name="AuthContext.tsx" path="/Users/taroschenker/Documents/Web Development/2023/Projects/2023 Q4/london-cashmere/client/src/context/AuthContext.tsx">
         <metrics statements="25" coveredstatements="10" conditionals="1" coveredconditionals="0" methods="5" coveredmethods="1"/>
-        <line num="1" count="8" type="stmt"/>
-        <line num="2" count="8" type="stmt"/>
-        <line num="21" count="8" type="stmt"/>
-        <line num="28" count="8" type="stmt"/>
-        <line num="29" count="10" type="stmt"/>
-        <line num="31" count="10" type="stmt"/>
+        <line num="1" count="9" type="stmt"/>
+        <line num="2" count="9" type="stmt"/>
+        <line num="21" count="9" type="stmt"/>
+        <line num="28" count="9" type="stmt"/>
+        <line num="29" count="12" type="stmt"/>
+        <line num="31" count="12" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
         <line num="38" count="0" type="stmt"/>
         <line num="40" count="0" type="stmt"/>
-        <line num="44" count="10" type="stmt"/>
+        <line num="44" count="12" type="stmt"/>
         <line num="45" count="0" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
         <line num="53" count="0" type="stmt"/>
         <line num="54" count="0" type="stmt"/>
         <line num="56" count="0" type="stmt"/>
-        <line num="60" count="10" type="stmt"/>
+        <line num="60" count="12" type="stmt"/>
         <line num="62" count="0" type="stmt"/>
         <line num="65" count="0" type="stmt"/>
-        <line num="71" count="10" type="stmt"/>
-        <line num="78" count="8" type="stmt"/>
+        <line num="71" count="12" type="stmt"/>
+        <line num="78" count="9" type="stmt"/>
         <line num="79" count="0" type="stmt"/>
         <line num="80" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="81" count="0" type="stmt"/>
         <line num="83" count="0" type="stmt"/>
       </file>
       <file name="CartContext.tsx" path="/Users/taroschenker/Documents/Web Development/2023/Projects/2023 Q4/london-cashmere/client/src/context/CartContext.tsx">
-        <metrics statements="14" coveredstatements="9" conditionals="2" coveredconditionals="0" methods="7" coveredmethods="1"/>
-        <line num="1" count="7" type="stmt"/>
-        <line num="20" count="7" type="stmt"/>
-        <line num="24" count="7" type="stmt"/>
-        <line num="25" count="25" type="stmt"/>
-        <line num="27" count="25" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="31" count="25" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="35" count="25" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="38" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="45" count="25" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="49" count="25" type="stmt"/>
+        <metrics statements="15" coveredstatements="10" conditionals="3" coveredconditionals="0" methods="8" coveredmethods="2"/>
+        <line num="1" count="8" type="stmt"/>
+        <line num="22" count="8" type="stmt"/>
+        <line num="26" count="8" type="stmt"/>
+        <line num="30" count="28" type="stmt"/>
+        <line num="32" count="28" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="36" count="28" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="40" count="28" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="43" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="50" count="28" type="stmt"/>
+        <line num="52" count="28" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="56" count="28" type="stmt"/>
       </file>
     </package>
     <package name="features.Cart">
-      <metrics statements="13" coveredstatements="10" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="1"/>
+      <metrics statements="15" coveredstatements="11" conditionals="4" coveredconditionals="3" methods="5" coveredmethods="1"/>
       <file name="CartPage.tsx" path="/Users/taroschenker/Documents/Web Development/2023/Projects/2023 Q4/london-cashmere/client/src/features/Cart/CartPage.tsx">
-        <metrics statements="13" coveredstatements="10" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="1"/>
+        <metrics statements="15" coveredstatements="11" conditionals="4" coveredconditionals="3" methods="5" coveredmethods="1"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
         <line num="6" count="2" type="stmt"/>
         <line num="14" count="2" type="stmt"/>
-        <line num="15" count="8" type="stmt"/>
-        <line num="17" count="8" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="22" count="8" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="72" count="2" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="19" count="10" type="stmt"/>
+        <line num="21" count="10" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="26" count="10" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="80" count="2" type="stmt"/>
       </file>
     </package>
     <package name="features.Cart.components.CartProductItem">
@@ -225,9 +230,38 @@
       <file name="CartTotal.tsx" path="/Users/taroschenker/Documents/Web Development/2023/Projects/2023 Q4/london-cashmere/client/src/features/Cart/components/CartTotal/CartTotal.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="3" type="stmt"/>
-        <line num="7" count="3" type="stmt"/>
-        <line num="8" count="10" type="stmt"/>
-        <line num="23" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="9" count="7" type="stmt"/>
+        <line num="25" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="features.Checkout.components">
+      <metrics statements="17" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
+      <file name="CheckoutForm.tsx" path="/Users/taroschenker/Documents/Web Development/2023/Projects/2023 Q4/london-cashmere/client/src/features/Checkout/components/CheckoutForm.tsx">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="111" count="1" type="stmt"/>
+      </file>
+      <file name="OrderItem.tsx" path="/Users/taroschenker/Documents/Web Development/2023/Projects/2023 Q4/london-cashmere/client/src/features/Checkout/components/OrderItem.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="11" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+      </file>
+      <file name="OrderSummary.tsx" path="/Users/taroschenker/Documents/Web Development/2023/Projects/2023 Q4/london-cashmere/client/src/features/Checkout/components/OrderSummary.tsx">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="14" count="6" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="29" count="6" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
       </file>
     </package>
     <package name="features.Home">
@@ -257,6 +291,31 @@
         <line num="54" count="1" type="stmt"/>
       </file>
     </package>
+    <package name="features.Products.components.AddToCartButton">
+      <metrics statements="19" coveredstatements="11" conditionals="6" coveredconditionals="4" methods="3" coveredmethods="1"/>
+      <file name="AddToCartButton.tsx" path="/Users/taroschenker/Documents/Web Development/2023/Projects/2023 Q4/london-cashmere/client/src/features/Products/components/AddToCartButton/AddToCartButton.tsx">
+        <metrics statements="19" coveredstatements="11" conditionals="6" coveredconditionals="4" methods="3" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="17" count="13" type="stmt"/>
+        <line num="18" count="13" type="stmt"/>
+        <line num="19" count="13" type="stmt"/>
+        <line num="21" count="13" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="28" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="39" count="13" type="cond" truecount="1" falsecount="1"/>
+        <line num="43" count="13" type="stmt"/>
+        <line num="56" count="3" type="stmt"/>
+      </file>
+    </package>
     <package name="features.Products.components.Footer">
       <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="Footer.tsx" path="/Users/taroschenker/Documents/Web Development/2023/Projects/2023 Q4/london-cashmere/client/src/features/Products/components/Footer/Footer.tsx">
@@ -268,39 +327,35 @@
       </file>
     </package>
     <package name="features.Products.components.ProductCard">
-      <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+      <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <file name="ProductCard.tsx" path="/Users/taroschenker/Documents/Web Development/2023/Projects/2023 Q4/london-cashmere/client/src/features/Products/components/ProductCard/ProductCard.tsx">
-        <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="9" count="11" type="stmt"/>
-        <line num="10" count="11" type="stmt"/>
-        <line num="44" count="16" type="stmt"/>
-        <line num="67" count="2" type="stmt"/>
+        <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="7" type="stmt"/>
+        <line num="53" count="2" type="stmt"/>
       </file>
     </package>
     <package name="features.Products.components.ProductGrid">
-      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="ProductGrid.tsx" path="/Users/taroschenker/Documents/Web Development/2023/Projects/2023 Q4/london-cashmere/client/src/features/Products/components/ProductGrid/ProductGrid.tsx">
-        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
-        <line num="11" count="3" type="stmt"/>
-        <line num="16" count="6" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
       </file>
     </package>
     <package name="features.Products.components.ProductInfo">
-      <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="ProductInfo.tsx" path="/Users/taroschenker/Documents/Web Development/2023/Projects/2023 Q4/london-cashmere/client/src/features/Products/components/ProductInfo/ProductInfo.tsx">
-        <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="6" type="stmt"/>
-        <line num="11" count="6" type="stmt"/>
-        <line num="28" count="12" type="stmt"/>
-        <line num="71" count="1" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
       </file>
     </package>
     <package name="features.Products.components.SaleBanner">
@@ -319,10 +374,10 @@
         <line num="1" count="3" type="stmt"/>
         <line num="2" count="3" type="stmt"/>
         <line num="5" count="3" type="stmt"/>
-        <line num="6" count="17" type="stmt"/>
-        <line num="8" count="17" type="stmt"/>
+        <line num="6" count="13" type="stmt"/>
+        <line num="8" count="13" type="stmt"/>
         <line num="9" count="0" type="stmt"/>
-        <line num="12" count="17" type="stmt"/>
+        <line num="12" count="13" type="stmt"/>
       </file>
       <file name="useAuth.ts" path="/Users/taroschenker/Documents/Web Development/2023/Projects/2023 Q4/london-cashmere/client/src/hooks/useAuth.ts">
         <metrics statements="7" coveredstatements="6" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -336,13 +391,13 @@
       </file>
       <file name="useCart.ts" path="/Users/taroschenker/Documents/Web Development/2023/Projects/2023 Q4/london-cashmere/client/src/hooks/useCart.ts">
         <metrics statements="7" coveredstatements="6" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="5" type="stmt"/>
-        <line num="2" count="5" type="stmt"/>
-        <line num="4" count="5" type="stmt"/>
-        <line num="5" count="25" type="stmt"/>
-        <line num="6" count="25" type="cond" truecount="0" falsecount="1"/>
+        <line num="1" count="6" type="stmt"/>
+        <line num="2" count="6" type="stmt"/>
+        <line num="4" count="6" type="stmt"/>
+        <line num="5" count="30" type="stmt"/>
+        <line num="6" count="30" type="cond" truecount="0" falsecount="1"/>
         <line num="7" count="0" type="stmt"/>
-        <line num="9" count="25" type="stmt"/>
+        <line num="9" count="30" type="stmt"/>
       </file>
     </package>
     <package name="pages.AboutPage">

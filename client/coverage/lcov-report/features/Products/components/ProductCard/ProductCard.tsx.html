@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/4</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
-                <span class="quiet">Functions</span>
                 <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>1/1</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
@@ -116,21 +116,10 @@
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a>
 <a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a>
-<a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a>
-<a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a>
-<a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a>
-<a name='L68'></a><a href='#L68'>68</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L54'></a><a href='#L54'>54</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -138,8 +127,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -158,22 +146,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -199,30 +171,36 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from "react";
 import { IProduct } from "../../../../types/index";
-import { useAddToCart } from "../../../../hooks/useAddToCart";
+&nbsp;
+import { Link } from "react-router-dom";
+&nbsp;
+import AddToCartButton from "../AddToCartButton/AddToCartButton";
 &nbsp;
 interface ProductCardProps {
   product: IProduct;
 }
 const ProductCard: React.FC&lt;ProductCardProps&gt; = ({ product }) =&gt; {
-  const addToCartHandler = useAddToCart(product);
   return (
     &lt;div className="border border-gray-300 rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 bg-white"&gt;
       &lt;div className="relative group"&gt;
-        &lt;img
-          src={product.imageUrl}
-          alt={product.name}
-          className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105 rounded-t-lg"
-        /&gt;
+        &lt;Link role="link" key={product._id} to={`/products/${product._id}`}&gt;
+          &lt;img
+            src={product.imageUrl}
+            alt={product.name}
+            className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105 rounded-t-lg"
+          /&gt;
+        &lt;/Link&gt;
         {product.stockCount === 0 &amp;&amp; (
           &lt;span className="absolute top-2 left-2 bg-black text-white px-3 py-1 rounded"&gt;
             Out of Stock
           &lt;/span&gt;
         )}
       &lt;/div&gt;
-      &lt;h2 className="text-black font-serif font-bold text-xl mt-4"&gt;
-        {product.name}
-      &lt;/h2&gt;
+      &lt;Link role="link" key={product._id} to={`/products/${product._id}`}&gt;
+        &lt;h2 className="text-black font-serif font-bold text-xl mt-4"&gt;
+          {product.name}
+        &lt;/h2&gt;
+      &lt;/Link&gt;
       &lt;p className="text-gray-600 mt-2"&gt;{product.description}&lt;/p&gt;
 &nbsp;
       &lt;div className="flex mt-4 items-center"&gt;
@@ -237,27 +215,7 @@ const ProductCard: React.FC&lt;ProductCardProps&gt; = ({ product }) =&gt; {
       &lt;/div&gt;
 &nbsp;
       &lt;div className="flex mt-4 items-center"&gt;
-        &lt;div className="flex-1"&gt;
-          &lt;span className="text-sm text-gray-500"&gt;Colors: &lt;/span&gt;
-          {product.color.map((c, index) =&gt; (
-            &lt;span
-              key={index}
-              className="inline-block w-5 h-5 mr-2 rounded-full"
-              style={{ backgroundColor: c }}
-            &gt;&lt;/span&gt;
-          ))}
-        &lt;/div&gt;
-        &lt;button
-          className={`bg-black text-white px-4 py-2 rounded transition-transform duration-300 transform ${
-            product.stockCount === 0
-              ? "opacity-50 cursor-not-allowed"
-              : "hover:scale-105"
-          }`}
-          disabled={product.stockCount === 0}
-          onClick={addToCartHandler}
-        &gt;
-          Add to Cart
-        &lt;/button&gt;
+        &lt;AddToCartButton product={product} /&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   );
@@ -271,7 +229,7 @@ export default ProductCard;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-09-13T19:32:03.640Z
+                at 2023-09-21T09:14:38.735Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

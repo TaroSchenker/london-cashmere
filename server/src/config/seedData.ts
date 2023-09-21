@@ -95,14 +95,14 @@ const productsData = [
   }
 ];
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const seedDatabase = async (): Promise<any> => {
+export const seedDatabase = async (): Promise<void> => {
   try {
     const productCount = await Product.countDocuments();
-    console.log("<----- *** Product count:", productCount, "*** ----->");
     if (productCount === 0) {
       await Product.insertMany(productsData);
       console.log("Data seeded successfully.");
+    } else {
+      console.log("Data already seeded.");
     }
   } catch (error) {
     console.error("Error seeding data:", error);
