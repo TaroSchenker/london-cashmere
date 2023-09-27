@@ -1,0 +1,4 @@
+routes:
+  - path: /* # This is the catch-all route
+    action: serve
+    file: index.html
