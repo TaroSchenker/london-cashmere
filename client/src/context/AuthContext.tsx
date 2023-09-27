@@ -31,7 +31,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const register = async (data: RegisterData) => {
     try {
       const response = await axios.post(
-        "http://localhost:3001/api/users/register",
+        "https://london-cashmere-server.onrender.com/api",
         data,
       );
       // You can set the current user here if the response contains user details.
