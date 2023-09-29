@@ -17,12 +17,13 @@ const CartProductItem: React.FC<CartProductItemProps> = ({ product }) => {
         <h3 className="text-lg font-semibold mb-1">{product.product.name}</h3>
         <p className="text-gray-600 text-sm mb-2">
           {product.product.description}
-        </p>
+        </p>{" "}
+        <span className="text-sm">Price: £{product.product.price}</span>
         <div className="flex justify-between items-center">
           <div className="space-y-1">
             <span className="text-sm">Quantity: {product.quantity}</span>
-            <span className="text-sm">Price: £{product.product.price}</span>
           </div>
+
           <div>
             <span className="text-sm font-semibold">
               Total: £{product.product.price * product.quantity}
