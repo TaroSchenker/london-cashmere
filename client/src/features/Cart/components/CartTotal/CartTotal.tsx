@@ -6,10 +6,25 @@ interface CartTotalProps {
 }
 
 const CartTotal: React.FC<CartTotalProps> = ({ totalAmount, onClose }) => {
+  const discountedAmount = totalAmount * 0.8;
+
+  if (totalAmount <= 0) {
+    return (
+      <div className="border-t pt-4 mt-auto text-center">
+        <span className="text-xl font-bold">Your cart is empty.</span>
+      </div>
+    );
+  }
+
   return (
     <div className="border-t pt-4 mt-auto">
       <div className="flex justify-between mb-4">
-        <span className="text-xl font-bold">Total: £{totalAmount}</span>
+        <span className="text-xl font-bold line-through text-gray-500">
+          £{totalAmount.toFixed(2)}
+        </span>
+        <span className="text-xl font-bold">
+          £{discountedAmount.toFixed(2)} (20% off)
+        </span>
       </div>
       <Link
         to="/checkout"
