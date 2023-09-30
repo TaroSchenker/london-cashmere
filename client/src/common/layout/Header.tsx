@@ -19,10 +19,17 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <div className="bg-background text-primary md:py-2">
       <div className="container mx-auto px-4">
+        {/* Work In Progress Banner */}
+        <div className="bg-yellow-200 p-2 text-center text-black rounded mb-2">
+          🚧 This website is a fictional store and a work in progress, designed
+          for portfolio purposes. 🚧
+        </div>
+
         {/* Upper Row for UserStatus */}
         <div className="flex justify-end mb-0">
           <UserStatus setCartSidebarOpen={setCartSidebarOpen} />
         </div>
+
         {/* Bottom Row for Logo, Navigation, and Icons */}
         <div className="flex justify-between items-center">
           <Logo />
