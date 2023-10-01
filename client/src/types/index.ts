@@ -3,8 +3,8 @@ export interface IUser {
   name: string;
   email: string;
   address: string;
-  orderHistory: string[];
-  role: UserRole;
+  orderHistory?: string[];
+  role?: UserRole;
 }
 
 export interface IProduct {
