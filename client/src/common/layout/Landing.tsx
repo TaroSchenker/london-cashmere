@@ -3,14 +3,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import video from "../assets/video/istockphoto-1194949689-640_adpp_is.mp4";
 
-import cashmere from "../assets/images/stock-photo-a-pile-of-warm-sweaters-on-a-wooden-table-on-a-light-background-autumn-and-winter-clothes-1173240742.jpg";
-
 const Landing = () => {
   return (
     <div className="w-full relative h-screen flex flex-col justify-center bg-neutral-lightest text-center lg:px-8">
       <video
         style={{ filter: "brightness(40%)" }}
-        poster={cashmere}
+        poster={
+          "https://images.unsplash.com/photo-1602706294170-1fed8eecd9f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2574&q=80"
+        }
         playsInline
         autoPlay
         muted

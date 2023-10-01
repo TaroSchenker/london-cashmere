@@ -1,10 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
 import axios from "axios";
-
-interface User {
-  id: number;
-  name: string;
-}
+import { IUser } from "../types";
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -17,17 +13,17 @@ interface RegisterData {
   password: string;
   role?: string;
 }
-
 export const AuthContext = createContext<{
-  currentUser: User | null;
+  currentUser: IUser | null;
   register: (data: RegisterData) => Promise<void>;
   login: (email: string, password: string) => Promise<void>;
   logout: () => void;
 } | null>(null);
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [currentUser, setCurrentUser] = useState<IUser | null>(null);
 
+  console.log("currentUser", currentUser);
   const register = async (data: RegisterData) => {
     try {
       const response = await axios.post(

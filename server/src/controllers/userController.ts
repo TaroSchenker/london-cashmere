@@ -29,7 +29,7 @@ export const registerUser = async (
     });
 
     const savedUser = await user.save();
-
+    console.log("new user saved", savedUser);
     // Return some basic user info without sensitive data
     res.status(201).json({
       message: "User registered successfully",
@@ -62,6 +62,7 @@ export const loginUser = async (req: Request, res: Response): Promise<void> => {
       return;
     }
 
+    console.log("Matched user", user);
     const token = generateToken(user.id, user.role);
 
     // Return token and some basic user info
@@ -70,7 +71,8 @@ export const loginUser = async (req: Request, res: Response): Promise<void> => {
       user: {
         id: user.id,
         name: user.name,
-        email: user.email
+        email: user.email,
+        address: user.address
       }
     });
   } catch (error) {

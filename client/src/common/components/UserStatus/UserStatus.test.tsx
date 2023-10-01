@@ -11,10 +11,11 @@ describe("UserStatus", () => {
   const mockSetCartSidebarOpen = jest.fn();
 
   const mockUser = {
-    id: 1,
+    _id: "1",
     name: "Test User",
     email: "test@mail.com",
     password: "test",
+    address: "test address",
   };
   const mockAuthValueLoggedIn = {
     currentUser: mockUser,

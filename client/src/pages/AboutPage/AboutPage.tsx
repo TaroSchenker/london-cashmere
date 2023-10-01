@@ -1,9 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
-import cashmereImage from "../../common/assets/images/cashmere.jpg";
-import cashmereImage2 from "../../common/assets/images/stock-photo-pretty-girl-dressed-in-a-warm-gray-knitted-sweater-hugs-herself-in-the-park-gray-knitted-cashmere-1747245236.jpg";
 
-import cashmereImage4 from "../../common/assets/images/stock-photo-stack-of-white-and-gray-cozy-knitted-sweaters-on-rustic-wooden-background-469992296.jpg";
 const CashmereInfo: React.FC = () => {
   return (
     <div className="p-8 bg-background-color">
@@ -12,7 +9,9 @@ const CashmereInfo: React.FC = () => {
           {/* Left Column for Image */}
           <div className="lg:w-2/5">
             <img
-              src={cashmereImage2}
+              src={
+                "https://images.unsplash.com/photo-1618574760337-2750f6251d20?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2787&q=80"
+              }
               alt="Cashmere Info"
               className="w-full h-full object-cover rounded-t-lg lg:rounded-l-lg lg:rounded-t-none"
             />
@@ -21,54 +20,70 @@ const CashmereInfo: React.FC = () => {
           {/* Right Column for Text and smaller images */}
           <div className="p-6 lg:w-3/5">
             <h2 className="text-black font-serif font-bold text-3xl mb-2">
-              Cashmere
+              The Elegance of Cashmere
             </h2>
             <p className="text-gray-600 mb-4">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              placerat id nunc in luctus. Cras eget erat ut velit ultricies
-              sollicitudin. Maecenas sed justo eu metus semper consectetur.
+              Originating from the undercoat of the cashmere goat, cashmere is
+              renowned for its ultra-soft texture and insulating properties. At
+              London Cashmere Boutique, our dedication lies in sourcing the
+              finest cashmere products from around the world, bringing timeless
+              elegance and luxury to our esteemed clientele.
             </p>
 
             <img
-              src={cashmereImage4}
+              src={
+                "https://images.unsplash.com/photo-1652904870544-5a29dfb2f498?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80"
+              }
               alt="Cashmere History"
               className="mb-4 w-full h-72 object-cover rounded"
             />
 
             <h2 className="text-black font-serif font-bold text-xl mb-2 mt-4">
-              Caring for Cashmere
+              Caring for Your Cashmere
             </h2>
             <p className="text-gray-600 mb-4">
-              Cashmere is a luxurious material and requires specific care.
-              Follow our guide to ensure longevity.
+              To maintain its luxurious touch and longevity, cashmere requires
+              careful attention. Follow our care guide to ensure your cherished
+              garments remain pristine for years to come.
             </p>
 
             <ul className="list-disc pl-6 mb-4">
               <li className="mb-2">
-                Wash with cold water using a gentle cycle or by hand.
+                Always wash in cold water, either using a gentle machine cycle
+                or hand wash.
               </li>
               <li className="mb-2">
-                Avoid using bleach or fabric softeners on cashmere.
+                Refrain from using bleach or fabric softeners which can damage
+                the fibers.
               </li>
               <li className="mb-2">
-                Dry flat and keep away from direct sunlight or heat sources.
+                Let the garment dry flat and avoid direct sunlight or any direct
+                heat source.
               </li>
-              <li>Store in a cool, dry place.</li>
+              <li>
+                Store in a cool, dry place, preferably in a garment bag to avoid
+                any snags or damage.
+              </li>
             </ul>
 
             <img
-              src={cashmereImage}
+              src={
+                "https://images.unsplash.com/photo-1634901849515-40ba019f9387?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2588&q=80"
+              }
               alt="Cashmere Care"
               className="mb-4 w-full h-72 object-cover rounded"
             />
 
             <h2 className="text-black font-serif font-bold text-xl mb-2 mt-4">
-              Why Choose Cashmere?
+              The Distinction of Cashmere
             </h2>
             <p className="text-gray-600 mb-4">
-              Cashmere is a time-honored material cherished for its unmatched
-              softness and durability. Learn why it's the choice of fashion
-              enthusiasts around the world.
+              Beyond its exquisite softness, cashmere offers unparalleled warmth
+              without bulkiness, making it a winter essential. Its natural
+              breathability and moisture-wicking properties make it comfortable
+              for year-round wear. At London Cashmere Boutique, we proudly
+              embrace and celebrate the epitome of luxury and elegance that
+              cashmere offers.
             </p>
           </div>
         </div>

@@ -94,16 +94,16 @@ const ContactPage: React.FC = () => {
                 href="tel:+1234567890"
                 className="text-primary-color hover:underline"
               >
-                +1 (234) 567-890
+                +44 (0) 1234 567890
               </a>
             </p>
             <p className="text-gray-600">
-              Email:{" "}
+              Email:{""}
               <a
-                href="mailto:info@pamsboutiquecashmere.com"
+                href="mailto:info@LondonCashmereBoutique.com"
                 className="text-primary-color hover:underline"
               >
-                info@pamsboutiquecashmere.com
+                info@LondonCashmereBoutique.com
               </a>
             </p>
           </div>

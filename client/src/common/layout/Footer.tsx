@@ -12,9 +12,8 @@ const Footer: React.FC = () => {
     <footer className="bg-neutral-lightest text-neutral-dark py-6 mt-0 hidden md:block">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex space-x-4 items-center">
-          {/* You can add other social media icons similarly */}
           <Link
-            to="https://instagram.com/cashmerestore"
+            to="https://github.com/taroschenker"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -24,7 +23,7 @@ const Footer: React.FC = () => {
             />
           </Link>
           <Link
-            to="https://twitter.com/cashmerestore"
+            to="https://github.com/taroschenker"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -34,7 +33,7 @@ const Footer: React.FC = () => {
             />
           </Link>
           <Link
-            to="https://facebook.com/cashmerestore"
+            to="https://github.com/taroschenker"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -45,7 +44,8 @@ const Footer: React.FC = () => {
           </Link>
         </div>
         <p className="text-sm">
-          &copy; {new Date().getFullYear()} Cashmere Store. All rights reserved.
+          &copy; {new Date().getFullYear()} London Cashmere Boutique. All rights
+          reserved.
         </p>
       </div>
     </footer>

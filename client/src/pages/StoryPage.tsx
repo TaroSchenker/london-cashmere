@@ -1,11 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
 
-// Importing the given images.
-import cashmereImage from "../common/assets/images/stock-photo-a-pile-of-warm-sweaters-on-a-wooden-table-on-a-light-background-autumn-and-winter-clothes-1173240742.jpg";
-import cashmereImage2 from "../common/assets/images/stock-photo-pretty-girl-dressed-in-a-warm-gray-knitted-sweater-hugs-herself-in-the-park-gray-knitted-cashmere-1747245236.jpg";
-import cashmereImage3 from "../common/assets/images/iStockCashmere.jpg";
-
 const StoryPage: React.FC = () => {
   return (
     <div className="p-8 bg-background-color flex justify-center">
@@ -13,7 +8,9 @@ const StoryPage: React.FC = () => {
         {/* Story Banner with Overlay */}
         <div className="relative h-96">
           <img
-            src={cashmereImage2}
+            src={
+              "https://images.unsplash.com/photo-1641642231157-0849081598a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2574&q=80"
+            }
             alt="Pam Whitford's Journey"
             className="w-full h-full object-cover rounded-t-lg"
           />
@@ -29,7 +26,9 @@ const StoryPage: React.FC = () => {
           {/* Left - Image with Text Overlay */}
           <div className="relative h-80">
             <img
-              src={cashmereImage}
+              src={
+                "https://images.unsplash.com/photo-1603906650843-b58e94d9df4d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80"
+              }
               alt="Cashmere Collection"
               className="w-full h-full object-cover rounded-lg"
             />
@@ -86,7 +85,9 @@ const StoryPage: React.FC = () => {
           {/* Right - Image of Cashmere Collection */}
           <div className="relative h-80">
             <img
-              src={cashmereImage3}
+              src={
+                "https://images.unsplash.com/photo-1634120455427-d4db69777fdc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2592&q=80"
+              }
               alt="Cashmere Source"
               className="w-full h-full object-cover rounded-lg"
             />

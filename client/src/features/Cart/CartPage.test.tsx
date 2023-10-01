@@ -11,10 +11,11 @@ import { customRender } from "../../__test__/helpers/renderWithProvider";
 describe("CartPage", () => {
   const mockOnClose = jest.fn();
   const mockUser = {
-    id: 1,
+    _id: "1",
     name: "Test User",
     email: "test@mail.com",
     password: "test",
+    address: "test address",
   };
 
   const mockAuthValue = {
