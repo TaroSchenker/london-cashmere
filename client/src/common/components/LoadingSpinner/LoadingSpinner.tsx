@@ -48,7 +48,7 @@ const LoadingSpinner: React.FC = () => {
           ></div>
           <h1 className="text-2xl font-semibold">London Cashmere Boutique</h1>
           <p className="mt-2 text-center">
-            This portfolio project&aposs server sits offline until visited, so
+            This portfolio project{"'"}s server sits offline until visited, so
             please give us a few minutes while it starts up. In the meantime,
             check out the technologies used in this project below.
           </p>
