@@ -26,7 +26,7 @@
     "@testing-library/user-event": "^14.5.1",
     "@types/react-router-dom": "^5.3.3",
     "@types/three": "^0.156.0",
-    "axios": "^1.5.0",
+    "axios": "^1.6.0",
     "framer-motion": "^10.16.4",
     "jest-environment-jsdom": "^29.6.4",
     "maath": "^0.10.4",
